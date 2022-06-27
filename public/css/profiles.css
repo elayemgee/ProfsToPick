@@ -114,13 +114,14 @@
 
 .rating {
     width: 1086px;
-    height:auto;
-    display: block;
+    height:575px;
     background-color: white;
     margin-top: 200px;
     margin-left: 4%;
+    border: solid thick white;
     border-radius: 50px;
     font-family:'Belgrano', serif;
+    display: block;
 }
 
 .reviewImg {
@@ -130,45 +131,51 @@
     margin-left: 50px;
     background: #C4C4C4;
     border-radius: 100px;
+    border: solid thin black;
 }
 
 .more {
-    border: none;
-    background-color: transparent;
-    margin-top: -125px;
-    margin-left: 990px;
-    cursor: pointer;
+    margin-left: 150px;
+    margin-top: 50px;
+    width: 100px;
 }
 
-    .reviewOptions{
-        float: left;
-        display: inline-block;
-    }
+.more img {
+    height: 25px;
+    width: 25px;
+    margin-left: 70px;
+}
+
+.moreButton {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+}
 
   .more-content {
     display:none;
     position: absolute;
     background-color: white;
-    min-width: 100px;
-    margin-left: 925px;
     margin-top: 10px;
     z-index: 1;
     border-radius: 20px;
     border: solid thin black;
+    width: 100px;
+
   }
   
   .more-content button {
+    text-align: center;
     color: black;
     padding: 12px 16px;
     text-decoration: none;
-    display: block;
     background-color: transparent;
     border: none;
     font-family: 'Basic', sans-serif;
-    margin-right: -15px;
-    width: 100px;
     cursor: pointer;
+    width: 100px;
   }
+  
 
   .more-content button:hover {background-color: #e0e0e0; border-radius: 20px;}
   
@@ -176,27 +183,20 @@
       display:block;
   }
 
-  .profDets {
-    margin-left: 60px;
-    margin-top: 50px;
-    width: 550px;
-  }
-
-.profBold {
-    font-size: 48px;
+.rating h1 {
+    width: 443px;
+    height: 99px;
+    margin-left: 428px;
+    margin-top: -90px;
     font-weight: bold;
+    font-size: 45px;
+    color: #000000;
 }
-
-.subBold {
-    font-size: 32px;
-    font-weight: bold;
-    margin-top: 7px;
-}
-
 
 .rating h2 {
     width: 443px;
     height: 99px;
+    margin-left: 240px;
     margin-top: -60px;
     font-size: 32px;
     font-weight: lighter;
@@ -211,25 +211,28 @@
     display: flex;
     }
 
+    
 .starRating p {
     color: white;
-    font-size: 26px;
-    padding-top: 7px;
+    font-size: 24px;
+    margin-top: 7px;
     margin-left: 10px;
-    
 }
-
 
 .starRating img {
-    margin-top: 7px;
-    margin-left: 15px;
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 
-.username {
-    margin-left: 55px;
-    margin-top: 7px;
-    font-size: 25px;
+.date {
+    margin-top: 10px;
+    width: 148px;
+    height: 25px;
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    margin-left: 60px;
     color: #868383;
 }
 
@@ -242,6 +245,7 @@
     line-height: 25px;
     text-align: justify;
     overflow: auto;
+    
 }
 
 .topTags {
@@ -294,9 +298,24 @@
     background-color:#c83232d9;
 }
 
-.datePublished {
-    display: flex; 
-    margin-top:50px;
-    margin-left:125px;
+.profDets {
+    margin-left: 60px;
+    margin-top: 50px;
+    width: 550px;
+  }
+
+.profBold {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.subBold {
+    font-size: 24px;
+    margin-top: 7px;
+}
+
+.userBold {
+    font-size: 24px;
+    margin-top: 7px;
     color: #868383;
 }

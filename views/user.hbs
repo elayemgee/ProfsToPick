@@ -59,34 +59,29 @@
                         <div style = "display: block;">
                             <div class="profBold" >Professor's Name</div> 
                             <div class="subBold">Subject</div> 
-                            <div class="emailBold">Email</div> 
+                            <div class="userBold">Username</div> 
                         </div>
                     </div>
 
-                    <div class="datePublished">Date Published</div>
+                    <div class="more">                        
+                        <button onclick= "reviewOpts()" class = "moreButton"><img src="more.png" alt="more"></button> 
+                        <!-- <img src="more.png" alt="more"> -->
+                        <div id="moreOptions" class="more-content">
+                            <button onclick="window.location='rating_a_prof.html'">Edit</button>
+                            <button >Delete</button>
+                        </div>
+                    </div>
+                    
                 </div>
             
                 <div style="margin-left: 50px;margin-top: 50px; width: 800px; display: flex;">
                     <div class = "starRating"><p>5</p> <img src="star.png" alt="star" width = "30" height = "30"></div>
-                    <div class="username">Username</div>
+                    <div class="username">Date</div>
                 </div>
 
                 <p class = "review">
                    Written Review
                 </p>
-
-                <!--
-                <div class = "topTags">
-                    <div class = "tag">Approachable</div>
-                    <div class = "tag">Caring</div>
-                    <div class = "tag">Project-heavy</div>
-                </div>
-
-                <div class = "vote">
-                    <button class = "helpful">👍 Helpful</button>
-                    <button class = "notHelpful">👎 Not Helpful</button>
-                </div>
-                -->
 
             </div>
         </div>
