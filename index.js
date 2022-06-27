@@ -9,7 +9,6 @@ const app = express();
 const port = 9090;
 app.use(bodyParser.urlencoded({ extended: false }));
 
-
 app.set(`view engine`, `hbs`);
 hbs.registerPartials(__dirname + `/views/partials`);
 

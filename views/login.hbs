@@ -5,17 +5,19 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     </head>
     <body>
-
         <div class = "login">
             <h1 class = "welcomeh1" style = "margin-bottom: 10px;">DLSU Profs To Pick</h1>
-            <p class = "label">User ID</p>
-            <input class = "inputtxt" type="text" id="userid" name = "userid" style = >
-            <p class = "label">Password</p>
-            <input class = "inputtxt" type="password" id="password" name = "password"><br><br>
-            <a href = "home.html"><button class = "accountbttn" type="button" onclick="login()">Login</button> <br></a>
-            
+
+            <form method="post" autocomplete="off"> 
+                <p class = "label">User ID</p>
+                <input class = "inputtxt" type="text" id="userid" name = "userid" >
+                <p class = "label">Password</p>
+                <input class = "inputtxt" type="password" id="password" name = "password"><br><br>
+                <a href = "home.html"><button class = "accountbttn" type="submit" value="Log-in" >Login</button> </a>
+            </form>
+
             <p style = "margin-left:168px; margin-bottom: 5px; color: #FFFFFF;">Don't have an account?</p>
-            <a href = "register.html" style = "margin-left:200px;">Register Here</a>
+            <a href = "/register" style = "margin-left:200px;">Register Here</a>
 
         </div>
 

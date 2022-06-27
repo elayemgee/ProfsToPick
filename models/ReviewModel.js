@@ -9,6 +9,8 @@ var mongoose = require('mongoose');
 var ReviewSchema = new mongoose.Schema({
     // your code here
     //Lauren Garcia S13
+
+    //first 3 digits of id number
     reviewer: {
         type: String,
         required: true
@@ -28,6 +30,10 @@ var ReviewSchema = new mongoose.Schema({
     },
     stars: {
         type: Number,
+        required: true
+    },
+    date: {
+        type: String,
         required: true
     }
 });

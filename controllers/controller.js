@@ -13,9 +13,10 @@ const controller = {
             transactions currently stored in the database.
     */
     getIndex: function(req, res) {
-        // your code here
-        
-        //Lauren Garcia S13
+        // your code here        
+        res.render('login');
+
+        /*
         var projection = "name refno amount"
         db.findMany(Transaction, {}, projection, (result) => {
             if (result != null) {
@@ -30,6 +31,7 @@ const controller = {
                 res.render('index'); // This is to load the page initially
             }
         })
+        */
         
     },
 
