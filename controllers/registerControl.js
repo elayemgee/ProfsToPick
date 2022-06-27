@@ -1,15 +1,14 @@
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
 
-const bcrypt = require('bcrypt');
 const saltRounds = 10;
-
 const RegisterControl = {
 
     getRegister: function (req, res) {
         res.render('register',{success:"hidden"});
     },
 
+	/*
     postRegister: function (req, res) {
 		
 		var errors = validationResult(req);
@@ -57,6 +56,7 @@ const RegisterControl = {
             res.send(result);
         });
     }
+	*/
 }
 
 module.exports = RegisterControl;

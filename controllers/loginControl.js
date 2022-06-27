@@ -1,7 +1,7 @@
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
 
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 
 const LoginControl = {
 
@@ -17,8 +17,9 @@ const LoginControl = {
 
         res.render('login',{error:"hidden"});
         */
-    },
+    }
 
+    /*
     postLogin: function (req, res) {
 		
         var u = req.body.userid;
@@ -44,7 +45,8 @@ const LoginControl = {
 			else
 				res.render('login');
         });
-    }
+        
+    }*/
 }
 
 module.exports = LoginControl;
