@@ -1,0 +1,33 @@
+<!-- 
+<div class="card">
+    <img src="/images/icon.webp" class="icon">
+    <div class="info">
+        <p class="text"> {{name}} </p>
+        <p class="text"> {{refno}} </p>
+        <p class="text"> Php {{amount}} </p>
+    </div>
+    <button class="remove"> X </button>
+</div>
+-->
+<div class = "rating">
+
+    <div class = "topReview" style = "display: flex;">
+        <div class = "reviewImg"><img src="user.png" alt="search" style = "max-width: 100%; max-height: 100%;"></div> 
+        
+        <div class="profDets" style="">
+            <div style = "display: block;">
+                <div class="profBold" >{{profname}}</div> 
+                <div class="subBold">{{subject}}</div> 
+            </div>
+        </div>
+
+        <div class="datePublished">Date Published</div> <!-- Not sure if date is included-->
+    </div>
+
+    <div style="margin-left: 50px;margin-top: 50px; width: 800px; display: flex;">
+        <div class = "starRating"><img src="star.png" alt="star" width = "30" height = "30"> <p>{{stars}}</p></div>
+        <div class="username">{{username}}</div>
+    </div>
+
+    <p class = "review">{{review}}</p>
+</div>

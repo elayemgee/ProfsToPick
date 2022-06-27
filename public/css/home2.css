@@ -1,0 +1,203 @@
+.welcome {
+    text-align: center;
+    }
+
+.welcome h1 {
+    font-weight: bold; 
+    font-size: 96px;
+    line-height: 122px;
+    color: #000000;
+}
+
+.welcome input{
+    padding: 1px;
+    width: 660px;
+    height: 100px;
+    border-radius: 25px; border-color: #243917; border-width: 15px;
+    margin-top: 10px; 
+    font-size: 24px;
+    padding-left: 10px; padding-right: 10px;
+}
+
+.parent-div {
+    display: flex;
+    float: none;
+    margin-top: 75px;
+    margin-left:auto;
+    margin-right:auto;
+    height: 600px;
+    width: 1200px;
+}
+
+.latestreviews {
+    margin-left: auto;
+    margin-right: auto;
+    width: 1200px;
+    background-color: #243917;
+    border-radius: 50px;
+}
+
+h2{
+    color: white;
+    margin-top: 50px;    
+    text-align: center; 
+    font-size: 300%;
+}
+
+.ratePreview {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    margin-left:auto;
+    margin-right:auto;
+    width: 1000px;
+    height: 120px;
+    background-color: #FFF9F9;
+    border-radius: 30px;
+    float: none;
+    margin-bottom: 30px;
+}
+
+.spacing {
+    padding: 73px;
+}
+
+.overallRating{
+    width: 64px;
+    height: 70px;
+    margin-left: 35px;
+    margin-top: 20px;
+}
+
+.overall {
+    width: 64px;
+    height: 29px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+    color: #000000;
+}
+
+.textPreview{
+    border: solid thin transparent;
+    margin-left: 50px;
+    margin-top: -5px;
+    height:120px;
+}
+
+.latestreviews h4{
+    position: absolute;
+    margin-top: -10px;
+    font-weight: 500;
+    font-size: 48px;
+    line-height: 70px;
+    color: #000000;
+}
+.latestreviews h3{
+    position: absolute;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 70px;
+    color: #000000;
+}
+
+.latestreviews a:visited {
+    color: transparent;  
+}
+
+.latestreviews a {
+    color: black;  
+    text-decoration: none;
+}
+
+.subject{
+    width: 500px;
+    height: 71px;
+    margin-top: -35px; 
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 70px;
+    /* identical to box height */
+    color: #000000;
+}
+
+.description{
+    margin-top: 60px;
+    width: 500px;
+    height: 71px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 70px;
+    /* identical to box height */
+    color: #000000;
+}
+
+
+.topProfs {
+    padding-top:1px;
+    width: 608px;
+    height: 580px;
+    background-color: #243917;
+    border-radius: 50px;
+}
+
+ .profPreview {
+    position: relative;
+    display: block;
+    float: none;
+    width: 569px;
+    height: 120px;
+    margin-left:auto;   
+    margin-right:auto;  
+    margin-top: 25px;
+}
+
+.profImgSmall {
+    position: absolute;
+    width: 94px;
+    height: 94px;
+    border-radius: 50%;
+    background-color: #FFF9F9;
+    margin-left: 12px;
+    margin-top: 12px;
+}
+
+.topProfs a:visited {
+    color: white;
+}
+
+.latestReviews h3 {
+    position: absolute;
+
+    margin-top: 10px;
+    margin-left: 0px;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 53px;
+    color: #FFF9F9;
+}
+
+.topProfs h3 {
+    position: absolute;
+
+    margin-top: 10px;
+    margin-left: 150px;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 53px;
+    color: #FFF9F9;
+}
+
+
+.topProfs .profPreview p {
+    position: absolute;
+
+    margin-top: -5px;
+    font-family: 'Karla';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 37px;
+    color: #ACACAC;
+}
+

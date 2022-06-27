@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/home2.css">
+        <script type="text/javascript" src="topBar.js"></script>  
+
+    </head>
+    <body>
+        <div class = "topBar">
+            <a href = "home.html"><h1>Profs To Pick</h1></a>
+            <a href = "allProfs.html" class = "page" style = "margin-right: 3%;">View All Profs</a>
+            <a href = "colleges.html" class = "page">View By College</a><br>
+
+            <div class = "dropdown">
+                <button onclick="dropSearch()" class = "searchbttn"><img src="search.png" alt="search" width="60" height="60"></button>
+                <div id="myDropsearch" class="dropdown-content">
+                    <input type="text" placeholder="Search..." id="myInput">
+                </div>
+            </div>
+            
+            <div class="dropdown">
+                <button onclick="dropDown()" class="profilebttn"><img src="user.png" alt="search" style = "max-width: 100%; max-height: 100%;"></button>
+                <div id="myDropdown" class="dropdown-content">
+                    <a href="profile.html">Profile</a>
+                    <a href="login.html">Sign Out</a>
+                </div>
+            </div>
+        </div>
+
+
+        <div class = "welcome">
+            <h1>WELCOME</h1> 
+            <input type="text" placeholder="Search..">
+        </div>
+
+        <button onclick="topFunction()" id="goUp" title="Go to top"><img src="up.png" alt="search" width="60" height="60"></button>
+
+        <div class = "parent-div">
+        <div class = "latestreviews">
+            <h2>Latest Reviews</h2>
+            <div class = "ratePreview">
+                <div class = "overallRating">
+                    <p class = "overall">Overall</p>
+                    <h4>5.0</h4>
+                </div>
+                <div class = "textPreview">
+                    <a href="profpage.html"><h3>Arturo Caronongan<br></a>
+                    <p class = "subject">CCAPDEV</p></h3>
+                    <p class = "description">Sir is very outgoing...</p></h3>
+                </div>
+            </div> 
+
+            <div class = "ratePreview">
+                <div class = "overallRating">
+                    <p class = "overall">Overall</p>
+                    <h4>5.0</h4>
+                </div>
+                <div class = "textPreview">
+                    <a href="profpage.html"><h3>Shirley Chu<br></a>
+                    <p class = "subject">CCAPDEV</p></h3>
+                    <p class = "description">Miss is very thorough...</p></h3>
+                </div>
+            </div>
+
+            <div class = "ratePreview">
+                <div class = "overallRating">
+                    <p class = "overall">Overall</p>
+                    <h4>5.0</h4>
+                </div>
+                <div class = "textPreview">
+                    <a href="profpage.html"><h3>Mutya Teodoro-Sambile<br></a>
+                    <p class = "subject">GEARTAP</p></h3>
+                    <p class = "description">Miss is very fun...</p></h3>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "spacing"></div>
+
+    <footer>
+        <div class = "footer" style ="margin-top: -5%;">
+            <p>CCAPDEV MP<br>Atienza, Capada, Garcia</p>
+        </div>
+    </footer>
+
+    </body>
+</html>

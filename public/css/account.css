@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
+
+body {
+    background-image: url("../images/classroom.jpeg");
+    background-repeat: no-repeat;
+    background-position: 0%;
+    background-size: cover;
+    height: auto;
+}
+
+p {
+    font-family: 'Basic', sans-serif;
+}
+
+.login{
+    position:absolute;
+    width: 520px;
+    height: 425px;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+    border-radius: 55px;
+}
+
+a {
+    color: white;
+    margin-left:160px;
+    font-family: 'Basic', sans-serif;
+}
+
+.label {
+    margin-left:65px; 
+    color: #FFFFFF;
+    margin-bottom: 5px;
+}
+
+.register{
+    width: 520px;
+    height: 650px;
+    margin: auto;
+    margin-top: 70px;
+
+    background-color: black;
+    border-radius: 55px;
+}
+
+.welcomeh1 {
+    margin-top: 10px;
+    margin-bottom: -20px;
+    font-family: 'Basic';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 32px;
+    line-height: 70px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.inputtxt{
+    width: 380px;
+    height: 45px;
+    font-size: 18px;
+    margin-left:65px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.accountbttn {
+    margin-top: 10px;
+    background-color: #087832;
+    border: none;
+    color: white;
+    width: 175px;
+    height: 50px;
+    font-family: 'Basic';
+    font-style: normal;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.accountbttn:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
