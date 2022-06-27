@@ -113,5 +113,6 @@
   "bugs": {
     "url": "https://github.com/elayemgee/ProfsToPick/issues"
   },
-  "homepage": "https://github.com/elayemgee/ProfsToPick#readme"
+  "homepage": "https://github.com/elayemgee/ProfsToPick#readme",
+  "devDependencies": {}
 }

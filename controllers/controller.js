@@ -14,7 +14,7 @@ const controller = {
     */
     getIndex: function(req, res) {
         // your code here        
-        res.render('login');
+        res.render('home');
 
         /*
         var projection = "name refno amount"

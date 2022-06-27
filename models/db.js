@@ -3,8 +3,9 @@ const mongoose = require('mongoose');
 
 const ReviewModel = require('./ReviewModel.js');
 const UserModel = require('./UserModel.js');
+const ProfModel = require('./ProfModel.js');
 
-const url = 'mongodb://localhost:27017/ccapdev-mc03';
+const url = 'mongodb://localhost:27017/ccapdev-profstopick';
 
 const options = {
     useUnifiedTopology: true,

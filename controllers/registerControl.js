@@ -1,12 +1,36 @@
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
 
-const saltRounds = 10;
-const RegisterControl = {
+//const saltRounds = 10;
+const registerControl = {
 
     getRegister: function (req, res) {
         res.render('register',{success:"hidden"});
     },
+
+	postRegister: function (req, res) {
+		var email = req.body.email;
+		var userid = req.body.userid;
+		var name = req.body.name;
+		var pw = req.body.pw;
+
+		db.insertOne(User, {
+			userid: userid,
+			name: name,
+			email: email,
+			password: pw
+		}, function(success){
+			if (success) {
+                res.render('home')
+            }
+		});
+		/*
+		db.insertOne(User, user, (success) => {
+            if (success) {
+                res.render('login')
+            }
+        })*/
+	},
 
 	/*
     postRegister: function (req, res) {
@@ -49,14 +73,15 @@ const RegisterControl = {
 			res.render('signup');
 		}
     },
+	*/
 	
 	checkID: function (req, res) {
-        var id = req.query.studentid;
+        var id = req.query.userid;
         db.findOne(User, {id: id}, "id", function (result) {
             res.send(result);
         });
     }
-	*/
+	
 }
 
-module.exports = RegisterControl;
+module.exports = registerControl;

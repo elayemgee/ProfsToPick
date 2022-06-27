@@ -80,6 +80,7 @@ a {
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
+    margin-left: 160px;
 }
 
 .accountbttn:hover {

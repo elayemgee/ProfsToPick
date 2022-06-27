@@ -8,7 +8,6 @@ const LoginControl = {
     getLogin: function (req, res) {
 
         res.render('login')
-
         /*
         if(req.session.userid)
 			req.session.destroy(function(err) {

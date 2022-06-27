@@ -23,6 +23,6 @@ db.connect();
 
 app.listen(port, hostname, function () {
     console.log(`Server is running at:`);
-    console.log(`http://` + `ProfsToPick` + `:` + port);
+    console.log(`http://` + `localhost` + `:` + port);
     //console.log(`http://` + hostname + `:` + port);
 });
