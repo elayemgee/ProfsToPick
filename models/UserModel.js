@@ -7,8 +7,6 @@ var mongoose = require('mongoose');
 */
 
 var UserSchema = new mongoose.Schema({
-    // your code here
-    //Lauren Garcia S13
     studentid: {
         type: String,
         required: true
@@ -17,11 +15,11 @@ var UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    password: {
+    email: {
         type: String,
         required: true
     },
-    email: {
+    password: {
         type: String,
         required: true
     }

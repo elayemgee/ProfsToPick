@@ -35,13 +35,13 @@
 </div>
 
 -->
-
 <div class = "rating">
 
     <div class = "topReview" style = "display: flex;">
-        <div class = "reviewImg"><img src="user.png" alt="search" style = "max-width: 100%; max-height: 100%;"></div> 
+        <div class = "reviewImg"><img src="user.png" alt="prof" style = "max-width: 100%; max-height: 100%;"></div> 
         
-        <div class="profDets" style="">
+        
+        <div class="profDets">
             <div style = "display: block;">
                 <div class="profBold" >Professor's Name</div> 
                 <div class="subBold">Subject</div> 
@@ -51,6 +51,7 @@
 
         <div class="more">                        
             <button onclick= "reviewOpts()" class = "moreButton"><img src="more.png" alt="more"></button> 
+            <!-- <img src="more.png" alt="more"> -->
             <div id="moreOptions" class="more-content">
                 <button onclick="window.location='rating_a_prof.html'">Edit</button>
                 <button >Delete</button>
@@ -59,13 +60,19 @@
         
     </div>
 
-    <div style="margin-left: 50px;margin-top: 50px; width: 800px; display: flex;">
-        <div class = "starRating"><p>5</p> <img src="star.png" alt="star" width = "30" height = "30"></div>
+    <div style="margin-left: 50px;margin-top: 25px; width: 800px; display: flex;">
+        <div class = "starRating"><img src="star.png" alt="star" width = "20" height = "20">  <p>5.0</p> </div>
         <div class="date">Date Published</div>
     </div>
 
-    <p class = "review">
-        Written Review
-    </p>
+
+    <p class = "review" id = "userReview">Review</p>
+
+    <!-- 
+    <div class = "vote">
+        <button class = "helpful">👍 Helpful</button>
+        <button class = "notHelpful">👎 Not Helpful</button>
+    </div>
+    -->
 
 </div>
