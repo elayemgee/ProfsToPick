@@ -84,5 +84,5 @@ const database = {
     }
 
 }
-
+mongoose.connect(url, options);
 module.exports = database;

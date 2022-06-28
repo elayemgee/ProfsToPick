@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 */
 
 var UserSchema = new mongoose.Schema({
-    userid: {
+    studentid: {
         type: String,
         required: true
     },

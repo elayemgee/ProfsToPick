@@ -38,10 +38,10 @@ a {
 
 .register{
     width: 520px;
-    height: 650px;
+    height: auto;
     margin: auto;
     margin-top: 40px;
-
+    padding-bottom: 20px;
     background-color: black;
     border-radius: 55px;
 }
@@ -86,4 +86,12 @@ a {
 .accountbttn:hover {
     background-color: #4CAF50; /* Green */
     color: white;
+}
+
+.error {
+    color: #FFFFFF;
+    background-color: rgba(234, 69, 69, 0.798);
+    width: 380px;
+    margin-left:65px; 
+    font-size: small;
 }

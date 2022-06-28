@@ -6,16 +6,17 @@
     </head>
     <body>
         <div class = "register">
-            <form method="post" autocomplete="off"> 
+            <form method="POST" action = "/registeruser" autocomplete="off"> 
                 <h1 class = "welcomeh1">DLSU Profs To Pick</h1>
-                <p class = "label">Student ID</p>
-                <input class = "inputtxt" type="number" id="userid" name = "Student ID">
+                {{> messages}}
+                <p class = "label">Student ID</p> 
+                <input class = "inputtxt" type="number" id="studentid" name = "Student ID">
                 <p class = "label">Name</p>
                 <input class = "inputtxt" type="text" id="name" name = "Name">
                 <p class = "label">Email</p>
                 <input class = "inputtxt" type="email" id="email" name = "Email">
                 <p class = "label">Password</p>
-                <input class = "inputtxt" type="password" id="pw" name = "Password">
+                <input class = "inputtxt" type="password" id="password" name = "Password">
                 <p class = "label">Confirm Password</p>
                 <input class = "inputtxt" type="password" id="confirmpw" name = "Confirm Password">
                 <br><br>

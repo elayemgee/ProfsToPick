@@ -13,34 +13,27 @@ const registerControl = {
 
 	postRegister: function (req, res) {
 		var email = req.body.email;
-		var userid = req.body.userid;
+		var studentid = req.body.studentid;
 		var name = req.body.name;
 		var pw = req.body.pw;
 
 		bcrypt.hash(pw, saltRounds, function(err, hash) {
 			
 			db.insertOne(User, {
-				userid : userid,
+				studentid : studentid,
 				name : name,
 				email : email,
 				password : hash
 			}, function(flag){});
 		
 		});
-		console.log('Created account of ' + userid);
+		console.log('Created account of ' + studentid);
 		res.render('register');
-
-		/*
-		db.insertOne(User, user, (success) => {
-            if (success) {
-                res.render('login')
-            }
-        })*/
 	},
 	
 	checkID: function (req, res) {
-        var id = req.query.userid;
-        db.findOne(User, {id: id}, "id", function (result) {
+        var studentid = req.query.studentid;
+        db.findOne(User, {studentid: studentid}, "id", function (result) {
             res.send(result);
         });
     }
