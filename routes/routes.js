@@ -6,8 +6,10 @@ const registerController = require(`../controllers/registerControl.js`);
 const app = express();
 
 app.get(`/favicon.ico`, controller.getFavicon);
-app.get(`/`, loginController.getLogin);
 app.get(`/home`, controller.getIndex);
+
+app.get(`/`, loginController.getLogin);
+app.get(`/login`, loginController.postLogin);
 
 //register
 app.get(`/register`, registerController.getRegister);
@@ -18,3 +20,5 @@ app.get(`/add`, controller.getAdd);
 app.get(`/delete`, controller.getDelete);
 
 module.exports = app;
+
+

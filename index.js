@@ -29,7 +29,7 @@ app.listen(port, hostname, function () {
 });
 
 
-/*
+/* FROM PREVIOUS STUDENTS
 const express = require('express');
 const mongoose = require('mongoose');
 const app = express();

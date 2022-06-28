@@ -16,7 +16,20 @@ const LoginControl = {
 
         res.render('login',{error:"hidden"});
         */
-    }
+    },
+
+	postLogin: function (req, res) {
+		var s = req.body.studentid;
+        var pw = req.body.password;
+
+		var query1 = {studentid: s};
+
+		db.findOne(User, query1, {}, function (success) {
+			if(success)
+				res.render('home');
+        });
+	}
+
 
     /*
     postLogin: function (req, res) {
