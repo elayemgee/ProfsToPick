@@ -9,7 +9,7 @@ app.get(`/favicon.ico`, controller.getFavicon);
 app.get(`/home`, controller.getIndex);
 
 app.get(`/`, loginController.getLogin);
-app.get(`/login`, loginController.postLogin);
+app.post(`/login`, loginController.postLogin);
 
 //register
 app.get(`/register`, registerController.getRegister);
