@@ -8,7 +8,7 @@ const app = express();
 app.get(`/favicon.ico`, controller.getFavicon);
 app.get(`/`, loginController.getLogin);
 app.get(`/register`, registerController.getRegister);
-app.get(`/newuser`, registerController.postRegister);
+app.post(`/register`, registerController.postRegister);
 app.get(`/home`, controller.getIndex);
 
 app.get(`/getCheckRefNo`, controller.getCheckRefNo);

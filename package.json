@@ -29,6 +29,7 @@
     "escape-html": "^1.0.3",
     "etag": "^1.8.1",
     "express": "^4.18.1",
+    "express-validator": "^6.14.2",
     "finalhandler": "^1.1.2",
     "foreachasync": "^3.0.0",
     "forwarded": "^0.1.2",
@@ -113,6 +114,5 @@
   "bugs": {
     "url": "https://github.com/elayemgee/ProfsToPick/issues"
   },
-  "homepage": "https://github.com/elayemgee/ProfsToPick#readme",
-  "devDependencies": {}
+  "homepage": "https://github.com/elayemgee/ProfsToPick#readme"
 }

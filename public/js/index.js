@@ -31,7 +31,7 @@ $(document).ready(function () {
             email: email,
             password: password
         }
-        $.get('/newuser', user, (data) => {
+        $.get('/register', user, (data) => {
             
         })
 
