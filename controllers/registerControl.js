@@ -50,7 +50,7 @@ const registerControl = {
 		
 		}); */
 		console.log('Created account of ' + studentid);
-		res.render('register');
+		res.render('login');
 	},
 	
 	checkID: function (req, res) {
