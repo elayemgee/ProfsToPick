@@ -3,7 +3,7 @@
         <title>College of Computer Studies</title>
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/percollege.css">
-        <script type="text/javascript" src="topBar.js"></script> 
+        <script type="text/javascript" src="/js/topBar.js"></script> 
 
     </head>
     <body>
@@ -12,39 +12,9 @@
         <br>
 
         <div class = "college" style="margin-top: 50px;" >
-            <button class = "button"><a href = "profpage.html">
-                <h1 style = "margin-left: 10px">Arturo Caronongan</h1>
-                <p class = "collegeTitle">College of Computer Studies</p> 
-                <p class = "desc" style = "margin-left: 10px; margin-top: 70px;">Description: Easy Workload, Approachable</p>
-                <div class = "profPic"><img src="../user.png" alt="search" style = "max-width: 100%; max-height: 100%;"></div>
-                <p class = "rate" style = "margin-left: 10px">5.0</p>
-            </button>
-            
-             
-            <button class = "button two">
-                <h1 style = "margin-left: 10px">Arturo Caronongan</h1>
-                <p class = "collegeTitle" style = "margin-left: 10px">College of Computer Studies</p> 
-                <p class = "desc" style = "margin-left: 10px; margin-top: 70px;">Description: Easy Workload, Approachable</p>
-                <div class = "profPic"><img src="../user.png" alt="search" style = "max-width: 100%; max-height: 100%;"></div>
-                <p class = "rate" style = "margin-left: 10px">5.0</p>  
-            </button>
-            
-
-            <button class = "button three">
-                <h1 style = "margin-left: 10px">Arturo Caronongan</h1>
-                <p class = "collegeTitle" style = "margin-left: 10px">College of Computer Studies</p> 
-                <p class = "desc" style = "margin-left: 10px; margin-top: 70px;">Description: Easy Workload, Approachable</p>
-                <div class = "profPic"><img src="../user.png" alt="search" style = "max-width: 100%; max-height: 100%;"></div>
-                <p class = "rate" style = "margin-left: 10px">5.0</p>
-            </button>
-            
-            <button class = "button four">
-                <h1 style = "margin-left: 10px">Arturo Caronongan</h1>
-                <p class = "collegeTitle" style = "margin-left: 10px">College of Computer Studies</p> 
-                <p class = "desc" style = "margin-left: 10px; margin-top: 70px;">Description: Easy Workload, Approachable</p>
-                <div class = "profPic"><img src="../user.png" alt="search" style = "max-width: 100%; max-height: 100%;"></div>
-                <p class = "rate" style = "margin-left: 10px">5.0</p></a>  
-            </button>
+            {{#each profPreviews}}
+                {{> profPreview}}
+            {{/each}}
             
         </div>
     

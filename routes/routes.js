@@ -3,6 +3,7 @@ const controller = require(`../controllers/controller.js`);
 const loginController = require(`../controllers/loginControl.js`);
 const registerController = require(`../controllers/registerControl.js`);
 const reviewController = require(`../controllers/reviewControl.js`);
+const collegeController = require(`../controllers/collegeControl.js`);
 
 //const validation = require('../validators.js');
 
@@ -23,15 +24,25 @@ app.post(`/registeruser`, registerController.postRegister);
 app.get(`/allProfs`, controller.getAllProfs);
 app.get(`/allColleges`, controller.getAllColleges);
 
-//going to profile
+//going to user profile
 app.get(`/profileTitle`, controller.getProfile);
 
 //going to prof page
-app.get(`/profileTitle`, controller.getProfPage);
+app.get(`/profPage`, controller.getProfPage);
+
+//going to different college pages
+app.get(`/ccs`, collegeController.getCCS);
+app.get(`/cla`, collegeController.getCLA);
+app.get(`/cob`, collegeController.getCOB);
+app.get(`/coe`, collegeController.getCOE);
+app.get(`/coed`, collegeController.getCOED);
+app.get(`/colaw`, collegeController.getCOLAW);
+app.get(`/cos`, collegeController.getCOS);
+app.get(`/soe`, collegeController.getSOE);
 
 //making a review
-app.get(`/writeReview`, reviewController.getRegister);
-app.post(`/profpage`, reviewController.postRegister);
+app.get(`/writeReview`, reviewController.getReview); //landing on the review page
+app.post(`/profpage`, reviewController.postReview); //posting the review details on prof's page and user's page
 
 
 app.get(`/getCheckRefNo`, controller.getCheckRefNo);

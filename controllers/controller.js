@@ -22,6 +22,11 @@ const controller = {
         res.render('user');
     },
 
+    getProfPage: function(req, res) {
+        // your code here        
+        res.render('profpage');
+    },
+
 
     getIndex: function(req, res) {
         // your code here        

@@ -7,6 +7,7 @@
     margin-right: auto;
     font-family: 'Basic', sans-serif;
     margin-top: 50px;
+    display: flex;
 }
 
 .mainCollege {
@@ -18,16 +19,13 @@
     color: #375222;
 }
 
-.button, .button two, .button three, .button four {
-    margin-left: 35px;
+.button {
 	margin-top: 0px;
-    position: relative;
-    width: 540px;
+    position: absolute;
+    width:1200px;
     height: 290px;
     margin-bottom: 5%;
     text-align: center;
-    width: 540px;
-    height: 290px;
 
     background-color: #375222;
     border: none;
@@ -36,6 +34,7 @@
     cursor: pointer;
     float: left;
     font-family: 'Basic', sans-serif;
+    text-decoration: none;
 
 }
 
@@ -46,52 +45,34 @@
 
 .profPic{
     position: absolute;
-    width: 160px;
-    height: 160px;
-    top: 8%;
-    left: 5%;
-    margin-right: 500px;
+    width: 200px;
+    height: 2000px;
+    margin-left: 75px;
     border-radius: 50%;
-    background-color: white;
+    margin-top: 50px;
+
 }
 
-.button h1{
-    position: absolute;
-    left: 40%;
-    top: 70px;
-    font-weight: 400;
-    font-size: 36px;
-    color: white;
+.profText {
+    height: 225px;
+    width: 700px;
+    margin-top: 30px;
+    margin-left: 350px;
+    text-decoration: none;
+    
 }
 
-.collegeTitle {
-    position: absolute;
-    width: 443px;
-    left: 140px;
-    top: 20px;
-    margin-bottom: 2%;
-    font-weight: 400;
+.profText p{
     font-size: 24px;
-    text-decoration-line: underline;
     color: white;
+    margin-top: -10px;
+    text-align: left;
+    text-decoration: none;
 }
 
-.desc {
-    position: absolute;
-    width: 300px;
-    left: 210px;
-    top: 70px;
-    margin-bottom: 2%;
-    font-weight: 400;
-    font-size: 22px;
+.profText h1{
+    font-size: 48px;
     color: white;
-}
+    text-align: left;
 
-.rate  {
-    position: absolute;
-    margin-top: 10%;
-    left: 10%;
-    font-weight: 400; 
-    font-size: 64px;
-    color: white;
 }

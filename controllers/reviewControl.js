@@ -35,11 +35,11 @@ const {validationResult} = require('express-validator');
 
 const reviewControl = {
 
-    getRegister: function (req, res) {
+    getReview: function (req, res) {
         res.render('makeRating',{success:"hidden"});
     },
 
-	postRegister: function (req, res) {
+	postReview: function (req, res) {
 		var reviewer = req.body.reviewer;
         var profname = req.body.profname;
         var subject = req.body.subject;
