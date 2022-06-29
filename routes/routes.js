@@ -26,6 +26,9 @@ app.get(`/allColleges`, controller.getAllColleges);
 //going to profile
 app.get(`/profileTitle`, controller.getProfile);
 
+//going to prof page
+app.get(`/profileTitle`, controller.getProfPage);
+
 //making a review
 app.get(`/writeReview`, reviewController.getRegister);
 app.post(`/profpage`, reviewController.postRegister);

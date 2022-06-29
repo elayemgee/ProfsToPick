@@ -21,7 +21,7 @@
             <h2>Latest Reviews</h2>
             <div class = "ratePreview">
                 {{#each reviewEntries}}
-						{{> review imagePath=imagePath reviewer=reviewer reviewee_u=reviewee_u reviewee=reviewee revCourse=revCourse revStar=revStar revDet=revDet}}
+						{{> review reviewer=reviewer profname=profname subject=subject review=review stars=stars date=date}}
 				{{/each}}
                <!--- <div class = "overallRating">
                     <p class = "overall">Overall</p>

@@ -17,6 +17,27 @@ var ProfSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    email: {
+        type: String,
+        required: true
+    },
+    department: {
+        type: String,
+        required: true
+    },
+    subjects: { //might be used for making a rating
+        type: [{
+            subject: {
+                type: String,
+                required: true
+            },
+            rating: {
+                type: Number,
+                required: true
+            }
+        }],
+        required: true
+    },
     stars: {
         type: Number,
         required: true
