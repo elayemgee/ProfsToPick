@@ -1,5 +1,26 @@
 const { body } = require('express-validator');
 
+const validation = {
+
+    registerValidation: function () {
+		
+        var validation = [
+          body('studentid', 'Studentid should be 8 digits.').isLength({min: 8}),
+          body('name', 'Name should not be empty.').notEmpty(),
+			    body('email', 'Email should not be empty.').notEmpty(),
+          body('password', 'Passwords should contain at least 8 characters.').isLength({min: 6}),
+          //body('confirmpw', 'Password is incorrect').equals(body('password')),
+        ];
+        return validation;
+    }
+	
+}
+
+module.exports = validation;
+
+/*
+const { body } = require('express-validator');
+
 const registerValidation = [
   // Name should not be empty
   body('studenid').not().isEmpty().withMessage("Student ID is required."),
@@ -24,3 +45,4 @@ const registerValidation = [
 ];
 
 module.exports = { registerValidation };
+*/

@@ -1,24 +1,43 @@
-const dotenv = require(`dotenv`);
+//const dotenv = require(`dotenv`);
 const express = require(`express`);
-const hbs = require(`hbs`);
-const bodyParser = require(`body-parser`);
-const routes = require(`./routes/routes.js`);
-const db = require(`./models/db.js`);
-
+const mongoose = require(`mongoose`);
 const app = express();
+const session = require('express-session');
+const hbs = require(`hbs`);
 const port = 9090;
-app.use(bodyParser.urlencoded({ extended: false }));
 
+var PORT = process.env.PORT || 9090;
+
+app.use(express.static(`public`));
 app.set(`view engine`, `hbs`);
+
 hbs.registerPartials(__dirname + `/views/partials`);
 
-dotenv.config();
+const routes = require(`./routes/routes.js`);
+
+const db = require(`./models/db.js`);
+
+const MongoStore = require('connect-mongo');
+
+//const bodyParser = require(`body-parser`);
+app.use(express.urlencoded({extended: true}));
+
+app.use(session({
+    'secret': 'somegibberishsecret',
+    'resave': false,
+    'saveUninitialized': false,
+    store: MongoStore.create({
+        mongoUrl: 'mongodb://localhost:27017/ccapdev-profstopick'}),
+    //store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  }));
+
+app.use(`/`, routes);
+
+
+//dotenv.config();
 //port = process.env.PORT;
 hostname = process.env.HOSTNAME;
 
-app.use(express.static(`public`));
-
-app.use(`/`, routes);
 
 db.connect();
 

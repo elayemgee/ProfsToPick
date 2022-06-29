@@ -1,52 +1,39 @@
 const db = require('../models/db.js');
+
 const User = require('../models/UserModel.js');
 
-//const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
-const LoginControl = {
+const loginController = {
 
     getLogin: function (req, res) {
 
-        res.render('login')
-        /*
-        if(req.session.userid)
+        if(req.session.uuName)
 			req.session.destroy(function(err) {
 				if(err) throw err;
 			});
 
         res.render('login',{error:"hidden"});
-        */
     },
 
-	postLogin: function (req, res) {
-		var s = req.body.studentid;
-        var pw = req.body.password;
-
-		var query1 = {studentid: s};
-
-		db.findOne(User, query1, {}, function (success) {
-			if(success)
-				res.render('home');
-        });
-	}
-
-
-    /*
     postLogin: function (req, res) {
 		
-        var u = req.body.userid;
-        var pw = req.body.password;
+        var s = req.body.studentid;
+        var p = req.body.password;
 
-        var query1 = {userid: u};
+        var query1 = {studentid: s};
 		db.findOne(User, query1, null, function(x) {
             
 			if(x)
-				bcrypt.compare(pw, x.password, function(err, equal) {
+				bcrypt.compare(p, x.password, function(err, equal) {
 					
 					if(equal){
 						
-						req.session.uuName = x.uuName;
+						req.session.uuName = x.studentid;
+						
 						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>' + x.uuName + ' Successfully Logged In');
+
+						res.render('home');
 						//res.redirect('/user/');
 					}
 					else{
@@ -57,8 +44,7 @@ const LoginControl = {
 			else
 				res.render('login');
         });
-        
-    }*/
+    }
 }
 
-module.exports = LoginControl;
+module.exports = loginController;

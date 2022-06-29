@@ -2,6 +2,7 @@ const express = require(`express`);
 const controller = require(`../controllers/controller.js`);
 const loginController = require(`../controllers/loginControl.js`);
 const registerController = require(`../controllers/registerControl.js`);
+//const validation = require('../validators.js');
 
 const app = express();
 
