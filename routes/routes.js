@@ -16,6 +16,11 @@ app.post(`/login`, loginController.postLogin);
 app.get(`/register`, registerController.getRegister);
 app.post(`/registeruser`, registerController.postRegister);
 
+//making a review
+app.get(`/writeReview`, reviewController.getRegister);
+app.post(`/profpage`, reviewController.postRegister);
+
+
 app.get(`/getCheckRefNo`, controller.getCheckRefNo);
 app.get(`/add`, controller.getAdd);
 app.get(`/delete`, controller.getDelete);
