@@ -7,32 +7,25 @@ const controller = {
         res.status(204);
     },
 
-    /*
-    TODO:   This function is executed when the client sends an HTTP GET
-            request to path `/`. This displays `index.hbs` with all
-            transactions currently stored in the database.
-    */
+    getAllProfs: function(req, res) {
+        // your code here        
+        res.render('allProfs');
+    },
+
+    getAllColleges: function(req, res) {
+        // your code here        
+        res.render('colleges');
+    },
+
+    getProfile: function(req, res) {
+        // your code here        
+        res.render('user');
+    },
+
+
     getIndex: function(req, res) {
         // your code here        
         res.render('home');
-
-        /*
-        var projection = "name refno amount"
-        db.findMany(Transaction, {}, projection, (result) => {
-            if (result != null) {
-                var transactionList = {
-                    transactions: result
-                };
-                res.render('index', transactionList, function(err,html) {
-                    return res.send(html);
-                });
-            }
-            else {
-                res.render('index'); // This is to load the page initially
-            }
-        })
-        */
-        
     },
 
     /*
@@ -78,12 +71,6 @@ const controller = {
   
     },
 
-    /*
-    TODO:   This function is executed when the client sends an HTTP GET
-            request to path `/getDelete`. This function deletes the transaction
-            from the database, then removes the transaction from the list of
-            transactions in `index.hbs`.
-    */
     getDelete: function (req, res) {
         // your code here
 

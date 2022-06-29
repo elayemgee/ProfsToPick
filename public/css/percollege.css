@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
+
+.college {
+    width:1200px;
+    height: 700;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Basic', sans-serif;
+    margin-top: 50px;
+}
+
+.mainCollege {
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 46px;    
+    text-align: center;
+    text-decoration-line: underline;
+    color: #375222;
+}
+
+.button, .button two, .button three, .button four {
+    margin-left: 35px;
+	margin-top: 0px;
+    position: relative;
+    width: 540px;
+    height: 290px;
+    margin-bottom: 5%;
+    text-align: center;
+    width: 540px;
+    height: 290px;
+
+    background-color: #375222;
+    border: none;
+    border-radius: 30px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    float: left;
+    font-family: 'Basic', sans-serif;
+
+}
+
+.button:hover {
+    border: solid 2px #375222;
+    background-color: rgb(15, 82, 15);
+}
+
+.profPic{
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    top: 8%;
+    left: 5%;
+    margin-right: 500px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.button h1{
+    position: absolute;
+    left: 40%;
+    top: 70px;
+    font-weight: 400;
+    font-size: 36px;
+    color: white;
+}
+
+.collegeTitle {
+    position: absolute;
+    width: 443px;
+    left: 140px;
+    top: 20px;
+    margin-bottom: 2%;
+    font-weight: 400;
+    font-size: 24px;
+    text-decoration-line: underline;
+    color: white;
+}
+
+.desc {
+    position: absolute;
+    width: 300px;
+    left: 210px;
+    top: 70px;
+    margin-bottom: 2%;
+    font-weight: 400;
+    font-size: 22px;
+    color: white;
+}
+
+.rate  {
+    position: absolute;
+    margin-top: 10%;
+    left: 10%;
+    font-weight: 400; 
+    font-size: 64px;
+    color: white;
+}
