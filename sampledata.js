@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
-const profsToPickDB = require("./models/db.js");
+const profsDB = require("./models/db.js");
 
-const Prof = require('./models/profModel.js');
+const Prof = require('./models/ProfModel.js');
 const User = require('./models/UserModel.js');
 const Review = require('./models/ReviewModel.js');
 
@@ -9,10 +9,10 @@ const {validationResult} = require('express-validator');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 
-profsToPickDB.connect();
+profsDB.connect();
 
 mongoose.connection.on('connected', () => {
-    console.log('Connected to Atlas!');
+    console.log('Mongoose Connection');
 });
 
 /* >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> faculties START */
@@ -27,4 +27,4 @@ var professor = {
 	],
     stars: 5.0
 }
-profsToPickDB.insertOne(Prof, professor, function(flag){});
+profsDB.insertOne(Prof, professor, function(flag){});
