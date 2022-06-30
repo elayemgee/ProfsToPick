@@ -4,6 +4,7 @@ const loginController = require(`../controllers/loginControl.js`);
 const registerController = require(`../controllers/registerControl.js`);
 const reviewController = require(`../controllers/reviewControl.js`);
 const collegeController = require(`../controllers/collegeControl.js`);
+const profController = require(`../controllers/profControl.js`);
 
 const validation = require('../validation.js');
 
@@ -30,6 +31,9 @@ app.get(`/profileTitle`, controller.getProfile);
 
 //going to prof page
 app.get(`/profPage`, controller.getProfPage);
+
+//going to review from prof page
+app.get('/makeRating', profController.getRating);
 
 //going to different college pages
 app.get(`/ccs`, collegeController.getCCS);

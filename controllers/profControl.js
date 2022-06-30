@@ -1,40 +1,73 @@
 const db = require('../models/db.js');
 
-const Faculty = require('../models/facultyModel.js');
-const Review = require('../models/reviewModel.js');
-const User = require('../models/userModel.js');
+const Prof = require('../models/ProfModel.js');
+const Review = require('../models/ReviewModel.js');
+const User = require('../models/UserModel.js');
 
-const facultyController = {
+/**
+ * profname: {
+        type: String,
+        required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    college: {
+        type: String,
+        required: true
+    },
+    department: {
+        type: String,
+        required: true
+    },
+    subjects: { //might be used for making a rating
+        type: [{
+            subject: {
+                type: String,
+                required: true
+            },
+            rating: {
+                type: Number,
+                required: true
+            }
+        }],
+        required: true
+    },
+    stars: {
+        type: Number,
+        required: true
+    }
+ */
+const profController = {
 
     getProf: function (req, res) {
 		
 		if(req.session.uuName){
-			var u = req.params.fuName;
-			var query1 = {fuName: u};
-			db.findOne(Faculty, query1, null, function(x) {
+			var u = req.params.profName;
+			var query1 = {profName: u};
+			db.findOne(Prof, query1, null, function(x) {
 				if(x != null){
 					var query2 = {reviewee_u: u};
 					db.findMany(Review, query2, {_id:-1}, null, 0, function(y){
 						
 						res.render('faculty', {
-							fuName: x.fuName,
-							dpPath: x.dpPath,
-							name: x.name,
+							profName: x.profName,
 							email: x.email,
 							college: x.college,
 							department: x.department,
-							oaRating: x.oaRating.toFixed(2),
 							
 							subjects: x.subjects,
-							revEntries: y
+							
+							stars: x.stars
 						});
 						
 					});
 
-					console.log('>> Faculty: ' + x.name);
+					console.log('>> Prof Name: ' + x.profName);
 				}
 				else{
-					console.log('>> Faculty not found');
+					console.log('>> Prof not found');
 					res.render('error');
 				}
 				
@@ -46,17 +79,23 @@ const facultyController = {
 		}
 		
 	},
+	getRating: function (req,res){
+		
+		console.log('Going to make a rating');
+		res.render('makeRating');
+		
+	},
 
 	postReview: function (req, res) {
-		var u = req.query.fuName;
+		var u = req.query.profName;
 
 		var review = req.query.review;
 		var course = req.query.course;
 		var stars = parseFloat(req.query.stars, 10);
 
 		// checking if the prof already have the subject on his/her record
-		var query1 = {$and: [{fuName: u}, {'subjects.subject': course}]};
-		db.findOne(Faculty, query1, null, function(x) {
+		var query1 = {$and: [{profName: u}, {'subjects.subject': course}]};
+		db.findOne(Prof, query1, null, function(x) {
             console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Step1: checking if the prof already have the subject on his/her record');
             console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Result1:');
             console.log(x);
@@ -195,4 +234,4 @@ const facultyController = {
 }
 
 
-module.exports = facultyController;
+module.exports = profController;

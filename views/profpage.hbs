@@ -10,6 +10,12 @@
             function reviewOpts() {
                 document.getElementById("moreOptions").classList.toggle("reveal");
             }
+
+             $('#submit').click(function () {
+                $.get('/makeRating')
+        
+        
+            });
         </script>   
         
     </head>
@@ -24,11 +30,13 @@
             <p style ="margin-top:85px;">{{college}}</p>
             <p style ="margin-top:130px;">{{department}}</p>
             <p style ="margin-top:185px;">✯{{stars}}</p> <!--NEED TO PUT BELOW PROFILE PIC, add margin-left or smtg-->
-            <a href = "rating_a_prof.html"><input class = "writeReview" type="submit" value = "Rate This Professor"></a>
+            <form method="POST"  autocomplete="off"> 
+            <input class = "writeReview" type="submit" value = "Rate This Professor">
+            </form>
         </div>
 
         <div class = "userRatings">
-            <h1>Your Rated Profs</h1><br>
+            <h1>All Reviews</h1><br>
             <p class = "numReviews">1 Reviews</p>
 
             {{#each reviewEntries}}

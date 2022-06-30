@@ -23,7 +23,7 @@ const MongoStore = require('connect-mongo');
 app.use(express.urlencoded({extended: true}));
 
 app.use(session({
-    'secret': 'somegibberishsecret',
+    'secret': 'sikret',
     'resave': false,
     'saveUninitialized': false,
     store: MongoStore.create({
@@ -47,18 +47,66 @@ app.listen(port, hostname, function () {
     //console.log(`http://` + hostname + `:` + port);
 });
 
+
+//Adding pre-existing professors for users to review
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/ccapdev-profstopick";
+const Prof = require('./models/ProfModel.js');
+const { DBRef } = require('bson');
+
 
 MongoClient.connect(url, function(err, db) {
     if (err) throw err;
-    var dbo = db.db("mydb");
-    var myobj = [
-      { name: 'Arturo Caronongan', email: 'Highway 71'}
-    ];
-    db.collection("profs").insertMany(myobj, function(err, res) {
+    var dbo = db.db("ccapdev-profstopick");
+    var myobj = 
+      { name: 'Arturo Caronongan', 
+        email: 'arturo_caronongan@dlsu.edu.ph',
+        college: 'College of Computer Studies',
+        department: 'Software Technology',
+        subjects:[
+            {subject:"CCAPDEV", rating: 5.0}
+        ],
+        stars: 5
+      }
+ 
+      /*
+      let exist = dbo.collection("profs").findOne(myobj);
+
+      if(exist){
+        console.log('User exists');
+      }
+      else{
+        console.log("null");
+        dbo.collection("profs").insertOne(myobj, function(err, res) {
+            if (err) throw err;
+            console.log("Inserted 1");
+            db.close();
+          });
+      }
+      */
+
+      /*
+      let exist = dbo.collection("profs").findOne(myobj);
+
+      if(exist == null){
+        console.log("null");
+        dbo.collection("profs").insertOne(myobj, function(err, res) {
+            if (err) throw err;
+            console.log("Inserted 1");
+            db.close();
+          });
+      }
+      else{
+        console.log('User exists');
+      }
+      */
+     
+   
+    dbo.collection("Profs").insertOne(myobj, function(err, res) {
       if (err) throw err;
-      console.log("Number of documents inserted: " + res.insertedCount);
+      console.log("Inserted");
       db.close();
     });
+    
+    
   });

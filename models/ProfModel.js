@@ -25,17 +25,8 @@ var ProfSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    subjects: { //might be used for making a rating
-        type: [{
-            subject: {
-                type: String,
-                required: true
-            },
-            rating: {
-                type: Number,
-                required: true
-            }
-        }],
+    subject: { 
+        type: String,
         required: true
     },
     stars: {
@@ -44,4 +35,4 @@ var ProfSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Professor', ProfSchema);
+module.exports = mongoose.model('Profs', ProfSchema);
