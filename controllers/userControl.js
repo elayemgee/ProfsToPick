@@ -1,8 +1,8 @@
 const db = require('../models/db.js');
 
-const Faculty = require('../models/facultyModel.js');
-const User = require('../models/userModel.js');
-const Review = require('../models/reviewModel.js');
+const Faculty = require('../models/ProfModel.js');
+const User = require('../models/UserModel.js');
+const Review = require('../models/ReviewModel.js');
 
 const userControl = {
     getUser: function (req, res) {
@@ -28,7 +28,7 @@ const userControl = {
 								email: x.email,
 								program: x.program,
 								
-								revEntries: y
+								reviewEntries: y
 							});
 						});
 					}
@@ -50,25 +50,20 @@ const userControl = {
 	
 	getLoggedUser: function (req, res) {
 	
-		var query1 = {uuName: req.session.uuName};
+		var query1 = {name: req.session.name};
 		db.findOne(User, query1, null, function(x){
 
-			var query2 = {reviewer: req.session.uuName};
+			var query2 = {reviewer: req.session.name};
 			db.findMany(Review, query2, {_id:-1}, null, 0, function(y){
 				
 				res.render('profile', {
-					thisProfile: "this",
-
-					uuName: x.uuName,
-	
-					dpPath: x.dpPath,
-
+					thisProfile: "this", //not sure what this does/ is for
 					name: x.name,
 					id: x.id,
 					email: x.email,
-					course: x.course,
+					program: x.program,
 					
-					revEntries: y
+					reviewEntries: y
 				});
 			});
 			
@@ -78,7 +73,7 @@ const userControl = {
 	
 	checkAuthority: function (req, res) {
 		
-		db.findOne(User, {uuName:req.session.uuName}, {uuName:1}, function (result) {
+		db.findOne(User, {name:req.session.name}, {name:1}, function (result) {
 			console.log('authority checked');
 			res.send(result);
 		});
@@ -87,29 +82,29 @@ const userControl = {
 
 	deleteReview: function(req, res) {
 		var reviewer = req.query.reviewer;
-		var reviewee = req.query.reviewee;
-		var revCourse = req.query.revCourse;
-		var revStar = parseFloat(req.query.revStar, 10);
+		var profname = req.query.profname;
+		var subject = req.query.subject;
+		var stars = parseFloat(req.query.star, 10);
 	
-		var conditions = {reviewer:reviewer, reviewee:reviewee, revCourse:revCourse, revStar:revStar};
+		var conditions = {reviewer:reviewer, profname:profname, subject:subject, star:star};
 		// finding the fuName of the prof
 		db.findOne(Review, conditions, null, function(a) {
-			db.findOne(Faculty, {fuName:a.reviewee_u}, null, function(b) {
+			db.findOne(Faculty, {profname:a.profname}, null, function(b) {
 				
 				var query1 = {reviewee_u: b.fuName};
 				db.findMany(Review, query1, null, null, 0, function(allRevs) {
 
 					var numTotalReviews = allRevs.length;// total number of reviews for the prof
-					console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Total no of Reviews: ' + numTotalReviews)
+					console.log('Total no of Reviews: ' + numTotalReviews)
 					
 					var query2 = {$and: [{reviewee_u: b.fuName}, {revCourse: revCourse}]};
 					db.findMany(Review, query2, null, null, 0, function(subjectRevs) {
 
 						var numSubjectReviews = subjectRevs.length;//number of reviews for the prof about the specific subject
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>No of subject Reviews: ' + numSubjectReviews);
+						console.log('No of subject Reviews: ' + numSubjectReviews);
 
 						if(numSubjectReviews == 1){ // >>>>>>>>>>>>>>>>>>>> if the review is the last review for the specific subject
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Remove this: ' + revCourse);
+							console.log('Remove this: ' + revCourse);
 
 							// removing the subject and rating from the prof
 							var filter = {fuName: b.fuName}
@@ -122,21 +117,21 @@ const userControl = {
 							});
 
 							var oaRating = b.oaRating;
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Original oaRating: ✯' + oaRating);
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Stars: ' + revStar);
+							console.log('Original oaRating: ✯' + oaRating);
+							console.log('Stars: ' + revStar);
 
 							var resOaRating = ((oaRating*numTotalReviews)-revStar)/(numTotalReviews-1);
 							if(numTotalReviews == 1){ // >>>>>>>>>>>>>>>>>>>> if the review is the last review for the prof
-								console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Last Review deleted, Resetting Faculty Rating');
+								console.log('Last Review deleted, Resetting Faculty Rating');
 
 								// resetting ratings
 								var filter = {fuName: b.fuName};
 								db.updateOne(Faculty, filter, {oaRating: 0.00});
 
-								console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Resulting oaRating: ✯0');
+								console.log('Resulting oaRating: ✯0');
 							}
 							else{ // >>>>>>>>>>>>>>>>>>>> if there are more reviews for the prof
-								console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Recomputing Faculty Rating');
+								console.log('Recomputing Faculty Rating');
 
 								// recomputing ratings
 								var filter = {fuName: b.fuName};
@@ -145,10 +140,10 @@ const userControl = {
 										oaRating: resOaRating
 									}					
 								});
-								console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(oaRating*numTotalReviews): ' + (oaRating*numTotalReviews));
-								console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>((oaRating*numTotalReviews)-revStar): ' + (((oaRating*numTotalReviews)-revStar)));
-								console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(numTotalReviews-1): ' + (numTotalReviews-1));
-								console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Resulting oaRating: ✯' + resOaRating);
+								console.log('(oaRating*numTotalReviews): ' + (oaRating*numTotalReviews));
+								console.log('((oaRating*numTotalReviews)-revStar): ' + (((oaRating*numTotalReviews)-revStar)));
+								console.log('(numTotalReviews-1): ' + (numTotalReviews-1));
+								console.log('Resulting oaRating: ✯' + resOaRating);
 							}
 
 							db.deleteOne(Review, conditions);

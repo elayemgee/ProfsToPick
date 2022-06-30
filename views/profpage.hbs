@@ -5,20 +5,42 @@
         <link rel="stylesheet" type="text/css" href="/css/profiles.css">
         <script src="/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/js/topBar.js"></script> 
+        <script src="/js/profpage.js" type="text/javascript"></script>
 
          <script>
             function reviewOpts() {
                 document.getElementById("moreOptions").classList.toggle("reveal");
             }
-
-             $('#submit').click(function () {
-                $.get('/makeRating')
-        
-        
-            });
         </script>   
         
     </head>
+    {{! -- 
+    reviewer: {
+        type: String,
+        required: true
+    },
+    
+    profname: {
+        type: String,
+        required: true
+    },
+    subject: {
+        type: String,
+        required: true
+    },
+    review: {
+        type: String,
+        required: true
+    },
+    stars: {
+        type: Number,
+        required: true
+    },
+    date: {
+        type: String,
+        required: true
+    }
+    --}}
     <body>
         {{> topBar}}
 
@@ -31,7 +53,31 @@
             <p style ="margin-top:130px;">{{department}}</p>
             <p style ="margin-top:185px;">✯{{stars}}</p> <!--NEED TO PUT BELOW PROFILE PIC, add margin-left or smtg-->
             <form method="POST"  autocomplete="off"> 
-            <input class = "writeReview" type="submit" value = "Rate This Professor">
+                <p class = "label">First Three Digits of Student ID)</p> 
+                <input class = "inputtxt" type="number" id="studentid" maxlength="3" name = "studentid" placeholder="Ex: 120" required>
+                <p class ="msg" id = "errorID">{{errorID}}</p>
+
+                <p class = "label">Professor's Name</p>
+                <input class = "inputtxt" type="text" id="name" name = "name" placeholder="Full Name" required>
+                <p class ="msg" id = "errorName">{{errorName}}</p>
+
+                <p class = "label">Subject</p>
+                <input class = "inputtxt" type="subject" id="subject" name = "subject" placeholder="Subject Taught" required>
+                <p class ="msg" id = "errorSubject">{{errorSubject}}</p>
+
+                <p class = "label">Date</p>
+                <input class = "inputtxt" type="date" id="date" name = "date" placeholder="Ex: 06/03/2022" required>
+                <p class ="msg" id = "errorDate">{{errorDate}}</p>
+
+                <p class = "label">Review</p>
+                <input class = "inputtxt" type="text" id="review" name = "review" placeholder="Ex: Helpful, Patient" required>
+                <p class ="msg" id = "errorReview">{{errorReview}}</p>
+
+                <p class = "label">Stars</p>
+                <input class = "inputtxt" type="number" id="stars" minlength="1" placeholder="Must be at least 1 star" name = "stars" required>
+                <p class ="msg" id = "errorStars">{{errorStars}}</p>
+
+                <input class = "writeReview" type="submit" value = "Rate This Professor">
             </form>
         </div>
 

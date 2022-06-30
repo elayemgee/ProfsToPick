@@ -1,10 +1,14 @@
 const express = require(`express`);
 const controller = require(`../controllers/controller.js`);
 const loginController = require(`../controllers/loginControl.js`);
+const logoutController = require(`../controllers/logoutControl.js`);
 const registerController = require(`../controllers/registerControl.js`);
 const reviewController = require(`../controllers/reviewControl.js`);
 const collegeController = require(`../controllers/collegeControl.js`);
 const profController = require(`../controllers/profControl.js`);
+const userController = require(`../controllers/userControl.js`);
+
+
 
 const validation = require('../validation.js');
 
@@ -13,14 +17,25 @@ const app = express();
 app.get(`/favicon.ico`, controller.getFavicon);
 app.get(`/home`, controller.getIndex);
 
-//login
-app.get(`/`, loginController.getLogin);
-app.post(`/loginuser`, loginController.postLogin);
-
 //register
 app.get(`/register`, registerController.getRegister);
 app.get(`/checkID`, registerController.checkID);
 app.post(`/register`, validation.registerValidation(), registerController.postRegister);
+
+//login
+app.get(`/`, loginController.getLogin);
+app.post(`/loginuser`, loginController.postLogin);
+
+//logout
+app.get(`/logout`, logoutController.getLogout);
+
+//user - to fix userControl
+app.get('/user/:uuName', userController.getUser);
+app.get('/user/', userController.getLoggedUser);
+app.get('/authorityCheck', userController.checkAuthority);
+app.get('/editReview', userController.editReview);
+app.get('/deleteReview', userController.deleteReview);
+
 
 //going to different pages
 app.get(`/allProfs`, controller.getAllProfs);
