@@ -40,7 +40,7 @@ const reviewControl = {
     },
 
 	postReview: function (req, res) {
-		var reviewer = req.body.reviewer;
+		var studentid = req.body.studentid;
         var profname = req.body.profname;
         var subject = req.body.subject;
         var review = req.body.review;
@@ -50,6 +50,7 @@ const reviewControl = {
 
 		db.insertOne(Review,{
 			reviewer: reviewer,
+			studentid: studentid,
             profname: profname,
 			subject: subject,
             review: review,
@@ -58,12 +59,13 @@ const reviewControl = {
         }, function(flag){});
 
 		console.log('Submitted review of ' + reviewer);
+		console.log('Submitted review of ' + studentid);
 		res.render('home');
 	},
 	
 	checkID: function (req, res) {
-        var reviewer = req.query.reviewer;
-        db.findOne(Review, {reviewer: reviewer}, "reviewer", function (result) {
+        var studentid = req.query.studentid;
+        db.findOne(Review, {studentid: studentid}, "studentid", function (result) {
             res.send(result);
         });
     }

@@ -9,9 +9,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
     cursor: pointer;
     opacity: 0.8;
     position: fixed;
-    top: 200px;
-    bottom: 23px;
-    right: 28px;
+    top: 500px;
+    right: 148px;
     width: 280px;
   }
   
@@ -58,7 +57,11 @@ body {font-family: Arial, Helvetica, sans-serif;}
     margin-bottom:10px;
     opacity: 0.8;
   }
-  
+  /* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
   
   /* Add some hover effects to buttons */
   .form-container .btn:hover, .open-button:hover {
