@@ -1,5 +1,4 @@
 const db = require('../models/db.js');
-
 const Faculty = require('../models/ProfModel.js');
 const User = require('../models/UserModel.js');
 const Review = require('../models/ReviewModel.js');
@@ -49,21 +48,21 @@ const userControl = {
 	},
 	
 	getLoggedUser: function (req, res) {
-	
+		console.log('Logged User');
 		var query1 = {studentid: req.session.studentid};
 		db.findOne(User, query1, null, function(x){
 
-			var query2 = {studentid: req.session.studentid};
+			var query2 = {reviewer: req.session.studentid};
 			db.findMany(Review, query2, {_id:-1}, null, 0, function(y){
 				
-				res.render('profile', {
+				res.render('user', {
 					//thisProfile: "this", //not sure what this does/ is for
 					name: x.name,
 					studentid: x.studentid, //120******
 					email: x.email,
 					college: x.college,
-					program: x.program,
-					reviewEntries: y
+					program: x.program
+					//reviewEntries: y
 				});
 			});
 			
@@ -116,17 +115,17 @@ const userControl = {
 								}
 							});
 
-							var oaRating = b.oaRating;
-							console.log('Original oaRating: ✯' + oaRating);
-							console.log('Stars: ' + revStar);
+							var oaRating = b.star;
+							console.log('Original oaRating: ✯' + star);
+							console.log('Stars: ' + star);
 
 							var resOaRating = ((oaRating*numTotalReviews)-revStar)/(numTotalReviews-1);
 							if(numTotalReviews == 1){ // >>>>>>>>>>>>>>>>>>>> if the review is the last review for the prof
 								console.log('Last Review deleted, Resetting Faculty Rating');
 
 								// resetting ratings
-								var filter = {fuName: b.fuName};
-								db.updateOne(Faculty, filter, {oaRating: 0.00});
+								var filter = {profname: b.profname};
+								db.updateOne(Faculty, filter, {star: 0.00});
 
 								console.log('Resulting oaRating: ✯0');
 							}
@@ -134,14 +133,14 @@ const userControl = {
 								console.log('Recomputing Faculty Rating');
 
 								// recomputing ratings
-								var filter = {fuName: b.fuName};
+								var filter = {profname: b.profname};
 								db.updateOne(Faculty, filter, { 	
 									$set:{
 										oaRating: resOaRating
 									}					
 								});
-								console.log('(oaRating*numTotalReviews): ' + (oaRating*numTotalReviews));
-								console.log('((oaRating*numTotalReviews)-revStar): ' + (((oaRating*numTotalReviews)-revStar)));
+								console.log('(oaRating*numTotalReviews): ' + (star*numTotalReviews));
+								console.log('((oaRating*numTotalReviews)-revStar): ' + (((star*numTotalReviews)-revStar)));
 								console.log('(numTotalReviews-1): ' + (numTotalReviews-1));
 								console.log('Resulting oaRating: ✯' + resOaRating);
 							}

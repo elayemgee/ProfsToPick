@@ -20,6 +20,8 @@ app.get(`/home`, controller.getIndex);
 //register
 app.get(`/register`, registerController.getRegister);
 app.get(`/checkID`, registerController.checkID);
+//app.post(`/register`,  registerController.postRegister);
+
 app.post(`/register`, validation.registerValidation(), registerController.postRegister);
 
 //login

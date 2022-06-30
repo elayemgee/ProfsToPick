@@ -49,6 +49,7 @@ const reviewControl = {
 
 
 		db.insertOne(Review,{
+			reviewer: reviewer,
 			studentid: studentid,
             profname: profname,
 			subject: subject,
@@ -57,6 +58,7 @@ const reviewControl = {
             date: date
         }, function(flag){});
 
+		console.log('Submitted review of ' + reviewer);
 		console.log('Submitted review of ' + studentid);
 		res.render('home');
 	},
