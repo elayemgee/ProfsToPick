@@ -52,7 +52,7 @@ const reviewControl = {
 				console.log(errors[i].msg);
 			}
 
-            res.render('register', details);
+            res.render('profpage', details);
         }
 		var studentid = req.body.studentid;
         var profname = req.body.profname;
@@ -79,7 +79,7 @@ const reviewControl = {
 	
 	checkID: function (req, res) {
         var studentid = req.query.studentid;
-        db.findOne(Review, {studentid: studentid}, "studentid", function (result) {
+        db.findOne(Review, {studentid: studentid}, {}, function (result) {
             res.send(result);
         });
     }
