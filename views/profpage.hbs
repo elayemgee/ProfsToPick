@@ -3,6 +3,7 @@
         <title>Professor's Page</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
         <link rel="stylesheet" type="text/css" href="/css/profiles.css">
+        <link rel="stylesheet" type="text/css" href="/css/form.css">
         <script src="/js/index.js" type="text/javascript"></script>
         <script type="text/javascript" src="/js/topBar.js"></script> 
         <script src="/js/profpage.js" type="text/javascript"></script>
@@ -10,6 +11,12 @@
          <script>
             function reviewOpts() {
                 document.getElementById("moreOptions").classList.toggle("reveal");
+            }
+            function openForm() {
+                document.getElementById("myForm").style.display = "block";
+            }
+            function closeForm() {
+                document.getElementById("myForm").style.display = "none";
             }
         </script>   
         
@@ -52,33 +59,38 @@
             <p style ="margin-top:85px;">{{college}}CCS</p>
             <p style ="margin-top:130px;">{{department}}ST</p>
             <p style ="margin-top:185px;">✯{{stars}}4.9</p> <!--NEED TO PUT BELOW PROFILE PIC, add margin-left or smtg-->
-            <form method="POST"  autocomplete="off"> 
-                <p class = "label">First Three Digits of Student ID</p> 
-                <input class = "inputtxt" type="number" id="studentid" maxlength="3" name = "studentid" placeholder="Ex: 120" required>
-                <p class ="msg" id = "errorID">{{errorID}}</p>
+            
+            <button class="open-button" onclick="openForm()">Rate This Professor</button>
+                <div class="form-popup" id="myForm" >
+                    <form method="POST"  autocomplete="off" class="form-container"> 
+                        <b>First Three Digits of Student ID</b> 
+                        <input type="number" id="studentid" maxlength="3" name = "studentid" placeholder="Ex: 120" required>
+                        {{!--<p class ="msg" id = "errorID">{{errorID}}</p>--}}
 
-                <p class = "label">Professor's Name</p>
-                <input class = "inputtxt" type="text" id="name" name = "name" placeholder="Full Name" required>
-                <p class ="msg" id = "errorName">{{errorName}}</p>
+                        <b>Professor's Name</b>
+                        <input type="text" id="name" name = "name" placeholder="Full Name" required>
+                        {{!--<p class ="msg" id = "errorName">{{errorName}}</p>--}}
+                        
+                        <b>Subject</b>
+                        <input class = "inputtxt" type="subject" id="subject" name = "subject" placeholder="Subject Taught" required>
+                        {{!--<p class ="msg" id = "errorSubject">{{errorSubject}}</p>--}}
 
-                <p class = "label">Subject</p>
-                <input class = "inputtxt" type="subject" id="subject" name = "subject" placeholder="Subject Taught" required>
-                <p class ="msg" id = "errorSubject">{{errorSubject}}</p>
+                        <b>Date</b>
+                        <input class = "inputtxt" type="date" id="date" name = "date" placeholder="Ex: 06/03/2022" required>
+                        {{!--<p class ="msg" id = "errorDate">{{errorDate}}</p>--}}
 
-                <p class = "label">Date</p>
-                <input class = "inputtxt" type="date" id="date" name = "date" placeholder="Ex: 06/03/2022" required>
-                <p class ="msg" id = "errorDate">{{errorDate}}</p>
+                        <b>Review</b>
+                        <input class = "inputtxt" type="text" id="review" name = "review" placeholder="Ex: Helpful, Patient" required>
+                        {{!--<p class ="msg" id = "errorReview">{{errorReview}}</p>--}}
 
-                <p class = "label">Review</p>
-                <input class = "inputtxt" type="text" id="review" name = "review" placeholder="Ex: Helpful, Patient" required>
-                <p class ="msg" id = "errorReview">{{errorReview}}</p>
+                        <b>Stars</b>
+                        <input class = "inputtxt" type="number" id="stars" minlength="1" placeholder="Must be at least 1 star" name = "stars" required>
+                        {{!--<p class ="msg" id = "errorStars">{{errorStars}}</p>--}}
 
-                <p class = "label">Stars</p>
-                <input class = "inputtxt" type="number" id="stars" minlength="1" placeholder="Must be at least 1 star" name = "stars" required>
-                <p class ="msg" id = "errorStars">{{errorStars}}</p>
-
-                <input class = "writeReview" type="submit" value = "Rate This Professor">
-            </form>
+                        <button type="submit" class="btn">Submit</button>
+                        <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
+                    </form>
+                </div>
         </div>
 
         <div class = "userRatings">
