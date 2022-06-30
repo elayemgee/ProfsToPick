@@ -64,7 +64,7 @@ app.get(`/soe`, collegeController.getSOE);
 
 //making a review
 app.get(`/writeReview`, reviewController.getReview); //landing on the review page
-app.post(`/profpage`, validation.registerValidation(), reviewController.postReview); //posting the review details on prof's page and user's page
+app.post(`/profpage`, reviewController.postReview); //posting the review details on prof's page and user's page
 
 
 app.get(`/getCheckRefNo`, controller.getCheckRefNo);
