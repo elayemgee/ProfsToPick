@@ -13,11 +13,11 @@ var ProfSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    college: {
+    email: {
         type: String,
         required: true
     },
-    email: {
+    college: {
         type: String,
         required: true
     },

@@ -5,7 +5,7 @@ const registerController = require(`../controllers/registerControl.js`);
 const reviewController = require(`../controllers/reviewControl.js`);
 const collegeController = require(`../controllers/collegeControl.js`);
 
-//const validation = require('../validators.js');
+const validation = require('../validation.js');
 
 const app = express();
 
@@ -18,7 +18,8 @@ app.post(`/loginuser`, loginController.postLogin);
 
 //register
 app.get(`/register`, registerController.getRegister);
-app.post(`/registeruser`, registerController.postRegister);
+app.get(`/checkID`, registerController.checkID);
+app.post(`/register`, validation.registerValidation(), registerController.postRegister);
 
 //going to different pages
 app.get(`/allProfs`, controller.getAllProfs);

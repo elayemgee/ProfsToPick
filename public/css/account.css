@@ -61,7 +61,7 @@ a {
 .inputtxt{
     width: 380px;
     height: 45px;
-    font-size: 18px;
+    font-size: 14px;
     margin-left:65px;
     border-radius: 5px;
     padding-left: 10px;
@@ -88,7 +88,7 @@ a {
     color: white;
 }
 
-.error {
+.msg {
     color: #FFFFFF;
     background-color: rgba(234, 69, 69, 0.798);
     width: 380px;
@@ -97,6 +97,7 @@ a {
     text-align: center;
 }
 
+/*
 .success {
     color: #FFFFFF;
     background-color: rgba(47, 174, 85, 0.798);
@@ -105,3 +106,4 @@ a {
     font-size:18px;
     text-align: center;
 }
+*/
