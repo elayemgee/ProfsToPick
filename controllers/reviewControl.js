@@ -40,7 +40,7 @@ const reviewControl = {
     },
 
 	postReview: function (req, res) {
-		var reviewer = req.body.reviewer;
+		var studentid = req.body.studentid;
         var profname = req.body.profname;
         var subject = req.body.subject;
         var review = req.body.review;
@@ -49,7 +49,7 @@ const reviewControl = {
 
 
 		db.insertOne(Review,{
-			reviewer: reviewer,
+			studentid: studentid,
             profname: profname,
 			subject: subject,
             review: review,
