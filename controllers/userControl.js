@@ -115,8 +115,8 @@ const userControl = {
 								}
 							});
 
-							var oaRating = b.oaRating;
-							console.log('Original oaRating: ✯' + oaRating);
+							var star = b.star;
+							console.log('Original oaRating: ✯' + star);
 							console.log('Stars: ' + revStar);
 
 							var resOaRating = ((oaRating*numTotalReviews)-revStar)/(numTotalReviews-1);
