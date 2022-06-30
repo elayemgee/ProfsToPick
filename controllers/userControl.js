@@ -115,17 +115,17 @@ const userControl = {
 								}
 							});
 
-							var star = b.star;
+							var oaRating = b.star;
 							console.log('Original oaRating: ✯' + star);
-							console.log('Stars: ' + revStar);
+							console.log('Stars: ' + star);
 
 							var resOaRating = ((oaRating*numTotalReviews)-revStar)/(numTotalReviews-1);
 							if(numTotalReviews == 1){ // >>>>>>>>>>>>>>>>>>>> if the review is the last review for the prof
 								console.log('Last Review deleted, Resetting Faculty Rating');
 
 								// resetting ratings
-								var filter = {fuName: b.fuName};
-								db.updateOne(Faculty, filter, {oaRating: 0.00});
+								var filter = {profname: b.profname};
+								db.updateOne(Faculty, filter, {star: 0.00});
 
 								console.log('Resulting oaRating: ✯0');
 							}
@@ -133,14 +133,14 @@ const userControl = {
 								console.log('Recomputing Faculty Rating');
 
 								// recomputing ratings
-								var filter = {fuName: b.fuName};
+								var filter = {profname: b.profname};
 								db.updateOne(Faculty, filter, { 	
 									$set:{
 										oaRating: resOaRating
 									}					
 								});
-								console.log('(oaRating*numTotalReviews): ' + (oaRating*numTotalReviews));
-								console.log('((oaRating*numTotalReviews)-revStar): ' + (((oaRating*numTotalReviews)-revStar)));
+								console.log('(oaRating*numTotalReviews): ' + (star*numTotalReviews));
+								console.log('((oaRating*numTotalReviews)-revStar): ' + (((star*numTotalReviews)-revStar)));
 								console.log('(numTotalReviews-1): ' + (numTotalReviews-1));
 								console.log('Resulting oaRating: ✯' + resOaRating);
 							}
