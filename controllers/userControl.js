@@ -50,19 +50,19 @@ const userControl = {
 	
 	getLoggedUser: function (req, res) {
 	
-		var query1 = {name: req.session.name};
+		var query1 = {studentid: req.session.studentid};
 		db.findOne(User, query1, null, function(x){
 
-			var query2 = {reviewer: req.session.name};
+			var query2 = {studentid: req.session.studentid};
 			db.findMany(Review, query2, {_id:-1}, null, 0, function(y){
 				
 				res.render('profile', {
-					thisProfile: "this", //not sure what this does/ is for
+					//thisProfile: "this", //not sure what this does/ is for
 					name: x.name,
-					id: x.id,
+					studentid: x.studentid, //120******
 					email: x.email,
+					college: x.college,
 					program: x.program,
-					
 					reviewEntries: y
 				});
 			});
@@ -71,9 +71,9 @@ const userControl = {
 		
 	},
 	
-	checkAuthority: function (req, res) {
+	checkAuthority: function (req, res) { //to edit
 		
-		db.findOne(User, {name:req.session.name}, {name:1}, function (result) {
+		db.findOne(User, {studentid:req.session.studentid}, {studentid:1}, function (result) {
 			console.log('authority checked');
 			res.send(result);
 		});
@@ -91,13 +91,13 @@ const userControl = {
 		db.findOne(Review, conditions, null, function(a) {
 			db.findOne(Faculty, {profname:a.profname}, null, function(b) {
 				
-				var query1 = {reviewee_u: b.fuName};
+				var query1 = {profname: b.profname};
 				db.findMany(Review, query1, null, null, 0, function(allRevs) {
 
 					var numTotalReviews = allRevs.length;// total number of reviews for the prof
 					console.log('Total no of Reviews: ' + numTotalReviews)
 					
-					var query2 = {$and: [{reviewee_u: b.fuName}, {revCourse: revCourse}]};
+					var query2 = {$and: [{profname: b.profname}, {subject: subject}]};
 					db.findMany(Review, query2, null, null, 0, function(subjectRevs) {
 
 						var numSubjectReviews = subjectRevs.length;//number of reviews for the prof about the specific subject
@@ -107,11 +107,11 @@ const userControl = {
 							console.log('Remove this: ' + revCourse);
 
 							// removing the subject and rating from the prof
-							var filter = {fuName: b.fuName}
+							var filter = {profname: b.profname}
 							db.updateOne(Faculty, filter, {
 								$pull: {
 									subjects: {
-										subject: revCourse
+										subject: subject
 									}
 								}
 							});
@@ -150,7 +150,7 @@ const userControl = {
 
 						}
 						else{ // >>>>>>>>>>>>>>>>>>>> if there are more reviews left for the specific subject
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Update this: ' + revCourse);
+							console.log('Update this: ' + revCourse);
 							
 							var subjRating;
 							var i;
@@ -160,9 +160,9 @@ const userControl = {
 								}
 							}
 							var oaRating = b.oaRating;
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Original oaRating: ✯' + oaRating);
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Original ' + revCourse + ' Rating: ✯' + subjRating);
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Stars: ' + revStar);
+							console.log('Original oaRating: ✯' + oaRating);
+							console.log('Original ' + revCourse + ' Rating: ✯' + subjRating);
+							console.log('Stars: ' + revStar);
 
 							var resOaRating = ((oaRating*numTotalReviews)-revStar)/(numTotalReviews-1);
 							var resSubjRating = ((subjRating*numSubjectReviews)-revStar)/(numSubjectReviews-1);
@@ -174,15 +174,15 @@ const userControl = {
 									'subjects.$.rating': resSubjRating
 								}					
 							});
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(oaRating*numTotalReviews): ' + (oaRating*numTotalReviews));
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>((oaRating*numTotalReviews)-revStar): ' + (((oaRating*numTotalReviews)-revStar)));
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(numTotalReviews-1): ' + (numTotalReviews-1));
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Resulting oaRating: ✯' + resOaRating);
+							console.log('(oaRating*numTotalReviews): ' + (oaRating*numTotalReviews));
+							console.log('((oaRating*numTotalReviews)-revStar): ' + (((oaRating*numTotalReviews)-revStar)));
+							console.log('(numTotalReviews-1): ' + (numTotalReviews-1));
+							console.log('Resulting oaRating: ✯' + resOaRating);
 
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(subjRating*numSubjectReviews): ' + (subjRating*numSubjectReviews));
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>((subjRating*numSubjectReviews)-revStar): ' + ((subjRating*numSubjectReviews)-revStar));
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(numSubjectReviews-1): ' + (numSubjectReviews-1));
-							console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Resulting ' + revCourse + ' Rating: ✯' + resSubjRating);
+							console.log('(subjRating*numSubjectReviews): ' + (subjRating*numSubjectReviews));
+							console.log('((subjRating*numSubjectReviews)-revStar): ' + ((subjRating*numSubjectReviews)-revStar));
+							console.log('(numSubjectReviews-1): ' + (numSubjectReviews-1));
+							console.log('Resulting ' + revCourse + ' Rating: ✯' + resSubjRating);
 
 							db.deleteOne(Review, conditions);
 							

@@ -19,27 +19,21 @@ $(document).ready(function () {
 		
     });
  
-    $('#program').keyup(function () {
+    $('#review').keyup(function () {
 
-        validateField($('#program'), 'program', $('#errorProgram'));
+        validateField($('#review'), 'review', $('#errorReview'));
 		
     });
 	
-    $('#college').keyup(function () {
+    $('#date').keyup(function () {
 
-        validateField($('#studentid'), 'studentid', $('#errorID'));
+        validateField($('#date'), 'date', $('#errorDate'));
 		
     });
 	
-    $('#password').keyup(function () {
+    $('#stars').keyup(function () {
 
-        validateField($('#password'), 'password', $('#errorPassword'));
-		
-    });
-
-    $('#confirmpw').keyup(function () {
-
-        validateField($('#confirmpw'), 'confirmpw', $('#errorConfirm'));
+        validateField($('#stars'), 'stars', $('#errorStars'));
 		
     });
 	

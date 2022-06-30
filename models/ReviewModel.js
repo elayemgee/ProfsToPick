@@ -10,7 +10,11 @@ var ReviewSchema = new mongoose.Schema({
     // your code here
     //Lauren Garcia S13
 
-    //first 3 digits of id number
+    studentid: {
+        type: String,
+        required: true
+    },
+
     reviewer: {
         type: String,
         required: true
