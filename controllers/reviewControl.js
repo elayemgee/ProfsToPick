@@ -58,7 +58,6 @@ const reviewControl = {
             date: date
         }, function(flag){});
 
-		console.log('Submitted review of ' + reviewer);
 		console.log('Submitted review of ' + studentid);
 		res.render('home');
 	},
