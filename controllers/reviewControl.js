@@ -36,7 +36,7 @@ const {validationResult} = require('express-validator');
 const reviewControl = {
 
     getReview: function (req, res) {
-        res.render('makeRating',{success:"hidden"});
+        res.render('profpage',{success:"hidden"});
     },
 
 	postReview: function (req, res) {
