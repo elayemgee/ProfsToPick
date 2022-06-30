@@ -62,8 +62,8 @@ const reviewControl = {
 	},
 	
 	checkID: function (req, res) {
-        var reviewer = req.query.reviewer;
-        db.findOne(Review, {reviewer: reviewer}, "reviewer", function (result) {
+        var studentid = req.query.studentid;
+        db.findOne(Review, {studentid: studentid}, "studentid", function (result) {
             res.send(result);
         });
     }
