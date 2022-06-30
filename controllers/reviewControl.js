@@ -57,19 +57,20 @@ const reviewControl = {
 		var studentid = req.body.studentid;
         var profname = req.body.profname;
         var subject = req.body.subject;
+        var date = req.body.date;
         var review = req.body.review;
         var stars = req.body.stars;
-        var date = req.body.date;
+        
 
 
 		db.insertOne(Review,{
 			studentid: studentid,
-			studentid: studentid,
             profname: profname,
 			subject: subject,
+            date: date,
             review: review,
-            stars: stars,
-            date: date
+            stars: stars
+            
         }, function(flag){});
 
 		console.log('Submitted review of ' + studentid);
