@@ -49,7 +49,7 @@ const reviewControl = {
 
 
 		db.insertOne(Review,{
-			reviewer: reviewer,
+			studentid: studentid,
 			studentid: studentid,
             profname: profname,
 			subject: subject,
