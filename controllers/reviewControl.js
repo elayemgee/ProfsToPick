@@ -48,40 +48,15 @@ const reviewControl = {
         var date = req.body.date;
 
 
-		let reviews = {
+		db.insertOne(Review,{
 			reviewer: reviewer,
             profname: profname,
 			subject: subject,
             review: review,
             stars: stars,
             date: date
-        }
-		/*
-		db.insertOne(User, {
-			studentid : studentid,
-			name : name,
-			email : email,
-			password : pw
-		}, function(flag){}); */
+        }, function(flag){});
 
-		//db.insertOne(User,user);
-
-		db.insertOne(Review, reviews, (success) => {
-            if (success) {
-                res.render('home') 
-            }
-        })
-		/*
-		bcrypt.hash(pw, saltRounds, function(err, hash) {
-			
-			db.insertOne(User, {
-				studentid : studentid,
-				name : name,
-				email : email,
-				password : hash
-			}, function(flag){});
-		
-		}); */
 		console.log('Submitted review of ' + reviewer);
 		res.render('home');
 	},

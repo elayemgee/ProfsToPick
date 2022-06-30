@@ -1,5 +1,4 @@
 const db = require('../models/db.js');
-
 const Faculty = require('../models/ProfModel.js');
 const User = require('../models/UserModel.js');
 const Review = require('../models/ReviewModel.js');
@@ -49,21 +48,21 @@ const userControl = {
 	},
 	
 	getLoggedUser: function (req, res) {
-	
+		console.log('Logged User');
 		var query1 = {studentid: req.session.studentid};
 		db.findOne(User, query1, null, function(x){
 
-			var query2 = {studentid: req.session.studentid};
+			var query2 = {reviewer: req.session.studentid};
 			db.findMany(Review, query2, {_id:-1}, null, 0, function(y){
 				
-				res.render('profile', {
+				res.render('user', {
 					//thisProfile: "this", //not sure what this does/ is for
 					name: x.name,
 					studentid: x.studentid, //120******
 					email: x.email,
 					college: x.college,
-					program: x.program,
-					reviewEntries: y
+					program: x.program
+					//reviewEntries: y
 				});
 			});
 			
