@@ -9,7 +9,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
     cursor: pointer;
     opacity: 0.8;
     position: fixed;
-    
+    top: 200px;
     bottom: 23px;
     right: 28px;
     width: 280px;
