@@ -40,6 +40,20 @@ const reviewControl = {
     },
 
 	postReview: function (req, res) {
+        var errors = validationResult(req);
+
+		if (!errors.isEmpty()) {
+            errors = errors.errors;
+			
+            var details = {};
+            for(i = 0; i < errors.length; i++)
+			{
+				details[errors[i].param + 'Error'] = errors[i].msg;
+				console.log(errors[i].msg);
+			}
+
+            res.render('register', details);
+        }
 		var studentid = req.body.studentid;
         var profname = req.body.profname;
         var subject = req.body.subject;
