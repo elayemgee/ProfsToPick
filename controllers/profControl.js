@@ -41,28 +41,28 @@ const User = require('../models/UserModel.js');
  */
 const profController = {
     getProf: function (req, res) {
-		if(req.session.uuName){
-			var u = req.params.profName;
-			var query1 = {profName: u};
+		if(req.session.profname){
+			var prof = req.params.profname;
+			var query1 = {profname: prof};
 			db.findOne(Prof, query1, null, function(x) {
 				if(x != null){
-					var query2 = {reviewee_u: u};
+					var query2 = {profname: prof};
 					db.findMany(Review, query2, {_id:-1}, null, 0, function(y){
 						
 						res.render('faculty', {
-							profName: x.profName,
+							profname: x.profname,
 							email: x.email,
 							college: x.college,
 							department: x.department,
 							
-							subjects: x.subjects,
+							subject: x.subject,
 							
 							stars: x.stars
 						});
 						
 					});
 
-					console.log('>> Prof Name: ' + x.profName);
+					console.log('>> Prof Name: ' + x.profname);
 				}
 				else{
 					console.log('>> Prof not found');
@@ -84,15 +84,15 @@ const profController = {
 		
 	},
 
-	postReview: function (req, res) {
-		var u = req.query.profName;
+	/*postReview: function (req, res) {
+		var u = req.query.profname;
 
-		var review = req.query.review;
-		var course = req.query.course;
+		var review = req.query.review; //not sure..
+		var course = req.query.subject;
 		var stars = parseFloat(req.query.stars, 10);
 
 		// checking if the prof already have the subject on his/her record
-		var query1 = {$and: [{profName: u}, {'subjects.subject': course}]};
+		var query1 = {$and: [{profname: u}, {'subjects.subject': subject}]};
 		db.findOne(Prof, query1, null, function(x) {
             console.log('>>>>>>>>>Step1: checking if the prof already have the subject on his/her record');
             console.log('>>>>Result1:');
@@ -101,13 +101,13 @@ const profController = {
             if(x != null){ // >>>>>>>>>>>>>>>>>>>> if the prof has the subject already
                 console.log('>>>>>>>>>>the prof has the subject already');
                 
-				var query2 = {reviewee_u: u};
+				var query2 = {profname: u};
 				db.findMany(Review, query2, null, null, 0, function(allRevs) {
 
 					var numTotalReviews = allRevs.length;// total number of reviews for the prof
 					console.log('>>>>>>>Total no of Reviews: ' + numTotalReviews);
 					
-					var query3 = {$and: [{reviewee_u: u}, {revCourse: course}]};
+					var query3 = {$and: [{profname: u}, {subject: subject}]};
 					db.findMany(Review, query3, null, null, 0, function(subjectRevs) {
 
 						var numSubjectReviews = subjectRevs.length;// number of reviews for the prof about the specific subject
@@ -116,7 +116,7 @@ const profController = {
 						var subjRating;
 						var i;
 						for(i=0; i<x.subjects.length; i++){
-							if(x.subjects[i].subject == course){
+							if(x.subjects[i].subject == subject){
 								subjRating = parseFloat(x.subjects[i].rating, 10);
 							}
 						}
@@ -219,11 +219,11 @@ const profController = {
 			}
             
 		});
-	},
+	},*/
 
 	checkReview: function (req, res) {
-		var course = req.query.course;
-		var uuName = req.session.uuName;
+		var course = req.query.subject;
+		var profname = req.session.profname;
 
 		db.findOne(Review, {reviewer: uuName, revCourse: course}, null, function (result) { 
 			res.send(result);

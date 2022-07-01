@@ -1,6 +1,5 @@
 const db = require('../models/db.js');
 const Review = require('../models/ReviewModel.js');
-const User = require('../models/UserModel.js');
 const {validationResult} = require('express-validator');
 
 //const bcrypt = require('bcrypt');
@@ -66,7 +65,7 @@ const reviewControl = {
         var stars = req.body.stars;
         
 
-        db.findOne(User, {name:req.session.name}, null, function(loggedUser) {
+       
 		db.insertOne(Review, {
 			studentid: studentid,
             profname: profname,
@@ -76,7 +75,7 @@ const reviewControl = {
             stars: stars
             
         }, function(flag){});
-    });
+    
 		
 
 		console.log('Submitted review of ' + studentid);
