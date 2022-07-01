@@ -1,6 +1,12 @@
+const mongoose = require('mongoose');
 const db = require('../models/db.js');
 const Review = require('../models/ReviewModel.js');
 const {validationResult} = require('express-validator');
+db.connect();
+
+mongoose.connection.on('connected', () => {
+    console.log('Connected to Atlas!');
+});
 
 //const bcrypt = require('bcrypt');
 //const saltRounds = 10;
@@ -41,7 +47,6 @@ const reviewControl = {
 
 	postReview: function (req, res) {
         var errors = validationResult(req);
-        var name = req.body.name;
 
 		if (!errors.isEmpty()) {
             errors = errors.errors;
@@ -55,8 +60,6 @@ const reviewControl = {
 
             res.render('profpage', details);
         }
-        else
-        {
         var studentid = req.body.studentid;
         var profname = req.body.profname;
         var subject = req.body.subject;
@@ -64,7 +67,7 @@ const reviewControl = {
         var review = req.body.review;
         var stars = req.body.stars;
         
-        let review = {
+        var rev = {
             studentid: studentid,
             profname: profname,
 			subject: subject,
@@ -74,14 +77,14 @@ const reviewControl = {
             date: date
         }
        
-		db.insertOne(Review, review, function(flag){});
+		db.insertOne(Review, rev, function(flag){});
     
 		
 
 		console.log('Submitted review of ' + studentid);
 		res.render('profpage');
         
-    }
+    
 	},
 	
 	checkID: function (req, res) {
