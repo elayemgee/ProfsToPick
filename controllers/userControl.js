@@ -49,7 +49,6 @@ const userControl = {
 		console.log('Logged User');
 		var query1 = {studentid: req.session.studentid};
 		db.findOne(User, query1, null, function(x){
-
 			res.render('user', {
 				thisProfile: "", //not sure what this does/ is for
 				name: x.name,

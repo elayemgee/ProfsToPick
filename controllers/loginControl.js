@@ -15,22 +15,15 @@ const loginController = {
     },
 
     postLogin: function (req, res) {
-		
-        var s = req.body.studentid;
-        var p = req.body.password;
-
+        var s = req.body.studentid; 
+        var p = req.body.password; 
         var query1 = {studentid: s};
 		db.findOne(User, query1, null, function(x) {
-            
 			if(x)
 				bcrypt.compare(p, x.password, function(err, equal) {
-					
 					if(equal){
-						
 						req.session.studentid = x.studentid;
-						
 						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>' + x.uuName + ' Successfully Logged In');
-
 						//res.render('home');
 						res.redirect('/user/');
 					}

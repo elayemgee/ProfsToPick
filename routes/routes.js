@@ -49,8 +49,8 @@ app.get(`/allColleges`, controller.getAllColleges);
 app.get(`/profileTitle`, controller.getProfile);
 
 //going to prof page
-app.get(`/profPage`, controller.getProfPage);
-app.get('/profpage', profController.getProf);
+//app.get(`/profPage`, controller.getProfPage);
+app.get('/profpage/:profname', profController.getProf);
 
 //going to review from prof page
 app.get('/makeRating', profController.getRating);

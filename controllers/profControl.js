@@ -41,45 +41,34 @@ const User = require('../models/UserModel.js');
  */
 const profController = {
     getProf: function (req, res) {
-		if(req.session.profname){
-			var prof = req.params.profname;
-			var query1 = {profname: prof};
-			db.findOne(Prof, query1, null, function(x) {
+		//if(req.session.profname){
+			var projection = "studentid profname subject review stars date";
+			var profname = req.params.profname;
+			db.findOne(Prof, {profname: profname}, null, function(x) {
 				if(x != null){
-					var query2 = {profname: prof};
-					db.findMany(Review, query2, {_id:-1}, null, 0, function(y){
-						
+					var query2 = {profname: profname};
+					db.findMany(Review, query2, projection, function(y){
 						res.render('profpage', {
 							profname: x.profname,
 							email: x.email,
 							college: x.college,
 							department: x.department,		
 							subjects: x.subjects,
-							stars: x.stars
+							stars: x.stars,
+							reviewEntries: y
 						});
-						
+						console.log('>> Review: ' + y);
 					});
-
 					console.log('>> Prof Name: ' + x.profname);
-				}
-				else{
-					console.log('>> Prof not found');
-					res.render('error');
 				}
 				
 			});
-		}
-		else{
-			console.log('>> You are not logged in');
-			res.render('error', {extra: '<br>Please try logging in.'});
-		}
-		
 	},
-	getRating: function (req,res){
 		
+
+	getRating: function (req, res){
 		console.log('Going to make a rating');
 		res.render('makeRating');
-		
 	},
 
 	/*postReview: function (req, res) {

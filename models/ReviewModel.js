@@ -6,7 +6,6 @@ var ReviewSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    
     profname: {
         type: String,
         required: true

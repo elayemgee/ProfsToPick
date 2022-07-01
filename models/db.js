@@ -15,28 +15,6 @@ const options = {
 
 const database = {
 
-    /*
-    createDatabase: function() {
-        client.connect(url, options, function (err, db) {
-            if(err) throw err;
-            console.log('Database created!');
-            db.close();
-        });
-    },
-
-    createCollection: function(collection) {
-        client.connect(url, options, function(err, db) {
-            if(err) throw err;
-            var database = db.db('ccapdev-profstopick');
-            database.createCollection(collection, function (err, res) {
-                if(err) throw err;
-                console.log('Collection ' + collection + ' created');
-                db.close();
-            });
-        });
-    },
-    */
-
     connect: function () {
         mongoose.connect(url, options, function(error) {
             if(error) throw error;
