@@ -7,6 +7,8 @@ const reviewController = require(`../controllers/reviewControl.js`);
 const collegeController = require(`../controllers/collegeControl.js`);
 const profController = require(`../controllers/profControl.js`);
 const userController = require(`../controllers/userControl.js`);
+const homeController = require(`../controllers/homeControl.js`);
+
 
 const validation = require('../validation.js');
 
@@ -14,13 +16,14 @@ const app = express();
 
 
 app.get(`/favicon.ico`, controller.getFavicon);
+//home page
 app.get(`/home`, controller.getIndex);
+app.get(`/getHome`, homeController.getHome);
 
 //register
 app.get(`/register`, registerController.getRegister);
 app.get(`/checkID`, registerController.checkID);
 //app.post(`/register`,  registerController.postRegister);
-
 app.post(`/register`, validation.registerValidation(), registerController.postRegister);
 
 //login

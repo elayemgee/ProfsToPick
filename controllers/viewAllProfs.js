@@ -2,9 +2,9 @@ const db = require('../models/db.js');
 const Faculty = require('../models/ProfModel.js');
 const viewController = {
 
-    getFaculties: function (req, res) {
+    getProfs: function (req, res) {
 		
-		if(req.session.uuName){
+		if(req.session.profname){
 			var query1 = {college: "College of Computer Studies"};
 			db.findMany(Faculty, query1, {name:1}, {name:1, fuName:1}, 0, function(a) {
 				
@@ -26,8 +26,7 @@ const viewController = {
 									var query7 = {college: "Brother Andrew Gonzales College of Education"};
 									db.findMany(Faculty, query7, {name:1}, {name:1, fuName:1}, 0, function(g){
 										
-										res.render('view', {
-											thisView: "this",
+										res.render('allProfs', {
 											CCSprofs: a,
 											COSprofs: b,
 											COEprofs: c,
