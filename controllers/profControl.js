@@ -40,9 +40,7 @@ const User = require('../models/UserModel.js');
     }
  */
 const profController = {
-
     getProf: function (req, res) {
-		
 		if(req.session.uuName){
 			var u = req.params.profName;
 			var query1 = {profName: u};
@@ -96,24 +94,24 @@ const profController = {
 		// checking if the prof already have the subject on his/her record
 		var query1 = {$and: [{profName: u}, {'subjects.subject': course}]};
 		db.findOne(Prof, query1, null, function(x) {
-            console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Step1: checking if the prof already have the subject on his/her record');
-            console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Result1:');
+            console.log('>>>>>>>>>Step1: checking if the prof already have the subject on his/her record');
+            console.log('>>>>Result1:');
             console.log(x);
 
             if(x != null){ // >>>>>>>>>>>>>>>>>>>> if the prof has the subject already
-                console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>the prof has the subject already');
+                console.log('>>>>>>>>>>the prof has the subject already');
                 
 				var query2 = {reviewee_u: u};
 				db.findMany(Review, query2, null, null, 0, function(allRevs) {
 
 					var numTotalReviews = allRevs.length;// total number of reviews for the prof
-					console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Total no of Reviews: ' + numTotalReviews);
+					console.log('>>>>>>>Total no of Reviews: ' + numTotalReviews);
 					
 					var query3 = {$and: [{reviewee_u: u}, {revCourse: course}]};
 					db.findMany(Review, query3, null, null, 0, function(subjectRevs) {
 
 						var numSubjectReviews = subjectRevs.length;// number of reviews for the prof about the specific subject
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>No of subject Reviews: ' + numSubjectReviews);
+						console.log('>>>>>>>>No of subject Reviews: ' + numSubjectReviews);
 
 						var subjRating;
 						var i;
@@ -123,9 +121,9 @@ const profController = {
 							}
 						}
 						var oaRating = x.oaRating;
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Original oaRating: ✯' + oaRating);
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Original ' + course + ' Rating: ✯' + subjRating);
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Stars: ' + stars);
+						console.log('>>>>>>Original oaRating: ✯' + oaRating);
+						console.log('>>>>>>Original ' + course + ' Rating: ✯' + subjRating);
+						console.log('>>>>>>Stars: ' + stars);
 
 						// computing for average
 						var resOaRating = ((oaRating*numTotalReviews)+stars)/(numTotalReviews+1);
@@ -137,15 +135,15 @@ const profController = {
 								'subjects.$.rating': resSubjRating
 							}					
 						});
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(oaRating*numtotalReviews): ' + (oaRating*numTotalReviews));
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(oaRating*numTotalReviews)+stars: ' + ((oaRating*numTotalReviews)+stars));
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(numTotalReviews+1): ' + (numTotalReviews+1));
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Resulting oaRating: ✯' + resOaRating);
+						console.log('>>>>>(oaRating*numtotalReviews): ' + (oaRating*numTotalReviews));
+						console.log('>>>>>(oaRating*numTotalReviews)+stars: ' + ((oaRating*numTotalReviews)+stars));
+						console.log('>>>>>(numTotalReviews+1): ' + (numTotalReviews+1));
+						console.log('>>>>>Resulting oaRating: ✯' + resOaRating);
 						
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(subjRating*numSubjectReviews): ' + (subjRating*numSubjectReviews));
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(subjRating*numSubjectReviews)+stars: ' + ((subjRating*numSubjectReviews)+stars));
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>(numSubjectReviews+1): ' + (numSubjectReviews+1));
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>Resulting ' + course + ' Rating: ✯' + resSubjRating);
+						console.log('>>>>>(subjRating*numSubjectReviews): ' + (subjRating*numSubjectReviews));
+						console.log('>>>>>(subjRating*numSubjectReviews)+stars: ' + ((subjRating*numSubjectReviews)+stars));
+						console.log('>>>>>(numSubjectReviews+1): ' + (numSubjectReviews+1));
+						console.log('>>>>>Resulting ' + course + ' Rating: ✯' + resSubjRating);
 
 						// finding the logged user
 						db.findOne(User, {uuName:req.session.uuName}, null, function(loggedUser) {

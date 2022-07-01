@@ -8,8 +8,6 @@ const collegeController = require(`../controllers/collegeControl.js`);
 const profController = require(`../controllers/profControl.js`);
 const userController = require(`../controllers/userControl.js`);
 
-
-
 const validation = require('../validation.js');
 
 const app = express();
@@ -38,7 +36,6 @@ app.get('/authorityCheck', userController.checkAuthority);
 app.get('/editReview', userController.editReview);
 app.get('/deleteReview', userController.deleteReview);
 
-
 //going to different pages
 app.get(`/allProfs`, controller.getAllProfs);
 app.get(`/allColleges`, controller.getAllColleges);
@@ -66,10 +63,11 @@ app.get(`/soe`, collegeController.getSOE);
 app.get(`/writeReview`, reviewController.getReview); //landing on the review page
 app.post(`/profpage`, reviewController.postReview); //posting the review details on prof's page and user's page
 
-
+/*
 app.get(`/getCheckRefNo`, controller.getCheckRefNo);
 app.get(`/add`, controller.getAdd);
 app.get(`/delete`, controller.getDelete);
+*/
 
 module.exports = app;
 

@@ -53,7 +53,7 @@ const userControl = {
 		db.findOne(User, query1, null, function(x){
 
 			res.render('user', {
-				thisProfile: "this", //not sure what this does/ is for
+				thisProfile: "", //not sure what this does/ is for
 				name: x.name,
 				email: x.email,
 				college: x.college,

@@ -32,6 +32,7 @@ app.use(session({
   }));
 
 app.use(`/`, routes);
+app.
 
 hostname = process.env.HOSTNAME;
 
@@ -44,11 +45,12 @@ db.connect();
 app.listen(port, hostname, function () {
     console.log(`Server is running at:`);
     console.log(`http://` + `localhost` + `:` + port);
-    //console.log(`http://` + hostname + `:` + port);
 });
 
 
 //Adding pre-existing professors for users to review
+
+/*
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/ccapdev-profstopick";
 const Prof = require('./models/ProfModel.js');
@@ -68,40 +70,7 @@ MongoClient.connect(url, function(err, db) {
         ],
         stars: 5
       }
- 
-      /*
-      let exist = dbo.collection("profs").findOne(myobj);
-
-      if(exist){
-        console.log('User exists');
-      }
-      else{
-        console.log("null");
-        dbo.collection("profs").insertOne(myobj, function(err, res) {
-            if (err) throw err;
-            console.log("Inserted 1");
-            db.close();
-          });
-      }
-      */
-
-      /*
-      let exist = dbo.collection("profs").findOne(myobj);
-
-      if(exist == null){
-        console.log("null");
-        dbo.collection("profs").insertOne(myobj, function(err, res) {
-            if (err) throw err;
-            console.log("Inserted 1");
-            db.close();
-          });
-      }
-      else{
-        console.log('User exists');
-      }
-      */
-     
-   
+    
     dbo.collection("Profs").insertOne(myobj, function(err, res) {
       if (err) throw err;
       console.log("Inserted");
@@ -110,3 +79,4 @@ MongoClient.connect(url, function(err, db) {
     
     
   });
+  */
