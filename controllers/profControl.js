@@ -49,14 +49,12 @@ const profController = {
 					var query2 = {profname: prof};
 					db.findMany(Review, query2, {_id:-1}, null, 0, function(y){
 						
-						res.render('faculty', {
+						res.render('profpage', {
 							profname: x.profname,
 							email: x.email,
 							college: x.college,
-							department: x.department,
-							
-							subject: x.subject,
-							
+							department: x.department,		
+							subjects: x.subjects,
 							stars: x.stars
 						});
 						
@@ -222,10 +220,10 @@ const profController = {
 	},*/
 
 	checkReview: function (req, res) {
-		var course = req.query.subject;
+		var subject = req.query.subject;
 		var profname = req.session.profname;
 
-		db.findOne(Review, {reviewer: uuName, revCourse: course}, null, function (result) { 
+		db.findOne(Review, {profname: profname, subject: subject}, null, function (result) { 
 			res.send(result);
 		});
 	}

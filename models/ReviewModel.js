@@ -11,12 +11,7 @@ var ReviewSchema = new mongoose.Schema({
     //Lauren Garcia S13
 
     studentid: {
-        type: String,
-        required: true
-    },
-
-    reviewer: {
-        type: String,
+        type: Number,
         required: true
     },
     
@@ -42,4 +37,4 @@ var ReviewSchema = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model('Review', ReviewSchema);
+module.exports = mongoose.model('reviews', ReviewSchema);
