@@ -64,17 +64,17 @@ const reviewControl = {
         var review = req.body.review;
         var stars = req.body.stars;
         
-
-       
-		db.insertOne(Review, {
-			studentid: studentid,
+        let review = {
+            studentid: studentid,
             profname: profname,
 			subject: subject,
-            date: date,
-            review: review,
-            stars: stars
             
-        }, function(flag){});
+            review: review,
+            stars: stars,
+            date: date
+        }
+       
+		db.insertOne(Review, review, function(flag){});
     
 		
 
