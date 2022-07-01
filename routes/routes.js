@@ -8,7 +8,7 @@ const collegeController = require(`../controllers/collegeControl.js`);
 const profController = require(`../controllers/profControl.js`);
 const userController = require(`../controllers/userControl.js`);
 const homeController = require(`../controllers/homeControl.js`);
-
+const viewController = require(`../controllers/viewControl.js`);
 
 const validation = require('../validation.js');
 
@@ -41,7 +41,8 @@ app.get('/editReview', userController.editReview);
 app.get('/deleteReview', userController.deleteReview);
 
 //going to different pages
-app.get(`/allProfs`, controller.getAllProfs);
+//app.get(`/allProfs`, controller.getAllProfs);
+app.get(`/allProfs`, viewController.getProfs);
 app.get(`/allColleges`, controller.getAllColleges);
 
 //going to user profile

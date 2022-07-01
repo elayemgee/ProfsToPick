@@ -4,18 +4,18 @@ const Prof = require('../models/ProfModel.js');
 const viewControl = {
 
     getProfs: function (req, res) {
-		
-		if(req.session.name){
-			db.findMany(Prof, {name:1}, {name:1, profname:1}, 0, function(result) {										
+		var projection = "profname email college department stars";
+		//if(req.session.name){
+			db.findMany(Prof, {}, projection, function(result) {										
 				res.render('allProfs', {
 					profEntries: result
 				}); 
 			});
-		}
-		else{
+		//}
+		/*else{
 			console.log('You are not logged in');
 			res.render('error', {extra: '<br>Please try logging in.'});
-		}
+		}*/
 		
 	}
 }

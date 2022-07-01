@@ -19,7 +19,7 @@ const homeControl = {
         }
         else{
             console.log('You are not logged in');
-            res.render('error', {extra: '<br>Please try logging in.'});
+            //res.render('error', {extra: '<br>Please try logging in.'});
         }
     }
 }
