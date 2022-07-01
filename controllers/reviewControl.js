@@ -80,7 +80,7 @@ const reviewControl = {
 		
 
 		console.log('Submitted review of ' + studentid);
-		res.render('home');
+		res.render('profpage');
         
     }
 	},
