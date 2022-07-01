@@ -1,11 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Castoro&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
 
-
 * { padding: 0; margin: 0;}
-
-/*I made a comment*/
-
 
 html, body {
     height: auto !important;
