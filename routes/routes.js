@@ -8,9 +8,13 @@ const collegeController = require(`../controllers/collegeControl.js`);
 const profController = require(`../controllers/profControl.js`);
 const userController = require(`../controllers/userControl.js`);
 
+const addData = require(`../sampledata.js`);
+
 const validation = require('../validation.js');
 
 const app = express();
+
+app.get('/data', addData.setProfData);
 
 app.get(`/favicon.ico`, controller.getFavicon);
 app.get(`/home`, controller.getIndex);
@@ -24,7 +28,7 @@ app.post(`/register`, validation.registerValidation(), registerController.postRe
 
 //login
 app.get(`/`, loginController.getLogin);
-app.post(`/loginuser`, loginController.postLogin);
+app.post(`/login`, loginController.postLogin);
 
 //logout
 app.get(`/logout`, logoutController.getLogout);
