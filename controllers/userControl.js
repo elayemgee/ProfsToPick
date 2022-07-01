@@ -25,8 +25,7 @@ const userControl = {
 								name: x.name,
 								id: x.id,
 								email: x.email,
-								program: x.program,
-								
+								program: x.program,		
 								reviewEntries: y
 							});
 						});
@@ -44,7 +43,6 @@ const userControl = {
 			console.log('You are not logged in');
 			res.render('error', {extra: '<br>Please try logging in.'});
 		}
-		
 	},
 	
 	getLoggedUser: function (req, res) {

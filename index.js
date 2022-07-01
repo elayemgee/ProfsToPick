@@ -32,7 +32,6 @@ app.use(session({
   }));
 
 app.use(`/`, routes);
-//app.use(`/data`, routes);
 
 hostname = process.env.HOSTNAME;
 

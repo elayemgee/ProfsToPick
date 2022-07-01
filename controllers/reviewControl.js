@@ -64,7 +64,11 @@ const reviewControl = {
         var review = req.body.review;
         var stars = req.body.stars;
         
+<<<<<<< Updated upstream
         let review = {
+=======
+        let rev = {
+>>>>>>> Stashed changes
             studentid: studentid,
             profname: profname,
 			subject: subject,
@@ -74,10 +78,14 @@ const reviewControl = {
             date: date
         }
        
+<<<<<<< Updated upstream
 		db.insertOne(Review, review, function(flag){});
     
 		
 
+=======
+		db.insertOne(Review, rev, function(flag){});
+>>>>>>> Stashed changes
 		console.log('Submitted review of ' + studentid);
 		res.render('profpage');
         
