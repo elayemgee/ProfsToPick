@@ -14,11 +14,6 @@ var ReviewSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-
-    reviewer: {
-        type: String,
-        required: true
-    },
     
     profname: {
         type: String,
