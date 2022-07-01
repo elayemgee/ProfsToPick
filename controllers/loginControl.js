@@ -6,7 +6,7 @@ const loginController = {
 
     getLogin: function (req, res) {
 
-        if(req.session.uuName)
+        if(req.session.studentid)
 			req.session.destroy(function(err) {
 				if(err) throw err;
 			});
@@ -27,12 +27,12 @@ const loginController = {
 					
 					if(equal){
 						
-						req.session.uuName = x.studentid;
+						req.session.studentid = x.studentid;
 						
 						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>' + x.uuName + ' Successfully Logged In');
 
-						res.render('home');
-						//res.redirect('/user/');
+						//res.render('home');
+						res.redirect('/user/');
 					}
 					else{
 						res.render('login');

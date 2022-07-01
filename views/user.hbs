@@ -29,40 +29,9 @@
             <h1 class = "grayHeader">Your Rated Profs</h1><br>
             <p class = "numReviews">1 Reviews</p>
 
-            <div class = "rating">
-
-                <div class = "topReview" style = "display: flex;">
-                    <div class = "reviewImg"><img src="/images/user.png" alt="search" style = "max-width: 100%; max-height: 100%;"></div> 
-                    
-                    <div class="profDets" style="">
-                        <div style = "display: block;">
-                            <div class="profBold" >{{profname}}</div> 
-                            <div class="subBold">{{subject}}</div> 
-                            <!--<div class="userBold">Username</div> -->
-                        </div>
-                    </div>
-
-                    <div class="more">                        
-                        <button onclick= "reviewOpts()" class = "moreButton"><img src="/images/more.png" alt="more"></button> 
-                        <!-- <img src="more.png" alt="more"> -->
-                        <div id="moreOptions" class="more-content">
-                            <button onclick="window.location='rating_a_prof.html'">Edit</button>
-                            <button >Delete</button>
-                        </div>
-                    </div>
-                    
-                </div>
-            
-                <div style="margin-left: 50px;margin-top: 50px; width: 800px; display: flex;">
-                    <div class = "starRating"><p>5</p> <img src="/images/star.png" alt="star" width = "30" height = "30"></div>
-                    <div class="username">Date</div>
-                </div>
-
-                <p class = "review">
-                   Written Review
-                </p>
-
-            </div>
+            {{#each reviewEntries}}
+				{{> review reviewer=reviewer profname=profname subject=subject review=review stars=stars date=date}}
+			{{/each}}
         </div>
 
         <footer>

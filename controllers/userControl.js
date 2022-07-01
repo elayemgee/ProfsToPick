@@ -33,7 +33,7 @@ const userControl = {
 					}
 					else{
 						console.log('User not found');
-						res.render('error', {extra: '<br>The User may not exist here'});
+						//res.render('error', {extra: '<br>The User may not exist here'});
 					}
 					
 				});
@@ -52,9 +52,19 @@ const userControl = {
 		var query1 = {studentid: req.session.studentid};
 		db.findOne(User, query1, null, function(x){
 
+			res.render('user', {
+				thisProfile: "this", //not sure what this does/ is for
+				name: x.name,
+				email: x.email,
+				college: x.college,
+				program: x.program,
+				studentid: x.studentid //120******
+				//reviewEntries: y
+			});
+			
+			/*
 			var query2 = {reviewer: req.session.studentid};
 			db.findMany(Review, query2, {_id:-1}, null, 0, function(y){
-				
 				res.render('user', {
 					//thisProfile: "this", //not sure what this does/ is for
 					name: x.name,
@@ -65,6 +75,7 @@ const userControl = {
 					//reviewEntries: y
 				});
 			});
+			*/
 			
 		});
 		
