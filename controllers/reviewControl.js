@@ -52,7 +52,7 @@ const reviewControl = {
 			db.findOne(Prof, {profname: profname}, null, function(x) {
 				if(x != null){
 					var studentid = req.body.studentid;
-                    var profname = x.profname;
+                    var prof = x.profname;
                     var subject = req.body.subject;
                     var date = req.body.date;
                     var review = req.body.review;
@@ -61,7 +61,7 @@ const reviewControl = {
 
                     let rev = {
                         studentid: studentid,
-                        profname: profname,
+                        profname: prof,
                         subject: subject,
                         
                         review: review,
