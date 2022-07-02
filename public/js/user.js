@@ -65,7 +65,7 @@ $(document).ready(function () {
         
     });
 
-    $('.userRatings').on('click', '.button2' , function () {
+    $('.userRatings').on('click', 'more-content button' , function () {
         var parent = $(this).parent();
         var studentid = parent.find("p.text")[0].innerText;
         var profname = parent.find("p.text")[1].innerText;
