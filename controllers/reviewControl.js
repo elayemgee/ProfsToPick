@@ -47,44 +47,35 @@ const reviewControl = {
     },
 
 	postReview: function (req, res) {
-        
-        console.log('post Review')
-        var errors = validationResult(req);
-		if (!errors.isEmpty()) {
-            errors = errors.errors;
-			
-            var details = {};
-            for(i = 0; i < errors.length; i++)
-			{
-				details[errors[i].param + 'Error'] = errors[i].msg;
-				console.log(errors[i].msg);
-			}
+            console.log('post Review')
+			var profname = req.params.profname;
+			db.findOne(Prof, {profname: profname}, null, function(x) {
+				if(x != null){
+					var studentid = req.body.studentid;
+                    var profname = x.profname;
+                    var subject = req.body.subject;
+                    var date = req.body.date;
+                    var review = req.body.review;
+                    var stars = req.body.stars;
+                    
 
-            res.render('profpage', details);
-        }
-        var studentid = req.body.studentid;
-        var profname = req.body.profname;
-        var subject = req.body.subject;
-        var date = req.body.date;
-        var review = req.body.review;
-        var stars = req.body.stars;
-        
-
-        let rev = {
-            studentid: studentid,
-            profname: profname,
-			subject: subject,
-            
-            review: review,
-            stars: stars,
-            date: date
-        }
-       
-		db.insertOne(Review, rev, function(flag){});
-    
-		console.log('Submitted review of ' + studentid);
-		res.render('profpage');
-        
+                    let rev = {
+                        studentid: studentid,
+                        profname: profname,
+                        subject: subject,
+                        
+                        review: review,
+                        stars: stars,
+                        date: date
+                    }
+                
+                    db.insertOne(Review, rev, function(flag){});
+                
+                    console.log('Submitted review of ' + studentid);
+                    res.render('profpage');
+				}
+				
+			});
     
 	},
 	
