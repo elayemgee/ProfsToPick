@@ -49,7 +49,7 @@ const reviewControl = {
 	postReview: function (req, res) {
 
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+'-'+today.getTime();
         console.log('post Review')
         var profemail = req.body.profemail;
         var studentid = req.session.studentid;
@@ -76,7 +76,8 @@ const reviewControl = {
                 date: date
             }, function(flag){});
          
-            res.redirect('/getHome');
+            var route = '/profPage/' + profname;
+            res.redirect(route);
         });
 /*
             console.log('post Review');

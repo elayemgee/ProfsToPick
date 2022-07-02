@@ -47,7 +47,7 @@ const profController = {
 			db.findOne(Prof, {profname: profname}, null, function(x) {
 				if(x != null){
 					var query2 = {profname: profname};
-					db.findMany(Review, query2, projection, function(y){
+					db.findManySort(Review, query2, projection, {date: -1}, function(y){
 						res.render('profpage', {
 							profname: x.profname,
 							email: x.email,

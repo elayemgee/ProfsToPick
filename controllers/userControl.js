@@ -76,13 +76,23 @@ const userControl = {
 	deleteReview: function(req, res) {
 		console.log("here");
 		var studentid = req.query.studentid;
+		var reviewer = req.query.reviewer;
 		var profname = req.query.profname;
 		var subject = req.query.subject;
-		var date = req.query.date;
+		
 		var review = req.query.review;
 		var stars = req.query.stars;
+		var date = req.query.date;
 
-		var form = {reviewer:reviewer, profname:profname, subject:subject, review:review, stars:stars, date:date};
+		console.log(studentid);
+		console.log(reviewer);
+		console.log(profname);
+		console.log(subject);
+		console.log(review);
+		console.log(stars);
+		console.log(date);
+
+		var form = {studentid:studentid, profname:profname, subject:subject, review:review, stars:stars, date:date};
 		
         db.deleteOne(Review, form, function (flag) {
             if (flag) {
