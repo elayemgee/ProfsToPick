@@ -83,9 +83,10 @@ const userControl = {
 		var stars = parseFloat(req.query.stars, 10);
 		
         db.deleteOne(Review, {profname:profname, studentid:studentid, subject:subject, review: review, stars:stars, date: date}, function (flag) {
-            if (flag)
+            if (flag) 
                 res.send('true');
         });
+		
 		/*var conditions = {reviewer:reviewer, profname:profname, subject:subject, stars:stars};
 		// finding the fuName of the prof
 		db.findOne(Review, conditions, null, function(a) {
