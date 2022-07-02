@@ -23,7 +23,7 @@ const loginController = {
 				bcrypt.compare(p, x.password, function(err, equal) {
 					if(equal){
 						req.session.studentid = x.studentid;
-						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>' + x.uuName + ' Successfully Logged In');
+						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>' + x.name + ' Successfully Logged In');
 						res.redirect('/getHome');
 						//res.redirect('/user/');
 					}

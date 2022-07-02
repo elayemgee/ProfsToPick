@@ -47,19 +47,16 @@ const reviewControl = {
     },
 
 	postReview: function (req, res) {
-            console.log('post Review')
-			var profname = req.params.profname;
-			db.findOne(Prof, {profname: profname}, null, function(x) {
-				if(x != null){
+            console.log('post Review');
 					var studentid = req.body.studentid;
-                    var prof = x.profname;
+                    var profname = req.body.name;
                     var subject = req.body.subject;
                     var date = req.body.date;
                     var review = req.body.review;
                     var stars = req.body.stars;
                     
 
-                    let rev = {
+                /*    let rev = {
                         studentid: studentid,
                         profname: prof,
                         subject: subject,
@@ -67,15 +64,23 @@ const reviewControl = {
                         review: review,
                         stars: stars,
                         date: date
-                    }
+                    }*/
                 
-                    db.insertOne(Review, rev, function(flag){});
+                    db.insertOne(reviews, {
+                        studentid: studentid,
+                        profname: profname,
+                        subject: subject,
+                        
+                        review: review,
+                        stars: stars,
+                        date: date
+                    }, function(flag){});
                 
                     console.log('Submitted review of ' + studentid);
                     res.render('profpage');
-				}
 				
-			});
+				
+			
     
 	},
 	
