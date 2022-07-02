@@ -2,15 +2,25 @@ body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
 /* Button used to open the contact form - fixed at the bottom of the page */
 .open-button {
-    background-color: #555;
+    background-color: #2ea260;
     color: white;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
     opacity: 0.8;
     position: absolute;
-    top: 500px;
-    width: 280px;
+    width: 1200px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 10px;
+  }
+
+  .rate {
+    margin-top: 325px;
+    margin-left: -30px;
+    margin-right: auto;
+    height: 50px;
+    width: 1200px;
   }
   
   /* The popup form - hidden by default */

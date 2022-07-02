@@ -60,6 +60,7 @@
             <p style ="margin-top:130px;">{{department}}</p>
             <p style ="margin-top:185px;">✯{{stars}}</p> <!--NEED TO PUT BELOW PROFILE PIC, add margin-left or smtg-->
 
+            <div class = "rate">
             <button class="open-button" onclick="openForm()">Rate This Professor</button>
                 <div class="form-popup" id="myForm" >
                     <form method="POST"  autocomplete="off" class="form-container"> 
@@ -91,12 +92,12 @@
                         <button type="button" class="btn cancel" onclick="closeForm()">Cancel</button>
                     </form>
                 </div>
+                </div>
         </div>
 
 
-        <div class = "userRatings">
+        <div class = "userRatings" style="margin-top: 100px;">
             <h1>All Reviews</h1><br>
-            <p class = "numReviews">1 Reviews</p>
             <div style = "margin-top: 200px;"></div>
             {{#each reviewEntries}}
 				{{> review reviewer=reviewer profname=profname subject=subject review=review stars=stars date=date}}
