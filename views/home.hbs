@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/home2.css">
+        <link rel="stylesheet" href="/css/profiles.css">
         <script type="text/javascript" src="/js/topBar.js"></script>  
 
     </head>
@@ -16,20 +17,20 @@
             <input type="text" placeholder="Search..">
         </div>
 
-        <div class = "parent-div">
-        <div class = "latestreviews">
-            <h2>Latest Reviews</h2>
-            <div class = "ratePreview">
+        <!-- <div class = "parent-div">-->
+            <div class = "latestreviews">
+                <h2 >Latest Reviews</h2>
                 {{#each reviewEntries}}
-						{{> review studentid=studentid profname=profname subject=subject review=review stars=stars date=date}}
-				{{/each}}
-            
+                    {{> review reviewer=reviewer profname=profname subject=subject review=review stars=stars date=date}}
+                {{/each}}
+    
+            <!--
+            <div class = "ratePreview">
             </div>
-        </div>
+            -->
+            </div>
 
-    </div>
-
-    <div class = "spacing"></div>
+        <!-- </div> -->
 
     {{> footer}}
 

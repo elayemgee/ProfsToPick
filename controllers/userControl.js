@@ -49,16 +49,20 @@ const userControl = {
 		console.log('Logged User');
 		var query1 = {studentid: req.session.studentid};
 		db.findOne(User, query1, null, function(x){
-			res.render('user', {
-				thisProfile: "", //not sure what this does/ is for
-				name: x.name,
-				email: x.email,
-				college: x.college,
-				program: x.program,
-				studentid: x.studentid //120******
-				//reviewEntries: y
+			var query2 = {studentid: req.session.studentid};
+			var projection = "studentid profname subject review stars, date";
+			db.findMany(Review, query2, projection, function(y){
+				res.render('user', {
+					thisProfile: "", //not sure what this does/ is for
+					name: x.name,
+					email: x.email,
+					college: x.college,
+					program: x.program,
+					studentid: x.studentid,
+					reviewEntries: y
+				});
 			});
-			
+				
 			/*
 			var query2 = {reviewer: req.session.studentid};
 			db.findMany(Review, query2, {_id:-1}, null, 0, function(y){

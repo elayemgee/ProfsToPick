@@ -52,6 +52,17 @@ const database = {
         });
     },
 
+    //withLimit
+    findManyLimit: function(model, query, projection, limit, callback) {
+        model.find(query, projection, function(error, result) {
+            if(error) throw error;
+        }).limit(limit).exec(function(err, result){
+            if(err) throw err;
+            return callback(result);
+        });
+    },
+
+
     updateOne: function(model, filter, update, callback) {
         model.updateOne(filter, update, function(error, result) {
             if(error) return callback(false);
