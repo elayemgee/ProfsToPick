@@ -79,8 +79,6 @@ const userControl = {
 		var subject = req.query.subject;
 		var stars = parseFloat(req.query.stars, 10);
 		
-		var name = req.query.name;
-        var refno = req.query.refno;
         db.deleteOne(Transaction, {name: name, refno: refno}, function (flag) {
             if (flag)
                 res.send('true');
