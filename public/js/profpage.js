@@ -36,5 +36,26 @@ $(document).ready(function () {
         validateField($('#stars'), 'stars', $('#errorStars'));
 		
     });
+    $('#submit').click(function () {
+            let form = 
+            {
+                studentid: $('#studentid.field').val(),
+                name: $('#name.field').val(),
+                subject: $('#subject.field').val(),
+                date: $('#date.field').val(),
+                review: $('#review.field').val(),
+                stars: $('#stars.field').val()
+            }
+            console.log(form)
+            $.get('/add', form, (data)=>
+            {
+                $('#reviewEntries').append(data)
+            });
+
+        
+
+        
+        
+    });
 	
 });
