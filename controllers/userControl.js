@@ -53,7 +53,6 @@ const userControl = {
 			var projection = "studentid profname subject review stars date";
 			db.findManySort(Review, query2, projection, {date: -1}, function(y){
 				res.render('user', {
-					thisProfile: "", //not sure what this does/ is for
 					name: x.name,
 					email: x.email,
 					college: x.college,

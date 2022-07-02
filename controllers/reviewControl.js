@@ -83,6 +83,7 @@ const reviewControl = {
     
 		console.log('Submitted review of ' + studentid);
 		res.render('profpage');
+        res.status(200).end();
         
     
 	},
