@@ -53,10 +53,10 @@ const database = {
     },
 
     //withLimit
-    findManyLimit: function(model, query, projection, limit, callback) {
+    findManyLimit: function(model, query, projection, limit, sort, callback) {
         model.find(query, projection, function(error, result) {
             if(error) throw error;
-        }).limit(limit).exec(function(err, result){
+        }).sort(sort).limit(limit).exec(function(err, result){
             if(err) throw err;
             return callback(result);
         });

@@ -8,9 +8,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
     border: none;
     cursor: pointer;
     opacity: 0.8;
-    position: fixed;
+    position: absolute;
     top: 500px;
-    right: 148px;
     width: 280px;
   }
   

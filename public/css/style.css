@@ -7,9 +7,8 @@
 html, body {
     font-family: 'Basic', sans-serif;
     width: 100%;
-    /*display: flex;*/
-    height:auto;
-    /*flex-direction: column;*/
+    display: flex;
+    flex-direction: column;
   }
 
   .topBar
@@ -89,7 +88,7 @@ html, body {
     background: #375222;
     color: white;
     margin-top:100px;
-    bottom: 0;
+    margin-bottom: 0;
 }
 
 

@@ -51,7 +51,7 @@ const userControl = {
 		db.findOne(User, query1, null, function(x){
 			var query2 = {studentid: req.session.studentid};
 			var projection = "studentid profname subject review stars date";
-			db.findMany(Review, query2, projection, function(y){
+			db.findManySort(Review, query2, projection, {date: -1}, function(y){
 				res.render('user', {
 					thisProfile: "", //not sure what this does/ is for
 					name: x.name,
@@ -63,21 +63,6 @@ const userControl = {
 				});
 			});
 				
-			/*
-			var query2 = {reviewer: req.session.studentid};
-			db.findMany(Review, query2, {_id:-1}, null, 0, function(y){
-				res.render('user', {
-					//thisProfile: "this", //not sure what this does/ is for
-					name: x.name,
-					studentid: x.studentid, //120******
-					email: x.email,
-					college: x.college,
-					program: x.program
-					//reviewEntries: y
-				});
-			});
-			*/
-			
 		});
 		
 	},

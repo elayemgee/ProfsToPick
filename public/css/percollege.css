@@ -7,13 +7,12 @@
     height: auto;
     border-radius: 50px;
     margin-top: 50px;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 
 .mainCollege {
     font-weight: 400;
     font-size: 36px;
-    line-height: 46px;    
     text-align: center;
     text-decoration-line: underline;
     color: #375222;

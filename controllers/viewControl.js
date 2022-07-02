@@ -22,14 +22,15 @@ const viewControl = {
 		var key = req.query.key;
 		console.log(key);
 		var projection = "profname email college department stars";
-		db.findMany(Prof, {profname: { $regex: key}}, projection, function(result) {
+		var query = { $or: [ {name: { $regex: key}}, {email: { $regex: key}}]};
+		//{profname: { $regex: key}}
+		db.findMany(Prof, query, projection, function(result) {
 			res.render('searchResults', {
-				//thisSearch: "this",
 				searchKey: key,
 				results: result
 			});
 			console.log(result.name);
-			console.log('searched!');
+			console.log('searched');
 		});	
     }
 }
