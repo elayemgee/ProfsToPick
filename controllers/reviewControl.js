@@ -60,7 +60,6 @@ const reviewControl = {
                         studentid: studentid,
                         profname: prof,
                         subject: subject,
-                        
                         review: review,
                         stars: stars,
                         date: date
@@ -70,10 +69,10 @@ const reviewControl = {
                         studentid: studentid,
                         profname: profname,
                         subject: subject,
-                        
                         review: review,
                         stars: stars,
                         date: date
+
                     }, function(flag){});
                 
                     console.log('Submitted review of ' + studentid);
