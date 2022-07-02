@@ -63,7 +63,7 @@ app.get(`/coe`, collegeController.getCOE);
 app.get(`/coed`, collegeController.getCOED);
 app.get(`/colaw`, collegeController.getCOLAW);
 app.get(`/cos`, collegeController.getCOS);
-app.get(`/soe`, collegeController.getSOE);
+app.get(`/coec`, collegeController.getCOEC);
 
 //making a review
 app.get(`/writeReview`, reviewController.getReview); //landing on the review page

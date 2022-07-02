@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>School of Economics</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/percollege.css">
+        <script type="text/javascript" src="/js/topBar.js"></script> 
+
+    </head>
+    <body>
+        {{> topBar}}
+        <h1 class = "mainCollege">College of Economics</h1>
+        <br>
+
+        <div class = "college" style="margin-top: 50px;" >
+            {{#each profEntries}}
+                {{> profPreview profname=profname email=email college=college department=department stars=stars}}
+            {{/each}}
+            
+        </div>
+    
+        <footer>
+            <div class = "footer">
+                <p>CCAPDEV MP<br>Atienza, Capada, Garcia</p>
+            </div>
+        </footer>
+    </body>
+</html>

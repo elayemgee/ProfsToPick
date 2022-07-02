@@ -10,9 +10,9 @@
 html, body {
     font-family: 'Basic', sans-serif;
     width: 100%;
-    display: flex;
+    /*display: flex;*/
     height:auto;
-    flex-direction: column;
+    /*flex-direction: column;*/
   }
 
 
@@ -38,7 +38,6 @@ html, body {
 .page
 {
     font-family: 'Basic', sans-serif;
-    /*font-family: 'Castoro';*/
     text-decoration: underline;
     font-size: 25px;
     color: white;

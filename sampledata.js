@@ -99,7 +99,7 @@ bcrypt.hash('password', saltRounds, function(err, hash) {
 	var user = {
 		studentid: 12112345,
 		name: "Juan Dela Cruz",
-		college: "CCS",
+		college: "College of Computer Studies",
 		program: "BSCS",
 		email: "juan_delacruz@dlsu.edu.ph",
 		password: hash,
@@ -109,7 +109,7 @@ bcrypt.hash('password', saltRounds, function(err, hash) {
 	var user = {
 		studentid: 12012345,
 		name: "John Smith",
-		college: "CCS",
+		college: "College of Computer Studies",
 		program: "BSCS",
 		email: "john_smith@dlsu.edu.ph",
 		password: hash,
@@ -119,7 +119,7 @@ bcrypt.hash('password', saltRounds, function(err, hash) {
 	var user = {
 		studentid: 11912345,
 		name: "Bob",
-		college: "CLA",
+		college: "College of Liberal Arts",
 		program: "BACA",
 		email: "bob@dlsu.edu.ph",
 		password: hash,

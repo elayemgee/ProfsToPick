@@ -12,10 +12,9 @@
         <br>
 
         <div class = "college" style="margin-top: 50px;" >
-            {{#each profPreviews}}
-                {{> profPreview}}
+            {{#each profEntries}}
+                {{> profPreview profname=profname email=email college=college department=department stars=stars}}
             {{/each}}
-            
         </div>
     
         <footer>
