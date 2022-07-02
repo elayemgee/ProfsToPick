@@ -75,7 +75,7 @@ const userControl = {
 
 	deleteReview: function(req, res) {
 		console.log("here");
-		var studentid = req.query.studentid;
+		var studentid = req.session.studentid; 
 		var reviewer = req.query.reviewer;
 		var profname = req.query.profname;
 		var subject = req.query.subject;
