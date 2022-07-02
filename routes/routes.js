@@ -33,9 +33,9 @@ app.post(`/login`, loginController.postLogin);
 app.get(`/logout`, logoutController.getLogout);
 
 //user - to fix userControl
-app.get('/user/:uuName', userController.getUser);
+//app.get('/user/:uuName', userController.getUser);
 app.get('/user/', userController.getLoggedUser);
-app.get('/authorityCheck', userController.checkAuthority);
+//app.get('/authorityCheck', userController.checkAuthority);
 app.get('/editReview', userController.editReview);
 app.get('/deleteReview', userController.deleteReview);
 
@@ -69,7 +69,7 @@ app.get(`/coec`, collegeController.getCOEC);
 
 //making a review
 app.get(`/profpage`, reviewController.getReview); //landing on the review page
-app.post(`/profpage`, reviewController.postReview); //posting the review details on prof's page and user's page
+app.get(`/profpage`, reviewController.postReview); //posting the review details on prof's page and user's page
 
 module.exports = app;
 

@@ -65,16 +65,17 @@ $(document).ready(function () {
         
     });
 
-    $('#cards').on('click', '.remove', function () {
-        // your code here
+    $('#profileReview').on('click', '.button', function () {
+        var parent = $(this).parent();
+        var profname = parent.find("p.text")[0].innerText;
+        var reviewer = parent.find("p.text")[1].innerText;
+        var subject = parent.find("p.text")[2].innerText;
+        var stars = parent.find("p.text")[3].innerText;
 
-        var card = $(this).parent();
-        var refno = card.find("p.text")[1].innerText;
-
-        $.get('/delete', {refno:refno}, (result) => {
-            card.remove(result)
-        }); 
-
+        $.get('/deleteReview', {profname:profname, reviewer:reviewer, subject:subject, stars:stars}, function(result) {
+            if (result)
+                parent.remove();
+        });
     });
 
 })

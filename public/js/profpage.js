@@ -39,15 +39,15 @@ $(document).ready(function () {
     $('#submit').click(function () {
             let form = 
             {
-                studentid: $('#studentid.field').val(),
-                name: $('#name.field').val(),
-                subject: $('#subject.field').val(),
-                date: $('#date.field').val(),
-                review: $('#review.field').val(),
-                stars: $('#stars.field').val()
+                studentid: document.getElementById('studentid').value,
+                name: document.getElementById('name').value,
+                subject: document.getElementById('subject').value,
+                date: document.getElementById('date').value,
+                review: document.getElementById('review').value,
+                stars: document.getElementById('stars').value
             }
             console.log(form)
-            $.get('/add', form, (data)=>
+            $.get('/profpage', form, (data)=>
             {
                 $('#reviewEntries').append(data)
             });
