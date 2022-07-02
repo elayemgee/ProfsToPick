@@ -75,7 +75,7 @@ const reviewControl = {
                     }, function(flag){});
                 
                     console.log('Submitted review of ' + studentid);
-                    res.render('profpage');
+                    res.redirect('/getHome');
 				
 	},
 	
