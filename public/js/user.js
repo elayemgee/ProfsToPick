@@ -65,7 +65,7 @@ $(document).ready(function () {
         
     });
 
-    $('.userRatings').on('click', '.button2' , function () {
+    $('#rating').on('click', '.button2' , function () {
         var parent = $(this).parent();
         var studentid = parent.find("p.text")[0].innerText;
         var profname = parent.find(".profBold")[1].innerText;
@@ -74,10 +74,8 @@ $(document).ready(function () {
         var stars = parent.find(".starRating")[4].innerText;
         var date = parent.find(".date")[5].innerText;
         $.get('/deleteReview', {studentid:studentid, profname:profname, subject:subject, review:review, stars:stars, date:date}, function(result) {
-            if (result) {
-                console.log('Enters if in yser.js');
+            if (result)
                 parent.remove();
-            }
         });
     });
 
