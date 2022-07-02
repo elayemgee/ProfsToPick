@@ -47,43 +47,8 @@ const reviewControl = {
     },
 
 	postReview: function (req, res) {
-        //var projection = "studentid profname subject review stars date";
-			var profname = req.params.profname;
-			db.findOne(Prof, {profname: profname}, null, function(x) {
-				if(x != null){
-					//var query2 = {profname: profname};
-					var studentid = req.body.studentid;
-                    var profname = req.body.profname;
-                    var subject = req.body.subject;
-                    var date = req.body.date;
-                    var review = req.body.review;
-                    var stars = req.body.stars;
-                   
-                
-                    db.reviews.insertOne(Review, {
-                        studentid: studentid,
-                        profname: profname,
-                        subject: subject,
-                        
-                        review: review,
-                        stars: stars,
-                        date: date}, function(flag){});
-
-                    res.render('profpage', {
-                        profname: x.profname,
-                        email: x.email,
-                        college: x.college,
-                        department: x.department,		
-                        subjects: x.subjects,
-                        stars: x.stars
-                    });
-                
-                    console.log('Submitted review of ' + studentid);
-                    res.render('profpage');
-				}
-				
-			});
-          /**   
+        
+        console.log('post Review')
         var errors = validationResult(req);
 		if (!errors.isEmpty()) {
             errors = errors.errors;
@@ -120,7 +85,7 @@ const reviewControl = {
 		console.log('Submitted review of ' + studentid);
 		res.render('profpage');
         
-    */
+    
 	},
 	
 	checkID: function (req, res) {

@@ -17,27 +17,28 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
   .rate {
     margin-top: 325px;
-    margin-left: -30px;
+    margin-left: -10px;
     margin-right: auto;
     height: 50px;
-    width: 1200px;
+    width: 1000px;
   }
   
   /* The popup form - hidden by default */
   .form-popup {
     display: none;
-    position: fixed;
-    bottom: 0;
-    right: 15px;
     border: 3px solid #f1f1f1;
-    z-index: 9;
+    margin-top: 100px;
+    width: 1220px;
   }
   
   /* Add styles to the form container */
   .form-container {
-    max-width: 300px;
+    margin-top: 100px;
+    width: 1220px;
     padding: 10px;
     background-color: white;
+    position: relative;
+    height: auto;
   }
   
   /* Full-width input fields */
@@ -53,6 +54,12 @@ body {font-family: Arial, Helvetica, sans-serif;}
   .form-container input[type=text]:focus, .form-container input[type=date]:focus, .form-container input[type=number]:focus {
     background-color: #ddd;
     outline: none;
+  }
+
+  #review {
+    vertical-align: top;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
   
   /* Set a style for the submit/login button */
