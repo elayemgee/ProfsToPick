@@ -6,9 +6,8 @@ const homeControl = {
     getHome: function (req, res) {
         var projection = "studentid profname subject review stars, date";
 
-        db.findMany(Review, {}, projection, function(y){
+        db.findManyLimit(Review, {}, projection, 3, function(y){
             res.render('home', {
-                //thisHome: "this",
                 reviewEntries:y
             });
         });

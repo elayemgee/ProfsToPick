@@ -28,7 +28,7 @@
         <div class = "userRatings">
             <h1 class = "grayHeader">Your Rated Profs</h1><br>
             <p class = "numReviews">1 Reviews</p>
-
+            <div style = "margin-top: 200px;"></div>
             {{#each reviewEntries}}
 				{{> review reviewer=reviewer profname=profname subject=subject review=review stars=stars date=date}}
 			{{/each}}

@@ -20,6 +20,8 @@
         <!-- <div class = "parent-div">-->
             <div class = "latestreviews">
                 <h2 >Latest Reviews</h2>
+                <div style = "margin-top: 100px;"></div>
+
                 {{#each reviewEntries}}
                     {{> review reviewer=reviewer profname=profname subject=subject review=review stars=stars date=date}}
                 {{/each}}
