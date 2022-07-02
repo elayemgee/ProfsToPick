@@ -68,7 +68,7 @@
             <div class = "rate">
             <button class="open-button" onclick="openForm()">Rate This Professor</button>
                 <div class="form-popup" id="myForm" >
-                    <form method="POST"  autocomplete="off" action = "postReview" class="form-container"> 
+                    <form method="POST"  autocomplete="off" action = "/postReview" class="form-container"> 
                         <b>First Three Digits of Student ID</b> 
                         <input type="number" id="studentid" minlength="8" name = "studentid" placeholder="Ex: 120" required>
                         <p class ="msg" id = "errorID">{{errorID}}</p>

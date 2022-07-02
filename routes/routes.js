@@ -39,6 +39,10 @@ app.get('/user/', userController.getLoggedUser);
 app.get('/editReview', userController.editReview);
 app.get('/deleteReview', userController.deleteReview);
 
+//making a review
+app.get(`/profpage`, reviewController.getReview); //landing on the review page
+app.post(`/postReview`, reviewController.postReview); //posting the review details on prof's page and user's page
+
 //going to different pages
 //app.get(`/allProfs`, controller.getAllProfs);
 app.get(`/allProfs`, viewController.getProfs);
@@ -67,9 +71,6 @@ app.get(`/colaw`, collegeController.getCOLAW);
 app.get(`/cos`, collegeController.getCOS);
 app.get(`/coec`, collegeController.getCOEC);
 
-//making a review
-app.get(`/profpage`, reviewController.getReview); //landing on the review page
-app.post(`/postReview`, reviewController.postReview); //posting the review details on prof's page and user's page
 
 module.exports = app;
 
