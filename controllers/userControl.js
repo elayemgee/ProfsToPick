@@ -78,8 +78,8 @@ const userControl = {
 		var studentid = req.query.studentid;
 		var profname = req.query.profname;
 		var subject = req.query.subject;
-		var date = req.body.date;
-		var review = req.body.review;
+		var date = req.query.date;
+		var review = req.query.review;
 		var stars = parseFloat(req.query.stars, 10);
 		
         db.deleteOne(Review, {tudentid:studentid, profname:profname, subject:subject, review: review, stars:stars, date: date}, function (flag) {
