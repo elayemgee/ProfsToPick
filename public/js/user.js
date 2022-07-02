@@ -73,6 +73,7 @@ $(document).ready(function () {
         var review = parent.find("p.text")[3].innerText;
         var stars = parent.find("p.text")[4].innerText;
         var date = parent.find("p.text")[5].innerText;
+        console.log('studentid: '+parent.find("p.text")[0].innerText);
         $.get('/deleteReview', {studentid:studentid, profname:profname, subject:subject, review:review, stars:stars, date:date}, function(result) {
             if (result)
                 parent.remove();
