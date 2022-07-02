@@ -83,8 +83,10 @@ const userControl = {
 		var stars = parseFloat(req.query.stars, 10);
 		
         db.deleteOne(Review, {studentid:studentid, profname:profname, subject:subject, review: review, stars:stars, date: date}, function (flag) {
-            if (flag) 
+            if (flag) {
+				console.log('UGHH');
                 res.send('true');
+			}
         });
 		
 		
