@@ -69,21 +69,10 @@
             <button class="open-button" onclick="openForm()">Rate This Professor</button>
                 <div class="form-popup" id="myForm" >
                     <form method="POST"  autocomplete="off" action = "/postReview" class="form-container"> 
-                        <b>First Three Digits of Student ID</b> 
-                        <input type="number" id="studentid" minlength="8" name = "studentid" placeholder="Ex: 120" required>
-                        <p class ="msg" id = "errorID">{{errorID}}</p>
-
-                        <b>Professor's Name</b>
-                        <input type="text" id="name" name = "name" placeholder="Full Name" required>
-                        <p class ="msg" id = "errorName">{{errorName}}</p>
-                        
+                        <input style = "display: none;" class = "inputtxt" type="text" value = {{email}} id="profemail" name = "profemail" required>
                         <b>Subject</b>
-                        <input class = "inputtxt" type="subject" id="subject" name = "subject" placeholder="Subject Taught" required>
-                        <p class ="msg" id = "errorSubject">{{errorSubject}}</p>
-
-                        <b>Date</b>
-                        <input class = "inputtxt" type="date" id="date" name = "date" placeholder="Ex: 06/03/2022" required>
-                        <p class ="msg" id = "errorDate">{{errorDate}}</p>
+                        <input class = "inputtxt" type="text" id="subject" name = "subject" placeholder="Ex: CCAPDEV" required>
+                        <p class ="msg" id = "errorReview">{{errorSubject}}</p>
 
                         <b>Review</b>
                         <input class = "inputtxt" type="text" id="review" name = "review" placeholder="Ex: Helpful, Patient" required>

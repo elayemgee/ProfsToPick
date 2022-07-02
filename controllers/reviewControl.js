@@ -47,6 +47,38 @@ const reviewControl = {
     },
 
 	postReview: function (req, res) {
+
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        console.log('post Review')
+        var profemail = req.body.profemail;
+        var studentid = req.session.studentid;
+        var subject = req.body.subject;
+        var review = req.body.review;
+        var stars = req.body.stars;
+
+        var projection = "studentid profname subject review stars date";
+
+        console.log(profemail);
+        console.log(studentid);
+
+        db.findOne(Prof, {email: profemail}, projection, function(x) {
+            console.log('Finding prof');
+            console.log(x.profname);
+            var profname = x.profname;
+            
+            db.insertOne(Review, {
+                studentid: studentid,
+                profname: profname,
+                subject: subject,
+                review: review,
+                stars: stars,
+                date: date
+            }, function(flag){});
+         
+            res.redirect('/getHome');
+        });
+/*
             console.log('post Review');
 					var studentid = req.body.studentid;
                     var profname = req.body.name;
@@ -55,15 +87,7 @@ const reviewControl = {
                     var review = req.body.review;
                     var stars = req.body.stars;
                     
-                /*    let rev = {
-                        studentid: studentid,
-                        profname: prof,
-                        subject: subject,
-                        review: review,
-                        stars: stars,
-                        date: date
-                    }*/
-                
+            
                     db.insertOne(Review, {
                         studentid: studentid,
                         profname: profname,
@@ -76,6 +100,7 @@ const reviewControl = {
                 
                     console.log('Submitted review of ' + studentid);
                     res.redirect('/getHome');
+                    */
 				
 	},
 	

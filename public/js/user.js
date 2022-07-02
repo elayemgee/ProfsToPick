@@ -66,17 +66,16 @@ $(document).ready(function () {
     });
 
     $('.userRatings').on('click', '.button2' , function () {
-        var parent = $(this).parent();
-        var studentid = parent.find("p.text")[0].innerText;
-        var profname = parent.find("p.text")[1].innerText;
-        var subject = parent.find("p.text")[2].innerText;
-        var review = parent.find("p.text")[3].innerText;
-        var stars = parent.find("p.text")[4].innerText;
-        var date = parent.find("p.text")[5].innerText;
-        console.log('studentid: '+parent.find("p.text")[0].innerText);
-        $.get('/deleteReview', {studentid:studentid, profname:profname, subject:subject, review:review, stars:stars, date:date}, function(result) {
-            if (result)
-                parent.remove();
+        var elem = $(this).siblings('.info').children('.text')
+        var studentid = elem[1].innerText;
+        var profname = elem[2].innerText;
+        var subject = elem[3].innerText;
+        var review = elem[4].innerText;
+        var stars = elem[5].innerText;
+        var date = elem[6].innerText;
+        $.get('/deleteReview', {studentid:studentid, profname:profname, subject:subject, review:review, stars:stars, date:date}, function() {
+            //if (result)
+            $(this).parent.remove();
         });
     });
 
