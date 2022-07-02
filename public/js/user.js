@@ -65,14 +65,14 @@ $(document).ready(function () {
         
     });
 
-    $('.profileReview').on('click', '.button2' , function () {
+    $('.userRatings').on('click', '.button2' , function () {
         var parent = $(this).parent();
         var studentid = parent.find("p.text")[0].innerText;
-        var profname = parent.find("p.text")[1].innerText;
-        var subject = parent.find("p.text")[2].innerText;
-        var review = parent.find("p.text")[3].innerText;
-        var stars = parent.find("p.text")[4].innerText;
-        var date = parent.find("p.text")[5].innerText;
+        var profname = parent.find(".profBold")[1].innerText;
+        var subject = parent.find(".subBold")[2].innerText;
+        var review = parent.find(".review")[3].innerText;
+        var stars = parent.find(".starRating")[4].innerText;
+        var date = parent.find(".date")[5].innerText;
         $.get('/deleteReview', {studentid:studentid, profname:profname, subject:subject, review:review, stars:stars, date:date}, function(result) {
             if (result) {
                 console.log('Enters if in yser.js');
