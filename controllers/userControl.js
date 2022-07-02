@@ -77,15 +77,20 @@ const userControl = {
 		var reviewer = req.query.reviewer;
 		var profname = req.query.profname;
 		var subject = req.query.subject;
-		var stars = parseFloat(req.query.star, 10);
-	
-		var conditions = {reviewer:reviewer, profname:profname, subject:subject, star:star};
+		var stars = parseFloat(req.query.stars, 10);
+		
+		var name = req.query.name;
+        var refno = req.query.refno;
+        db.deleteOne(Transaction, {name: name, refno: refno}, function (flag) {
+            if (flag)
+                res.send('true');
+        });
+		/*var conditions = {reviewer:reviewer, profname:profname, subject:subject, stars:stars};
 		// finding the fuName of the prof
 		db.findOne(Review, conditions, null, function(a) {
 			db.findOne(Faculty, {profname:a.profname}, null, function(b) {
-				
-				var query1 = {profname: b.profname};
-				db.findMany(Review, query1, null, null, 0, function(allRevs) {
+				var projection = "studentid profname subject review stars date";
+				db.findMany(Review, {profname: b.profname}, projection, function(allRevs) {
 
 					var numTotalReviews = allRevs.length;// total number of reviews for the prof
 					console.log('Total no of Reviews: ' + numTotalReviews)
@@ -95,6 +100,8 @@ const userControl = {
 
 						var numSubjectReviews = subjectRevs.length;//number of reviews for the prof about the specific subject
 						console.log('No of subject Reviews: ' + numSubjectReviews);
+
+						//
 
 						if(numSubjectReviews == 1){ // >>>>>>>>>>>>>>>>>>>> if the review is the last review for the specific subject
 							console.log('Remove this: ' + revCourse);
@@ -109,17 +116,17 @@ const userControl = {
 								}
 							});
 
-							var oaRating = b.star;
-							console.log('Original oaRating: ✯' + star);
-							console.log('Stars: ' + star);
+							var oaRating = b.stars;
+							console.log('Original oaRating: ✯' + stars);
+							console.log('Stars: ' + stars);
 
-							var resOaRating = ((oaRating*numTotalReviews)-star)/(numTotalReviews-1);
+							var resOaRating = ((oaRating*numTotalReviews)-stars)/(numTotalReviews-1);
 							if(numTotalReviews == 1){ // >>>>>>>>>>>>>>>>>>>> if the review is the last review for the prof
 								console.log('Last Review deleted, Resetting Faculty Rating');
 
 								// resetting ratings
 								var filter = {profname: b.profname};
-								db.updateOne(Faculty, filter, {star: 0.00});
+								db.updateOne(Faculty, filter, {stars: 0.00});
 
 								console.log('Resulting oaRating: ✯0');
 							}
@@ -133,8 +140,8 @@ const userControl = {
 										oaRating: resOaRating
 									}					
 								});
-								console.log('(oaRating*numTotalReviews): ' + (star*numTotalReviews));
-								console.log('((oaRating*numTotalReviews)-revStar): ' + (((star*numTotalReviews)-star)));
+								console.log('(oaRating*numTotalReviews): ' + (stars*numTotalReviews));
+								console.log('((oaRating*numTotalReviews)-revStar): ' + (((stars*numTotalReviews)-stars)));
 								console.log('(numTotalReviews-1): ' + (numTotalReviews-1));
 								console.log('Resulting oaRating: ✯' + resOaRating);
 							}
@@ -186,7 +193,7 @@ const userControl = {
 				});
 
 			});
-		});
+		});*/
 
 	},
 
