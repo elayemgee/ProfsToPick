@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
 
-.college {
-    width:1200px;
-    height:auto;
+.college { 
     margin-left: auto;
     margin-right: auto;
-    font-family: 'Basic', sans-serif;
+    width: 1200px;
+    height: auto;
+    border-radius: 50px;
     margin-top: 50px;
-    display: block;
+    overflow: hidden;
 }
 
 .mainCollege {
@@ -20,22 +20,17 @@
 }
 
 .button {
-	margin-top: 0px;
-    position: relative;
     width:1200px;
     height: 300px;
     margin-bottom: 5%;
     text-align: center;
-
     background-color: #375222;
     border: none;
     border-radius: 30px;
     transition-duration: 0.4s;
     cursor: pointer;
     float: left;
-    font-family: 'Basic', sans-serif;
     text-decoration: none;
-
 }
 
 .button:hover {
@@ -52,6 +47,7 @@
     margin-top: 50px;
 
 }
+
 
 .profText {
     height: 225px;

@@ -2,8 +2,6 @@
 var mongoose = require('mongoose');
 
 var ProfSchema = new mongoose.Schema({
-    // your code here
-    //Lauren Garcia S13
     profname: {
         type: String,
         required: true

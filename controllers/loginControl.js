@@ -24,8 +24,8 @@ const loginController = {
 					if(equal){
 						req.session.studentid = x.studentid;
 						console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>' + x.uuName + ' Successfully Logged In');
-						//res.render('home');
-						res.redirect('/user/');
+						res.redirect('/getHome');
+						//res.redirect('/user/');
 					}
 					else{
 						res.render('login');

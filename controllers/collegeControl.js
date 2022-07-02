@@ -6,7 +6,7 @@ const collegeControl = {
     getCCS: function(req, res) {
         var projection = "profname email college department stars";
         var college = "College of Computer Studies";
-        db.findMany(Prof, {college: college}, projection, function(result) {										
+        db.findManySort(Prof, {college: college}, projection, {profname: 1}, function(result) {										
             res.render('colleges/ccs', {
                 profEntries: result
             }); 

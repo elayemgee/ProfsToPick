@@ -69,7 +69,17 @@ var review = {
 	subject: "CCAPDEV",
 	review: "Sir Art is very lively in his lectures",
 	stars: 5.0,
-	date: "July 1, 2022"
+	date: "2022-07-01"
+}
+db.insertOne(Review, review, function(flag){});
+
+var review = {
+	studentid: "12112345",
+	profname: "Mutya Teodoro-Sambile",
+	subject: "GEARTAP",
+	review: "asfdlasjkdfklasjdfldsajfklsajdflasjdflksajdfklasdjklfajsdklfjaslkdjfklsadjflsadkjfklasjdflksadjflkdsajklfjasdklfjaslk;djfklasdjflasdjfasdlfjkalskdfjklsadjfalskjdfklasjd",
+	stars: 4.5,
+	date: "2022-07-02"
 }
 db.insertOne(Review, review, function(flag){});
 
@@ -79,7 +89,7 @@ var review = {
 	subject: "CSARCH1",
 	review: "He makes sure that everyone is following his lectures",
 	stars: 5.0,
-	date: "July 1, 2022"
+	date: "2022-07-01"
 }
 db.insertOne(Review, review, function(flag){});
 
@@ -89,7 +99,7 @@ var review = {
 	subject: "GEARTAP",
 	review: "She's a fun prof to have and assignments are easy to do",
 	stars: 5.0,
-	date: "July 1, 2022"
+	date: "2022-07-01"
 }
 db.insertOne(Review, review, function(flag){});
 

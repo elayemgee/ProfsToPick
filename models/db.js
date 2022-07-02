@@ -62,6 +62,15 @@ const database = {
         });
     },
 
+    findManySort: function(model, query, projection, sort, callback) {
+        model.find(query, projection, function(error, result) {
+            if(error) throw error;
+        }).sort(sort).exec(function(err, result){
+            if(err) throw err;
+            return callback(result);
+        });
+    },
+
 
     updateOne: function(model, filter, update, callback) {
         model.updateOne(filter, update, function(error, result) {

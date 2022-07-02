@@ -4,7 +4,7 @@ const Review = require('../models/ReviewModel.js');
 
 const homeControl = {
     getHome: function (req, res) {
-        var projection = "studentid profname subject review stars, date";
+        var projection = "studentid profname subject review stars date";
 
         db.findManyLimit(Review, {}, projection, 3, function(y){
             res.render('home', {

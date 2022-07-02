@@ -6,7 +6,13 @@
     <div class = "dropdown">
         <button onclick="dropSearch()" class = "searchbttn"><img src="/images/search.png" alt="search" width="60" height="60"></button>
         <div id="myDropsearch" class="dropdown-content">
-            <input type="text" placeholder="Search..." id="myInput">
+            <div class = "searchDiv">
+                <form id="searchBar" autocomplete="off">
+                    <input type="text" name="searchInput" id="searchInput" placeholder="Search Professor">
+                </form>
+                <button onclick="submit()" class = "submitSearch">⌕Search</button>
+            </div>
+            <!-- <input type="text" placeholder="Search Professor" id="myInput"> -->
         </div>
     </div>
     

@@ -7,13 +7,14 @@
     </head>
     <body>
         {{> topBar}}
-        <h1 class = "mainCollege" style = "top: 170px; left: 600px;">All Professors</h1><br>
-
+        <h1 class = "mainCollege" style = "top: 170px; left: 600px;">Search Results</h1><br>
+        <h3 style = "text-align: center;">"{{searchKey}}"</h3>
         <div class = "college">
-            {{#each profEntries}}
+            {{#each results}}
                 {{> profPreview profname=profname email=email college=college department=department stars=stars}}
             {{/each}}
         </div>
+
        {{> footer}}
         
     </body>

@@ -10,17 +10,13 @@
         {{> topBar}}
         <h1 class = "mainCollege">College of Computer Studies</h1>
         <br>
-
-        <div class = "college" style="margin-top: 50px;" >
+        <div class = "college" >
             {{#each profEntries}}
                 {{> profPreview profname=profname email=email college=college department=department stars=stars}}
             {{/each}}
         </div>
-    
-        <footer>
-            <div class = "footer">
-                <p>CCAPDEV MP<br>Atienza, Capada, Garcia</p>
-            </div>
-        </footer>
+        
+        {{> footer}} 
+              
     </body>
 </html>

@@ -17,7 +17,6 @@ const app = express();
 
 app.get(`/favicon.ico`, controller.getFavicon);
 //home page
-app.get(`/home`, controller.getIndex);
 app.get(`/getHome`, homeController.getHome);
 
 //register
@@ -52,8 +51,11 @@ app.get(`/profileTitle`, controller.getProfile);
 //app.get(`/profPage`, controller.getProfPage);
 app.get('/profpage/:profname', profController.getProf);
 
-//going to review from prof page
+//going to write review from prof page
 app.get('/makeRating', profController.getRating);
+
+//search for prof
+app.get('/search', viewController.getSearch);
 
 //going to different college pages
 app.get(`/ccs`, collegeController.getCCS);
@@ -68,12 +70,6 @@ app.get(`/coec`, collegeController.getCOEC);
 //making a review
 app.get(`/writeReview`, reviewController.getReview); //landing on the review page
 app.post(`/profpage`, reviewController.postReview); //posting the review details on prof's page and user's page
-
-/*
-app.get(`/getCheckRefNo`, controller.getCheckRefNo);
-app.get(`/add`, controller.getAdd);
-app.get(`/delete`, controller.getDelete);
-*/
 
 module.exports = app;
 

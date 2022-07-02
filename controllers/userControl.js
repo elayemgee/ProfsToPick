@@ -50,7 +50,7 @@ const userControl = {
 		var query1 = {studentid: req.session.studentid};
 		db.findOne(User, query1, null, function(x){
 			var query2 = {studentid: req.session.studentid};
-			var projection = "studentid profname subject review stars, date";
+			var projection = "studentid profname subject review stars date";
 			db.findMany(Review, query2, projection, function(y){
 				res.render('user', {
 					thisProfile: "", //not sure what this does/ is for
@@ -83,12 +83,10 @@ const userControl = {
 	},
 	
 	checkAuthority: function (req, res) { //to edit
-		
 		db.findOne(User, {studentid:req.session.studentid}, {studentid:1}, function (result) {
 			console.log('authority checked');
 			res.send(result);
 		});
-		
 	},
 
 	deleteReview: function(req, res) {
