@@ -69,7 +69,7 @@ app.get(`/coec`, collegeController.getCOEC);
 
 //making a review
 app.get(`/profpage`, reviewController.getReview); //landing on the review page
-app.post(`/profpage`, reviewController.postReview); //posting the review details on prof's page and user's page
+app.post(`/postReview`, reviewController.postReview); //posting the review details on prof's page and user's page
 
 module.exports = app;
 
