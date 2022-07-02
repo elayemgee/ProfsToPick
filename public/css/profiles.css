@@ -164,26 +164,6 @@
     height:50px;
     margin-left: 150px;
   }
-  .button1 .button2 {
-    display: flex;
-    background-color: white;
-    margin-top: 40px;
-    border: none;
-    width: 150px;
-    float:right;
-    height:50px;
-    margin-left: 150px;
-  }
-  
-  .button1:hover {
-    background-color: red;
-    cursor: pointer;
-  }
-
-  .button2:hover {
-    background-color: red;
-    cursor: pointer;
-  }
   
   .more-content button {
     text-align: center;
