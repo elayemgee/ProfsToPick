@@ -47,7 +47,6 @@ const reviewControl = {
 
 	postReview: function (req, res) {
         var errors = validationResult(req);
-
 		if (!errors.isEmpty()) {
             errors = errors.errors;
 			
@@ -67,7 +66,6 @@ const reviewControl = {
         var review = req.body.review;
         var stars = req.body.stars;
         
-
 
         let rev = {
             studentid: studentid,
