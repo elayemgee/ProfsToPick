@@ -6,7 +6,8 @@ const ReviewModel = require('./ReviewModel.js');
 const UserModel = require('./UserModel.js');
 const ProfModel = require('./ProfModel.js');
 
-const url = 'mongodb://localhost:27017/ccapdev-profstopick';
+//const url = 'mongodb://localhost:27017/ccapdev-profstopick';
+const url = 'mongodb+srv://lei:1PYgZIvqsSpQXl1K@cluster0.15ihh5e.mongodb.net/?retryWrites=true&w=majority';
 
 const options = {
     useUnifiedTopology: true,

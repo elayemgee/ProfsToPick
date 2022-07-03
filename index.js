@@ -3,7 +3,7 @@ const express = require(`express`);
 const app = express();
 require('dotenv').config();
 const mongoose = require('mongoose');
-mongoose.createConnection(process.env.MONGODB_URI || 'mongodb://localhost:27017/ccapdev-profstopick',
+mongoose.createConnection(process.env.MONGODB_URI || 'mongodb+srv://lei:1PYgZIvqsSpQXl1K@cluster0.15ihh5e.mongodb.net/?retryWrites=true&w=majority',
 { useNewUrlParser: true }); // Create database connection
 
 const session = require('express-session');
