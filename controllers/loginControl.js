@@ -21,7 +21,7 @@ const loginController = {
 		db.findOne(User, query1, null, function(x) {
 			if(x)
 				//bcrypt.compare(p, x.password, function(err, equal) { 
-				//if(p == x.password)
+				if(p == x.password)
 				{
 						req.session.studentid = x.studentid;
 						console.log(x.name + ' Successfully Logged In');
