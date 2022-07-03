@@ -16,7 +16,7 @@ const viewControl = {
 		var key = req.query.key;
 		console.log(key);
 		var projection = "profname email college department stars";
-		var query = { $or: [ {name: { $regex: key}}, {email: { $regex: key}}]};
+		var query = { $or: [ {profname: { $regex: key}}, {email: { $regex: key}}]};
 		db.findMany(Prof, query, projection, function(result) {
 			res.render('searchResults', {
 				searchKey: key,
