@@ -1,6 +1,6 @@
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
-const bcrypt = require('bcrypt');
+//const bcrypt = require('bcrypt');
 
 const loginController = {
 
@@ -20,7 +20,7 @@ const loginController = {
         var query1 = {studentid: s};
 		db.findOne(User, query1, null, function(x) {
 			if(x)
-				bcrypt.compare(p, x.password, function(err, equal) {
+				//bcrypt.compare(p, x.password, function(err, equal) {
 					if(equal){
 						req.session.studentid = x.studentid;
 						console.log(x.name + ' Successfully Logged In');
@@ -30,7 +30,7 @@ const loginController = {
 						res.render('login');
 					}
 					
-				});
+				//});
 			else
 				res.render('login');
         });
