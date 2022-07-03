@@ -1,9 +1,11 @@
 var PORT = process.env.PORT || 9090;
 const express = require(`express`);
+const app = express();
+
 const mongoose = require('mongoose');
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/ccapdev-profstopick',
 {useNewURLParser: true, useUnifiedTopology: true}); // Create database connection
-const app = express();
+
 const session = require('express-session');
 const hbs = require(`hbs`);
 const port = 9090;
