@@ -54,11 +54,14 @@ h2{
     padding-bottom: 50px;
     padding-top: 50px;
     margin-top: 100px;
+    
 }
 
 .about p {
     color: white;
     text-align: center; 
-    font-size: 200%;
+    font-size: 150%;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
