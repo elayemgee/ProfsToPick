@@ -38,10 +38,10 @@ app.use(session({
 app.use(`/`, routes);
 
 hostname = process.env.HOSTNAME;
-
+/*
 mongoose.connection.on('connected', () => {
     console.log('Mongoose Connection');
-});
+});*/
 
 db.connect();
 
