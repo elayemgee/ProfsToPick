@@ -45,7 +45,7 @@ const registerControl = {
 			
 			//});
 			console.log('Created account of ' + studentid);
-			res.render('login');
+			res.render('/getHome');
 		}
 	},
 
