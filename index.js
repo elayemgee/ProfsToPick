@@ -4,7 +4,7 @@ const app = express();
 
 const mongoose = require('mongoose');
 mongoose.createConnection(process.env.MONGODB_URI || 'mongodb://localhost:27017/ccapdev-profstopick',
-{ useNewUrlParser: true }); // Create database connection
+{ useNewUrlParser: true }, { useUnifiedTopology: true }); // Create database connection
 
 const session = require('express-session');
 const hbs = require(`hbs`);
@@ -25,13 +25,13 @@ const MongoStore = require('connect-mongo');
 
 app.use(express.urlencoded({extended: true}));
 
-// app.use(session({
-//     'secret': 'sikret',
-//     'resave': false,
-//     'saveUninitialized': false,
-//     store: MongoStore.create({
-//         mongoUrl: 'mongodb://localhost:27017/ccapdev-profstopick'}),
-//   }));
+ app.use(session({
+     'secret': 'sikret',
+     'resave': false,
+     'saveUninitialized': false,
+     store: MongoStore.create({
+         mongoUrl: 'mongodb://localhost:27017/ccapdev-profstopick'}),
+   }));
 
 app.use(`/`, routes);
 
