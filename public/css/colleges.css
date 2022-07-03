@@ -42,42 +42,6 @@ body {
     padding-top: 55px;
     height: 62px;
 }
-/*
-#cob {
-    margin-top: 20px;
-}
-
-
-
-#soe {
-    margin-left: 20px;
-    margin-top: 20px;
-    margin-right: auto;
-}
-
-#colaw {
-    margin-left: 20px;
-    margin-top: 20px;
-}
-
-#cos {
-    margin-left: 440px;
-    margin-top: 430px;
-}
-
-#coed {
-    margin-top: 20px;
-}
-
-#coe {
-    margin-left: 20px;
-    margin-top: 20px;
-}
-
-#cla{
-    margin-top: 430px;
-}
-*/
 
 #ccs:hover, #cob:hover, #cos:hover, #cla:hover, #coe:hover, #soe:hover, #coed:hover, #colaw:hover{
     border: solid 2px #375222;

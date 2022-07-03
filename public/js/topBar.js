@@ -54,7 +54,6 @@ function dropDown() {
 
 function submit(){
     var key = document.getElementById("searchInput").value;
-    //var key = $('#searchBar').children('#searchInput').val();
     window.location = "/search?key=" + key;
 };
 

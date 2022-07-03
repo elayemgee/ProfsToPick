@@ -52,10 +52,6 @@ $(document).ready(function () {
                 $('#reviewEntries').append(data)
             });
 
-        
-
-        
-        
     });
 	
 });

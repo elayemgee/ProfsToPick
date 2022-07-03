@@ -26,33 +26,6 @@
         </script>   
         
     </head>
-    {{! -- 
-    reviewer: {
-        type: String,
-        required: true
-    },
-    
-    profname: {
-        type: String,
-        required: true
-    },
-    subject: {
-        type: String,
-        required: true
-    },
-    review: {
-        type: String,
-        required: true
-    },
-    stars: {
-        type: Number,
-        required: true
-    },
-    date: {
-        type: String,
-        required: true
-    }
-    --}}
     <body>
         {{> topBar}}
 
@@ -63,7 +36,7 @@
             <p style ="margin-top:40px;">{{email}}</p>
             <p style ="margin-top:85px;">{{college}}</p>
             <p style ="margin-top:130px;">{{department}}</p>
-            <p style ="margin-top:185px;">✯{{stars}}</p> <!--NEED TO PUT BELOW PROFILE PIC, add margin-left or smtg-->
+            <p style ="margin-top:185px;">✯{{stars}}</p> 
 
             <div class = "rate">
             <button class="open-button" onclick="openForm()">Rate This Professor</button>

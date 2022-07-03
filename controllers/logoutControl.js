@@ -11,13 +11,13 @@ const logoutControl = {
 			req.session.destroy(function(err) {
 				if(err) throw err;
 
-				console.log('>>>' + u + ' Successfully logged out');
+				console.log(u + ' Successfully logged out');
 				res.render('login');
 			});
 			
 		}
 		else{
-			console.log('>>>>>>>>>You are not logged in');
+			console.log('You are not logged in');
 		}
 	
     }

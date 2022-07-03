@@ -52,7 +52,7 @@ const database = {
         });
     },
 
-    //withLimit
+    
     findManyLimit: function(model, query, projection, limit, sort, callback) {
         model.find(query, projection, function(error, result) {
             if(error) throw error;

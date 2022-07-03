@@ -22,7 +22,6 @@ app.get(`/getHome`, homeController.getHome);
 //register
 app.get(`/register`, registerController.getRegister);
 app.get(`/checkID`, registerController.checkID);
-//app.post(`/register`,  registerController.postRegister);
 app.post(`/register`, validation.registerValidation(), registerController.postRegister);
 
 //login
@@ -33,9 +32,7 @@ app.post(`/login`, loginController.postLogin);
 app.get(`/logout`, logoutController.getLogout);
 
 //user - to fix userControl
-//app.get('/user/:uuName', userController.getUser);
-app.get('/user/', userController.getLoggedUser);
-//app.get('/authorityCheck', userController.checkAuthority);
+app.get('/user/', userController.getLoggedUser);;
 app.get('/editReview', userController.editReview);
 app.get('/deleteReview', userController.deleteReview);
 
@@ -44,7 +41,6 @@ app.get(`/profpage`, reviewController.getReview); //landing on the review page
 app.post(`/postReview`, reviewController.postReview); //posting the review details on prof's page and user's page
 
 //going to different pages
-//app.get(`/allProfs`, controller.getAllProfs);
 app.get(`/allProfs`, viewController.getProfs);
 app.get(`/allColleges`, controller.getAllColleges);
 
@@ -52,7 +48,6 @@ app.get(`/allColleges`, controller.getAllColleges);
 app.get(`/profileTitle`, controller.getProfile);
 
 //going to prof page
-//app.get(`/profPage`, controller.getProfPage);
 app.get('/profpage/:profname', profController.getProf);
 
 //going to write review from prof page

@@ -1,22 +1,5 @@
 $(document).ready(function () {
 
-    /*
-    $('#studentid').keyup(function () {
-        console.log('find');
-        $.get('/checkID', {studentid: $('#studentid.field').val()}, (data) => {
-            if (data !== '') {
-                $('#studentid.field').css('background-color', 'red')
-                $('#errorID').text('Student ID number already in the database')
-                $('#submit').prop('disabled', true)
-            } else {
-                $('#studentid.field').css('background-color', '#E3E3E3')
-                $('#errorID').text('')
-                $('#submit').prop('disabled', false)
-            }
-        })
-    });
-    */
-
     $('#email').keyup(function () {
 		
         validateField($('#email'), 'email', $('#errorEmail'));
