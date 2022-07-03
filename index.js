@@ -23,21 +23,21 @@ const MongoStore = require('connect-mongo');
 
 app.use(express.urlencoded({extended: true}));
 
-app.use(session({
-    'secret': 'sikret',
-    'resave': false,
-    'saveUninitialized': false,
-    store: MongoStore.create({
-        mongoUrl: 'mongodb://localhost:27017/ccapdev-profstopick'}),
-  }));
+// app.use(session({
+//     'secret': 'sikret',
+//     'resave': false,
+//     'saveUninitialized': false,
+//     store: MongoStore.create({
+//         mongoUrl: 'mongodb://localhost:27017/ccapdev-profstopick'}),
+//   }));
 
 app.use(`/`, routes);
 
 hostname = process.env.HOSTNAME;
 
-mongoose.connection.on('connected', () => {
-    console.log('Mongoose Connection');
-});
+// mongoose.connection.on('connected', () => {
+//     console.log('Mongoose Connection');
+// });
 
 db.connect();
 
