@@ -49,7 +49,7 @@ const reviewControl = {
 	postReview: function (req, res) {
 
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+'-'+today.getTime();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         console.log('post Review')
         var profemail = req.body.profemail;
         var studentid = req.session.studentid;
@@ -66,7 +66,6 @@ const reviewControl = {
             console.log('Finding prof');
             console.log(x.profname);
             var profname = x.profname;
-            
             db.insertOne(Review, {
                 studentid: studentid,
                 profname: profname,

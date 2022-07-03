@@ -3,9 +3,21 @@
         <title>User Profile</title>
         <link rel="stylesheet" href="/css/style.css">
         <link rel="stylesheet" href="/css/profiles.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
         <script type="text/javascript" src="/js/topBar.js"></script>     
+        <script type="text/javascript" src="/js/user.js"></script>    
+
 
         <script>
+            /*
+            $(document).ready(function () {
+                $('#button2').click(function () {
+                    $('#rating').css('background-color', 'red')
+                    console.log("HELLOOO");
+                });
+            });*/
             function reviewOpts() {
                 document.getElementById("moreOptions").classList.toggle("reveal");
             }
@@ -25,7 +37,7 @@
             <p style ="margin-top:175px;">{{studentid}}</p>
         </div>
 
-        <div class = "userRatings">
+        <div class = "userRatings" id = "userRatings">
             <h1 class = "grayHeader">Your Rated Profs</h1><br>
             <div style = "margin-top: 200px;"></div>
             {{#each reviewEntries}}

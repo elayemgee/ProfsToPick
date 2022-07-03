@@ -206,6 +206,12 @@
     color: #000000;
 }
 
+.starsDate {
+    margin-left: 50px;margin-top: 25px; width: 800px; display: flex;
+    border: solid thick black;
+
+}
+
 .starRating {
     width: 110px;
     height: 30px;
@@ -213,6 +219,7 @@
     border-radius: 10px;
     display: flex;
     }
+
 
     
 .starRating p {

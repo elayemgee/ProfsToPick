@@ -74,7 +74,7 @@ const userControl = {
 	},
 
 	deleteReview: function(req, res) {
-		console.log("here");
+		console.log("gonna delete");
 		var studentid = req.session.studentid; 
 		var reviewer = req.query.reviewer;
 		var profname = req.query.profname;
@@ -93,15 +93,15 @@ const userControl = {
 		console.log(date);
 
 		var form = {studentid:studentid, profname:profname, subject:subject, review:review, stars:stars, date:date};
-		
+		/*
         db.deleteOne(Review, form, function (flag) {
             if (flag) {
 				console.log('UGHH');
                 res.send('true');
 			}
-        });
-		
-		
+        });*/
+		db.deleteOne(Review, form, function (flag) {});
+				
 		/*var conditions = {reviewer:reviewer, profname:profname, subject:subject, stars:stars};
 		// finding the fuName of the prof
 		db.findOne(Review, conditions, null, function(a) {

@@ -65,18 +65,53 @@ $(document).ready(function () {
         
     });
 
-    $('#rating').on('click', '.button2' , function () {
-        var parent = $(this).parent();
-        var studentid = parent.find("p.text")[0].innerText;
-        var profname = parent.find(".profBold")[1].innerText;
-        var subject = parent.find(".subBold")[2].innerText;
-        var review = parent.find(".review")[3].innerText;
-        var stars = parent.find(".starRating")[4].innerText;
-        var date = parent.find(".date")[5].innerText;
-        $.get('/deleteReview', {studentid:studentid, profname:profname, subject:subject, review:review, stars:stars, date:date}, function(result) {
+
+    
+    $('#button2').click(function () {
+        //var profname = $('#rating').children('.profDets').children('.flexDeisplay').children('.profBold').text()
+        //var profname = $('.profBold').text();
+        var profname = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#profBold').text();
+        var subject = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#subBold').text();
+        var stars =  $('#starsDate').children('.starRating').children('.stars').text();
+        var date =  $('#starsDate').children('.date').text();
+        var review =  $('#userReview').text();
+
+        //$('#rating').children('.profDets').children('.flexDeisplay').children('.profBold').css('color', 'cyan');
+        /*
+        $('#starsDate').children('.starRating').children('.stars').css('color', 'cyan');
+        $('#starsDate').children('.date').css('color', 'green');
+        $('#userReview').css('color', 'green');
+        $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#profBold').css('color', 'cyan');
+        $('#rating').css('background-color', 'red');
+        */
+    
+        $.get('/deleteReview', {profname:profname, subject:subject, review:review, stars:stars, date:date}, function() {
             if (result)
-                parent.remove();
+                $('#rating').remove();
+
         });
     });
+
+    
+   
+    /*
+    $('.rating').on('click', 'button2', function() {
+        var profname = $(this).parentsUntil('#rating').children('.flexDisplay:last').children('.profBold').text();
+        var subject = $(this).parentsUntil('#rating').children('.flexDisplay:last').children('.subBold').text();
+        var stars = $(this).parentsUntil('#rating').children('.starsDate:last').children('.stars').text();
+        var date = $(this).parentsUntil('#rating').children('.starsDate:last').children('.date').text();
+        var review = $(this).parentsUntil('#rating').children('.review').text();
+
+        console.log('in user.js');
+        console.log(studentid);
+
+        $.get('/deleteReview', {profname:profname, subject:subject, review:review, stars:stars, date:date}, function() {
+            //if (result)
+            $(this).parent.remove();
+        });
+    });
+    */
+    
+    
 
 })
