@@ -100,7 +100,9 @@ const userControl = {
                 res.send('true');
 			}
         });*/
-		db.deleteOne(Review, form, function (flag) {});
+		db.deleteOne(Review, form, function (flag) {
+			res.redirect('/user/');
+		});
 				
 	},
 
@@ -131,10 +133,11 @@ const userControl = {
                 stars: stars,
                 date: date
             }, function(flag){
-				db.deleteOne(Review, form, function (flag) {});
+				db.deleteOne(Review, form, function (flag) {
+					
+				});
 			});
          
-            res.redirect('/user/');
         });
 
 

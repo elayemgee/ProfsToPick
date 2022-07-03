@@ -18,7 +18,6 @@ const logoutControl = {
 		}
 		else{
 			console.log('>>>>>>>>>You are not logged in');
-			//res.render('error', {extra: "<br>You can't log out if you haven't even logged in yet!"});
 		}
 	
     }
