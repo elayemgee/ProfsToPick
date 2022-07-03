@@ -1,7 +1,7 @@
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
 const {validationResult} = require('express-validator');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
 const registerControl = {
