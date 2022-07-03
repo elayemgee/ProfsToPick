@@ -3,7 +3,8 @@ const express = require(`express`);
 const app = express();
 
 const mongoose = require('mongoose');
-mongoose.createConnection(process.env.MONGODB_URI || 'mongodb://localhost:27017/ccapdev-profstopick'); // Create database connection
+mongoose.createConnection(process.env.MONGODB_URI || 'mongodb://localhost:27017/ccapdev-profstopick',
+{ useNewUrlParser: true }); // Create database connection
 
 const session = require('express-session');
 const hbs = require(`hbs`);
