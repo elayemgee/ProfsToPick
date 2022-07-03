@@ -1,5 +1,4 @@
 const express = require(`express`);
-require('dotenv').config();
 const mongoose = require(`mongoose`);
 const app = express();
 const session = require('express-session');
@@ -26,7 +25,7 @@ app.use(session({
     'resave': false,
     'saveUninitialized': false,
     store: MongoStore.create({
-        mongoUrl: process.env.MONGODB_URI+'mongodb://localhost:27017/ccapdev-profstopick'}),
+        mongoUrl: 'mongodb://localhost:27017/ccapdev-profstopick'}),
   }));
 
 app.use(`/`, routes);
