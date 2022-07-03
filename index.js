@@ -3,9 +3,9 @@ const mongoose = require(`mongoose`);
 const app = express();
 const session = require('express-session');
 const hbs = require(`hbs`);
-const port = 9090;
+const port = 3000;
 
-var PORT = process.env.PORT || 9090;
+var PORT = process.env.PORT || 3000;
 
 app.use(express.static(`public`));
 app.set(`view engine`, `hbs`);
