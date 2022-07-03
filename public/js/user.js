@@ -68,8 +68,6 @@ $(document).ready(function () {
 
     
     $('#button2').click(function () {
-        //var profname = $('#rating').children('.profDets').children('.flexDeisplay').children('.profBold').text()
-        //var profname = $('.profBold').text();
         var profname = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#profBold').text();
         var subject = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#subBold').text();
         var stars =  $('#starsDate').children('.starRating').children('.stars').text();
@@ -85,8 +83,8 @@ $(document).ready(function () {
         $('#rating').css('background-color', 'red');
         */
     
-        $.get('/deleteReview', {profname:profname, subject:subject, review:review, stars:stars, date:date}, function() {
-            if (result)
+        $.get('/deleteReview', {profname:profname, subject:subject, review:review, stars:stars, date:date}, function(result) {
+            if(result)
                 $('#rating').remove();
 
         });
@@ -111,7 +109,6 @@ $(document).ready(function () {
         });
     });
     */
-    
     
 
 })

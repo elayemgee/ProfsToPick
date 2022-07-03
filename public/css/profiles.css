@@ -208,8 +208,6 @@
 
 .starsDate {
     margin-left: 50px;margin-top: 25px; width: 800px; display: flex;
-    border: solid thick black;
-
 }
 
 .starRating {
@@ -220,8 +218,6 @@
     display: flex;
     }
 
-
-    
 .starRating p {
     color: white;
     font-size: 20px;
