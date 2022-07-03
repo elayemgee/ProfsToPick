@@ -1,7 +1,7 @@
 var PORT = process.env.PORT || 9090;
 const express = require(`express`);
 const app = express();
-
+require('dotenv').config();
 const mongoose = require('mongoose');
 mongoose.createConnection(process.env.MONGODB_URI || 'mongodb://localhost:27017/ccapdev-profstopick',
 { useNewUrlParser: true }); // Create database connection
