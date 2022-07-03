@@ -12,10 +12,10 @@
         </div>
 
         <div id="moreOptions" class = "more-content">
-            <button onclick="window.location='rating_a_prof.html'" class="button1">Edit</button>
-            <!-- <form action="/deleteReview"> -->
+            <button class="button1" id = "button1">Edit</button>
             <button class="button2" id = "button2">Delete</button>
-            <!-- </form> -->
+            <button class="button3" id = "button3" style = "display: none;">Cancel</button>
+            <button class="button4" id = "button4" style = "display: none;">Submit</button>
         </div>
         
     </div>
@@ -28,6 +28,6 @@
         <div class="date" id ="date">{{date}}</div>
     </div>
 
-    <p class = "review" id = "userReview">{{review}}</p>
+    <div class = "review" id = "userReview" contenteditable="false">{{review}}</div>
 
 </div>

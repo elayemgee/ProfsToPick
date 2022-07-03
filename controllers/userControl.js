@@ -1,5 +1,5 @@
 const db = require('../models/db.js');
-const Faculty = require('../models/ProfModel.js');
+const Prof = require('../models/ProfModel.js');
 const User = require('../models/UserModel.js');
 const Review = require('../models/ReviewModel.js');
 
@@ -76,7 +76,7 @@ const userControl = {
 	deleteReview: function(req, res) {
 		console.log("gonna delete");
 		var studentid = req.session.studentid; 
-		var reviewer = req.query.reviewer;
+		var reviewer = req.session.reviewer;
 		var profname = req.query.profname;
 		var subject = req.query.subject;
 		
@@ -102,119 +102,43 @@ const userControl = {
         });*/
 		db.deleteOne(Review, form, function (flag) {});
 				
-		/*var conditions = {reviewer:reviewer, profname:profname, subject:subject, stars:stars};
-		// finding the fuName of the prof
-		db.findOne(Review, conditions, null, function(a) {
-			db.findOne(Faculty, {profname:a.profname}, null, function(b) {
-				var projection = "studentid profname subject review stars date";
-				db.findMany(Review, {profname: b.profname}, projection, function(allRevs) {
-
-					var numTotalReviews = allRevs.length;// total number of reviews for the prof
-					console.log('Total no of Reviews: ' + numTotalReviews)
-					
-					var query2 = {$and: [{profname: b.profname}, {subject: subject}]};
-					db.findMany(Review, query2, null, null, 0, function(subjectRevs) {
-
-						var numSubjectReviews = subjectRevs.length;//number of reviews for the prof about the specific subject
-						console.log('No of subject Reviews: ' + numSubjectReviews);
-
-						//
-
-						if(numSubjectReviews == 1){ // >>>>>>>>>>>>>>>>>>>> if the review is the last review for the specific subject
-							console.log('Remove this: ' + revCourse);
-
-							// removing the subject and rating from the prof
-							var filter = {profname: b.profname}
-							db.updateOne(Faculty, filter, {
-								$pull: {
-									subjects: {
-										subject: subject
-									}
-								}
-							});
-
-							var oaRating = b.stars;
-							console.log('Original oaRating: ✯' + stars);
-							console.log('Stars: ' + stars);
-
-							var resOaRating = ((oaRating*numTotalReviews)-stars)/(numTotalReviews-1);
-							if(numTotalReviews == 1){ // >>>>>>>>>>>>>>>>>>>> if the review is the last review for the prof
-								console.log('Last Review deleted, Resetting Faculty Rating');
-
-								// resetting ratings
-								var filter = {profname: b.profname};
-								db.updateOne(Faculty, filter, {stars: 0.00});
-
-								console.log('Resulting oaRating: ✯0');
-							}
-							else{ // >>>>>>>>>>>>>>>>>>>> if there are more reviews for the prof
-								console.log('Recomputing Faculty Rating');
-
-								// recomputing ratings
-								var filter = {profname: b.profname};
-								db.updateOne(Faculty, filter, { 	
-									$set:{
-										oaRating: resOaRating
-									}					
-								});
-								console.log('(oaRating*numTotalReviews): ' + (stars*numTotalReviews));
-								console.log('((oaRating*numTotalReviews)-revStar): ' + (((stars*numTotalReviews)-stars)));
-								console.log('(numTotalReviews-1): ' + (numTotalReviews-1));
-								console.log('Resulting oaRating: ✯' + resOaRating);
-							}
-
-							db.deleteOne(Review, conditions);
-
-						}
-						else{ //if there are more reviews left for the specific subject
-							console.log('Update this: ' + subject);
-							
-							var subjRating;
-							var i;
-							for(i=0; i<b.subjects.length; i++){
-								if(b.subjects[i].subject == subject){
-									subjRating = parseFloat(b.subjects[i].rating, 10); //not sure abt this
-								}
-							}
-							var oaRating = b.oaRating;
-							console.log('Original oaRating: ✯' + oaRating);
-							console.log('Original ' + subject + ' Rating: ✯' + subjRating);
-							console.log('Stars: ' + stars);
-
-							var resOaRating = ((oaRating*numTotalReviews)-star)/(numTotalReviews-1);
-							var resSubjRating = ((subjRating*numSubjectReviews)-star)/(numSubjectReviews-1);
-							var filter = {profname: b.profname, 'subjects.subject': subject};
-							console.log(filter);
-							db.updateOne(Faculty, filter, { 	
-								$set:{
-									oaRating: resOaRating,
-									'subjects.$.rating': resSubjRating
-								}					
-							});
-							console.log('(oaRating*numTotalReviews): ' + (oaRating*numTotalReviews));
-							console.log('((oaRating*numTotalReviews)-revStar): ' + (((oaRating*numTotalReviews)-star)));
-							console.log('(numTotalReviews-1): ' + (numTotalReviews-1));
-							console.log('Resulting oaRating: ✯' + resOaRating);
-
-							console.log('(subjRating*numSubjectReviews): ' + (subjRating*numSubjectReviews));
-							console.log('((subjRating*numSubjectReviews)-revStar): ' + ((subjRating*numSubjectReviews)-star));
-							console.log('(numSubjectReviews-1): ' + (numSubjectReviews-1));
-							console.log('Resulting ' + subject + ' Rating: ✯' + resSubjRating);
-
-							db.deleteOne(Review, conditions);
-							
-						}
-
-					});
-
-				});
-
-			});
-		});*/
-
 	},
 
 	editReview: function(req, res) {
+		var studentid = req.session.studentid; 
+		var profname = req.query.profname;
+		var subject = req.query.subject;
+		
+		var review = req.query.review; //edited review
+		var stars = req.query.stars;
+		var date = req.query.date;
+
+		var form = {studentid:studentid, profname:profname, subject:subject, stars:stars, date:date};
+
+		var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+
+		var projection = "studentid profname subject review stars date";
+		db.findOne(Prof, {profname: profname}, projection, function(x) {
+            console.log('Finding prof');
+            console.log(x.profname);
+            var profname = x.profname;
+            db.insertOne(Review, {
+                studentid: studentid,
+                profname: profname,
+                subject: subject,
+                review: review,
+                stars: stars,
+                date: date
+            }, function(flag){
+				db.deleteOne(Review, form, function (flag) {});
+			});
+         
+            res.redirect('/user/');
+        });
+
+
+		/*
 		var reviewer = req.query.reviewer;
 		var profname = req.query.profname;
 		var subject = req.query.subject;
@@ -482,8 +406,9 @@ const userControl = {
 				});
 
 			});
+			
 		});
-		
+		*/
 	}
    
 }
