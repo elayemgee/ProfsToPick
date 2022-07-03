@@ -1,8 +1,8 @@
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
 const {validationResult} = require('express-validator');
-const bcrypt = require('bcrypt');
-const saltRounds = 10;
+//const bcrypt = require('bcrypt');
+//const saltRounds = 10;
 
 const registerControl = {
     getRegister: function (req, res) {
@@ -32,7 +32,7 @@ const registerControl = {
 			var program = req.body.program;
 			var password = req.body.password;
 			
-			bcrypt.hash(password, saltRounds, function(err, hash) {
+			//bcrypt.hash(password, saltRounds, function(err, hash) {
 			
 				db.insertOne(User, {
 					studentid: studentid,
@@ -43,7 +43,7 @@ const registerControl = {
 					password: hash
 				}, function(flag){});
 			
-			});
+			//});
 			console.log('Created account of ' + studentid);
 			res.render('login');
 		}
