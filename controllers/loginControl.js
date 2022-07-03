@@ -6,10 +6,10 @@ const loginController = {
 
     getLogin: function (req, res) {
 
-        if(req.session.studentid)
-			req.session.destroy(function(err) {
-				if(err) throw err;
-			});
+        //if(req.session.studentid)
+			// req.session.destroy(function(err) {
+			// 	if(err) throw err;
+			// });
 
         res.render('login',{error:"hidden"});
     },

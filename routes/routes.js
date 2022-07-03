@@ -25,7 +25,7 @@ app.get(`/checkID`, registerController.checkID);
 app.post(`/register`, validation.registerValidation(), registerController.postRegister);
 
 //login
-//app.get(`/`, loginController.getLogin);
+app.get(`/`, loginController.getLogin);
 app.post(`/login`, loginController.postLogin);
 
 //logout
