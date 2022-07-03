@@ -25,13 +25,13 @@ const MongoStore = require('connect-mongo');
 
 app.use(express.urlencoded({extended: true}));
 
-//  app.use(session({
-//      'secret': 'sikret',
-//      'resave': false,
-//      'saveUninitialized': false,
+  app.use(session({
+      'secret': 'sikret',
+      'resave': false,
+      'saveUninitialized': false,
 //      store: MongoStore.create({
 //          mongoUrl: 'mongodb://localhost:27017/ccapdev-profstopick'}),
-//    }));
+    }));
 
 app.use(`/`, routes);
 
