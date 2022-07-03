@@ -40,7 +40,7 @@ const registerControl = {
 					email: email,
 					college: college,
 					program: program,
-					password: hash
+					password: password
 				}, function(flag){});
 			
 			//});
