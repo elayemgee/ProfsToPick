@@ -36,7 +36,7 @@
             <p style ="margin-top:40px;">{{email}}</p>
             <p style ="margin-top:85px;">{{college}}</p>
             <p style ="margin-top:130px;">{{department}}</p>
-            <p style ="margin-top:185px;">✯{{stars}}</p> 
+            <!-- <p style ="margin-top:185px;">✯{{stars}}</p>  -->
 
             <div class = "rate">
             <button class="open-button" onclick="openForm()">Rate This Professor</button>
@@ -44,7 +44,7 @@
                     <form method="POST"  autocomplete="off" action = "/postReview" class="form-container"> 
                         <input style = "display: none;" class = "inputtxt" type="text" value = {{email}} id="profemail" name = "profemail" required>
                         <b>Subject</b>
-                        <input class = "inputtxt" type="text" id="subject" name = "subject" placeholder="Ex: CCAPDEV" required>
+                        <input class = "inputtxt" type="text" id="subject" name = "subject" maxlength="7" oninput="this.value = this.value.toUpperCase()" placeholder="Ex: CCAPDEV" required>
                         <p class ="msg" id = "errorReview">{{errorSubject}}</p>
 
                         <b>Review</b>
@@ -52,7 +52,7 @@
                         <p class ="msg" id = "errorReview">{{errorReview}}</p>
 
                         <b>Stars</b>
-                        <input class = "inputtxt" type="number" id="stars" minlength="1" placeholder="Must be at least 1 star" name = "stars" required>
+                        <input class = "inputtxt" type="number" id="stars" step = "any" placeholder="Rate from 1.0 to 5.0 stars" name = "stars" min="1.0" max="5.0" required>
                         <p class ="msg" id = "errorStars">{{errorStars}}</p>
 
                         <button type="submit" id="submit" class="btn">Submit</button>

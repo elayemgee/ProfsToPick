@@ -104,20 +104,16 @@ const userControl = {
 		var studentid = req.session.studentid; 
 		var profname = req.query.profname;
 		var subject = req.query.subject;
-		
 		var review = req.query.review; //edited review
 		var stars = req.query.stars;
 		var date = req.query.date;
 
 		var form = {studentid:studentid, profname:profname, subject:subject, stars:stars, date:date};
-
+		
 		var today = new Date();
-
-		Date.prototype.timeNow = function () {
-			return ((this.getHours() < 10)?"0":"") + this.getHours() +":"+ ((this.getMinutes() < 10)?"0":"") + this.getMinutes() +":"+ ((this.getSeconds() < 10)?"0":"") + this.getSeconds();
-		   }
-
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate()+'T'+today.timeNow(); 
+        var isoTime = new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes());
+		//edited
+		console.log(isoTime);
 
 		var projection = "studentid profname subject review stars date";
 		db.findOne(Prof, {profname: profname}, projection, function(x) {
@@ -130,10 +126,10 @@ const userControl = {
                 subject: subject,
                 review: review,
                 stars: stars,
-                date: date
+                date: isoTime
             }, function(flag){
 				db.deleteOne(Review, form, function (flag) {
-					
+					res.redirect('/user/');
 				});
 			});
          

@@ -2,8 +2,6 @@ const db = require('../models/db.js');
 
 const Prof = require('../models/ProfModel.js');
 const Review = require('../models/ReviewModel.js');
-const User = require('../models/UserModel.js');
-
 
 const profController = {
     getProf: function (req, res) {
@@ -19,14 +17,13 @@ const profController = {
 							college: x.college,
 							department: x.department,		
 							subjects: x.subjects,
-							stars: x.stars,
+							//stars: x.stars,
 							reviewEntries: y
 						});
 						console.log('Review: ' + y);
 					});
 					console.log('Prof Name: ' + x.profname);
 				}
-				
 			});
 	},
 		

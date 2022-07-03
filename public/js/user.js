@@ -15,26 +15,20 @@ $(document).ready(function () {
 
     //Delete review button
     $('.rating').on('click', '#button2', function() {
-        var profname = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#profBold').text();
-        var subject = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#subBold').text();
-        var stars =  $(this).parentsUntil('#userRatings').children('#starsDate').children('#starRating').children('#stars').text();
-        var date = $(this).parentsUntil('#userRatings').children('#starsDate').children('#date').text();
-        var review =   $(this).parentsUntil('#userRatings').children('#userReview').text();
+        if(confirm('Are you sure you want to delete this review?')){
+            var profname = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#profBold').text();
+            var subject = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#subBold').text();
+            var stars =  $(this).parentsUntil('#userRatings').children('#starsDate').children('#starRating').children('#stars').text();
+            var date = $(this).parentsUntil('#userRatings').children('#starsDate').children('#date').text();
+            var review =   $(this).parentsUntil('#userRatings').children('#userReview').text();
 
-        /*
-        $(this).parentsUntil('#userRatings').children('#starsDate').children('#starRating').children('#stars').css('color', 'cyan');
-        $(this).parentsUntil('#userRatings').children('#starsDate').children('#date').css('color', 'cyan');
-        $(this).parentsUntil('#userRatings').children('#userReview').css('color', 'cyan');
-        $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#profBold').css('color', 'cyan');
-        $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#subBold').css('color', 'cyan');
-        $(this).parentsUntil('#userRatings').css('background-color', 'red');
-        */
-        $.get('/deleteReview', {profname:profname, subject:subject, review:review, stars:stars, date:date}, function(success) {
-            if(success)
-            {
-                location.reload(true);
-            }
-        });
+            $.get('/deleteReview', {profname:profname, subject:subject, review:review, stars:stars, date:date}, function(success) {
+                if(success)
+                {
+                    location.reload(true);
+                }
+            });
+    }
 
     });
 
@@ -50,18 +44,20 @@ $(document).ready(function () {
 
     //submitting edited review
     $('.rating').on('click', '#button4', function() {
-        var profname = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#profBold').text();
-        var subject = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#subBold').text();
-        var stars =  $(this).parentsUntil('#userRatings').children('#starsDate').children('#starRating').children('#stars').text();
-        var date = $(this).parentsUntil('#userRatings').children('#starsDate').children('#date').text();
-        var review =   $(this).parentsUntil('#userRatings').children('#userReview').text();
+        if(confirm('Are you sure you want to publish this review?')){
+            var profname = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#profBold').text();
+            var subject = $(this).parentsUntil('#rating').children('#profDets').children('#flexDisplay').children('#subBold').text();
+            var stars =  $(this).parentsUntil('#userRatings').children('#starsDate').children('#starRating').children('#stars').text();
+            var date = $(this).parentsUntil('#userRatings').children('#starsDate').children('#date').text();
+            var review =   $(this).parentsUntil('#userRatings').children('#userReview').text();
 
-        $.get('/editReview', {profname:profname, subject:subject, review:review, stars:stars, date:date}, function(success) {
-            if(success)
-            {
-                location.reload();
-            }
-        });
+            $.get('/editReview', {profname:profname, subject:subject, review:review, stars:stars, date:date}, function(success) {
+                if(success)
+                {
+                    location.reload(true);
+                }
+            });
+    }
     });
    
 

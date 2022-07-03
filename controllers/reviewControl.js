@@ -9,37 +9,6 @@ mongoose.connection.on('connected', () => {
     console.log('Connected to Atlas!');
 });
 
-//const bcrypt = require('bcrypt');
-//const saltRounds = 10;
-
-/**
- * reviewer: {
-        type: String,
-        required: true
-    },
-    
-    profname: {
-        type: String,
-        required: true
-    },
-    subject: {
-        type: String,
-        required: true
-    },
-    review: {
-        type: String,
-        required: true
-    },
-    stars: {
-        type: Number,
-        required: true
-    },
-    date: {
-        type: String,
-        required: true
-    }
- */
-
 const reviewControl = {
 
     getReview: function (req, res) {
@@ -48,7 +17,8 @@ const reviewControl = {
 
 	postReview: function (req, res) {
         var today = new Date();
-        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        var date = new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes(), today.getSeconds());
+
         console.log('post Review')
         var profemail = req.body.profemail;
         var studentid = req.session.studentid;
@@ -77,29 +47,6 @@ const reviewControl = {
             var route = '/profPage/' + profname;
             res.redirect(route);
         });
-/*
-            console.log('post Review');
-					var studentid = req.body.studentid;
-                    var profname = req.body.name;
-                    var subject = req.body.subject;
-                    var date = req.body.date;
-                    var review = req.body.review;
-                    var stars = req.body.stars;
-                    
-            
-                    db.insertOne(Review, {
-                        studentid: studentid,
-                        profname: profname,
-                        subject: subject,
-                        review: review,
-                        stars: stars,
-                        date: date
-
-                    }, function(flag){});
-                
-                    console.log('Submitted review of ' + studentid);
-                    res.redirect('/getHome');
-                    */
 				
 	},
 	
