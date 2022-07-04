@@ -1,6 +1,6 @@
 const db = require('../models/db.js');
 const User = require('../models/UserModel.js');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 
 const loginController = {
 
@@ -24,12 +24,6 @@ const loginController = {
 				console.log('Here Too!');
 				bcrypt.compare(p, x.password, function(err, equal) {
 					console.log('Im Here Too!');	 
-				if(err) 
-				{
-					console.log('Error!');
-					throw err;
-					
-				}
 				if(p == x.password)
 				{
 						req.session.studentid = x.studentid;
