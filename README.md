@@ -23,7 +23,7 @@ You should now be seeing a page that looks like this:
 <img width="946" alt="register" src="https://user-images.githubusercontent.com/80928976/177104237-7bd19400-a3a3-4289-8065-b21dea3f2fa3.png">
 4. You may Log-in using an account that you have created or you could use the following dummy acounts:
 ```
-studenit id: 12012345 
+student id: 12012345 
 password: password
 
 student id: 11912345
