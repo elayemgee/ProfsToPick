@@ -17,3 +17,6 @@ Connected to: mongodb+srv://lei:1PYgZIvqsSpQXl1K@cluster0.15ihh5e.mongodb.net/?r
 http://localhost:9090/
 ```
 You should now be seeing the Login page that looks like this:
+<img width="960" alt="login" src="https://user-images.githubusercontent.com/80928976/177103805-8e4dad90-8e36-459c-8530-e280d3dcc73d.png">
+3. To create an account, simply click the button that says "Don't have an account yet? Sign-up"
+You should now be seeing a page that looks like this:
