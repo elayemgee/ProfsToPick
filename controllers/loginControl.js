@@ -6,10 +6,10 @@ const loginController = {
 
     getLogin: function (req, res) {
 
-        //if(req.session.studentid)
-			// req.session.destroy(function(err) {
-			// 	if(err) throw err;
-			// });
+        if(req.session.studentid)
+			 req.session.destroy(function(err) {
+			 	if(err) throw err;
+			 });
 
         res.render('login',{error:"hidden"});
     },
@@ -27,7 +27,7 @@ const loginController = {
 						console.log(x.name + ' Successfully Logged In');
 						res.redirect('/getHome');
 				}
-					else{
+				else{
 						res.render('login');
 					}
 					
