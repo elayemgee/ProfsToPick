@@ -35,7 +35,7 @@ password: password
 After clicking the "Log-in" button, you would be redirected to the Home page of the web application. Here, you would see a simple description of the web application and the Latest Reviews made by the users:
 ![home](https://user-images.githubusercontent.com/80928976/177105853-6ee50451-9fae-4dea-9bae-7bd813dc7015.png)
 
-5. By clicking the profile on the upper right corner, you will be given two options either to go to one's profile or sign-out. After clicking the profile option you would be redirected to your account profile that should look something like this:
+5. By clicking the profile on the upper right corner, you will be given two options either to go to one's profile or sign-out. After clicking the profile option you will be redirected to your account profile that should look something like this:
 ![profile](https://user-images.githubusercontent.com/80928976/177108960-8e45fc17-7523-4f74-871d-da2f6672d971.png)
 > Whereas, signing out would redirect you to the log-in page
 
