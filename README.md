@@ -39,5 +39,19 @@ After clicking the "Log-in" button, you would be redirected to the Home page of 
 ![profile](https://user-images.githubusercontent.com/80928976/177108960-8e45fc17-7523-4f74-871d-da2f6672d971.png)
 > Whereas, signing out would redirect you to the log-in page
 
-6. Now let's see all the professors currently in our database by clicking the View All Profs button in the navigation bar
+### Searching for Professors
+6. Now let's see all the professors currently in our database by clicking the "View All Profs" button in the navigation bar
 ![allprofs](https://user-images.githubusercontent.com/80928976/177110320-3db1636e-ada6-45b5-8ce1-a23ae15c615e.png)
+
+7. You may also view the different professors found in each college by clicking the "View By College" button in the navigation bar and clicking the college of your choice
+![percollege](https://user-images.githubusercontent.com/80928976/177111242-1752c46b-6a60-459c-a87c-1706aad78b19.png)
+
+After clicking the college of your choice, you will see this:
+![ccs](https://user-images.githubusercontent.com/80928976/177111539-c92015e0-0d5d-4799-8a2c-d6f11fb47e30.png)
+
+8. You may also search the professor through the search button in the navigation bar:
+![search](https://user-images.githubusercontent.com/80928976/177112622-e18827e6-2bbf-4171-b4ed-a6ece226f4d2.png)
+
+9. Let's now pick a professor and look at their profile!
+Here we see a professor's profile page, this is where users can see the professors' details, reviews, ratings and subjects:
+![aprof](https://user-images.githubusercontent.com/80928976/177113046-88b20f6f-44ff-46ab-9774-4d6b5a8b1336.png)
