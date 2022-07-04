@@ -24,7 +24,7 @@ const loginController = {
 				console.log('Here Too!');
 				bcrypt.compare(p, x.password, function(err, equal) {
 					console.log('Im Here Too!');	 
-				if(p == x.password)
+				if(equal)
 				{
 						req.session.studentid = x.studentid;
 						console.log(x.name + ' Successfully Logged In');
