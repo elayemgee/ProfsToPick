@@ -28,8 +28,8 @@ app.use(express.urlencoded({extended: true}));
       'secret': 'sikret',
       'resave': false,
       'saveUninitialized': false,
-//      store: MongoStore.create({
-//          mongoUrl: 'mongodb://localhost:27017/ccapdev-profstopick'}),
+     // store: MongoStore.create({
+     //     mongoUrl: 'mongodb+srv://lei:1PYgZIvqsSpQXl1K@cluster0.15ihh5e.mongodb.net/?retryWrites=true&w=majority'}),
     }));
 
 app.use(`/`, routes);

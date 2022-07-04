@@ -18,7 +18,7 @@ const userControl = {
 				db.findOne(User, query1, null, function(x) {
 					
 					if(x != null){
-						var query2 = {reviewer: user};//hays bagal ng live share -to edit based on model
+						var query2 = {reviewer: user};
 						db.findMany(Review, query2, {_id:-1}, null, 0, function(y){
 							
 							res.render('profile', {
@@ -32,7 +32,6 @@ const userControl = {
 					}
 					else{
 						console.log('User not found');
-						//res.render('error', {extra: '<br>The User may not exist here'});
 					}
 					
 				});
