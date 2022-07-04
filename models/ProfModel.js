@@ -32,10 +32,11 @@ var ProfSchema = new mongoose.Schema({
         }],
         required: true
     },
+    /*
     stars: {
         type: Number,
         required: true
-    }
+    }*/
 });
 
 module.exports = mongoose.model('profs', ProfSchema);

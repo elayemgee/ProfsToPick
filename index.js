@@ -8,8 +8,7 @@ mongoose.createConnection(process.env.MONGODB_URI || 'mongodb+srv://lei:1PYgZIvq
 
 const session = require('express-session');
 const hbs = require(`hbs`);
-const port = 9090;
-
+const port = 3000;
 
 
 app.use(express.static(`public`));
@@ -35,7 +34,8 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(`/`, routes);
 
-hostname = process.env.HOSTNAME;
+//hostname = process.env.HOSTNAME;
+db.connect();
 
 // mongoose.connection.on('connected', () => {
 //     console.log('Mongoose Connection');
@@ -47,4 +47,11 @@ app.listen(PORT, hostname, function () {
     console.log(`Server is running at:`);
     console.log(`http://` + `localhost` + `:` + port);
 });
+
+/*
+app.listen(PORT, hostname, function () {
+    console.log(`Server is running at:`);
+    console.log(`http://` + `localhost` + `:` + PORT);
+});
+*/
 
