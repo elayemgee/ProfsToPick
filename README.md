@@ -55,3 +55,16 @@ After clicking the college of your choice, you will see this:
 9. Let's now pick a professor and look at their profile!
 Here we see a professor's profile page, this is where users can see the professors' details, reviews, ratings and subjects:
 ![aprof](https://user-images.githubusercontent.com/80928976/177113046-88b20f6f-44ff-46ab-9774-4d6b5a8b1336.png)
+
+After the professors details, we see a "Rate This Professor" button where users will enter the subject, review, and rating:
+<img width="832" alt="rate" src="https://user-images.githubusercontent.com/80928976/177113936-8583acce-6cdd-4821-b803-ad81ed8e341c.png">
+
+10. Now let's go back to our profile page! In the profile page we see the details of the user as well as the user's reviews. This is also where a user can delete or edit his/her reviews:
+<img width="818" alt="edit" src="https://user-images.githubusercontent.com/80928976/177115415-b76a2d72-6dea-4db8-ac00-e27d36385d64.png">
+
+## Authors
+```
+Atienza - S12
+Capada - S12
+Garcia - S15
+```
