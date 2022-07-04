@@ -29,6 +29,7 @@ password: password
 student id: 11912345
 password: password
 ```
-> The encrypted password of the accounts of all students is "password"
+> The encrypted password of the accounts of all students is "password".
+
 After clicking the "Log-in" button, you would be redirected to the Home page of the web application:
 ![home](https://user-images.githubusercontent.com/80928976/177105853-6ee50451-9fae-4dea-9bae-7bd813dc7015.png)
