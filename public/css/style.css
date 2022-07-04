@@ -2,13 +2,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Basic&display=swap');
 
 
-* { padding: 0; margin: 0;}
+ * { padding: 0; margin: 0;} 
 
 html, body {
     font-family: 'Basic', sans-serif;
     width: 100%;
     display: flex;
     flex-direction: column;
+    padding: 0; margin: 0;
   }
 
   .topBar

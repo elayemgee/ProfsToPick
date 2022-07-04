@@ -43,10 +43,18 @@ db.connect();
 
 db.connect();
 
+
 app.listen(PORT, hostname, function () {
     console.log(`Server is running at:`);
     console.log(`http://` + `localhost` + `:` + port);
 });
+
+/*
+app.listen(port, function () {
+    console.log(`Server is running at:`);
+    console.log(`http://` + `localhost` + `:` + port);
+});
+*/
 
 /*
 app.listen(PORT, hostname, function () {

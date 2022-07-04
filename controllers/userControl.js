@@ -83,6 +83,10 @@ const userControl = {
 		var stars = req.query.stars;
 		var date = req.query.date;
 
+		var findDate = new Date(date);
+		console.log("ISO Format:");
+		findDate.toISOString();
+
 		console.log(studentid);
 		console.log(reviewer);
 		console.log(profname);
@@ -91,7 +95,7 @@ const userControl = {
 		console.log(stars);
 		console.log(date);
 
-		var form = {studentid:studentid, profname:profname, subject:subject, review:review, stars:stars, date:date};
+		var form = {studentid:studentid, profname:profname, subject:subject, review:review, stars:stars, date:findDate};
 		
 		db.deleteOne(Review, form, function (flag) {
 			res.redirect('/user/');
@@ -107,13 +111,17 @@ const userControl = {
 		var stars = req.query.stars;
 		var date = req.query.date;
 
-		var form = {studentid:studentid, profname:profname, subject:subject, stars:stars, date:date};
+		var findDate = new Date(date);
+		console.log("ISO Format:");
+		findDate.toISOString();
+
+		var form = {studentid:studentid, profname:profname, subject:subject, stars:stars, date:findDate};
 		
 		var today = new Date();
+		
         var isoTime = new Date(today.getFullYear(), today.getMonth(), today.getDate(), today.getHours(), today.getMinutes());
 		//edited
-		console.log(isoTime);
-
+		
 		var projection = "studentid profname subject review stars date";
 		db.findOne(Prof, {profname: profname}, projection, function(x) {
             console.log('Finding prof');

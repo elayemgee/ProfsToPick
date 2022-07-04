@@ -6,13 +6,54 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
 
+        <script>
+            $(document).ready(function () {
+                $('#studentid').keyup(function () {
+                    //$(this).css('background-color', 'red')
+                    
+                    $.get('/checkID', {studentid: $(this).val()}, (data) => {
+                        if (data !== '') {
+                            $(this).css('background-color', 'red')
+                            $('#errorID').text('Reference number already in the database')
+                            $('#submit').prop('disabled', true)
+                        } else {
+                            $(this).css('background-color', 'white')
+                            $('#errorID').text('')
+                            $('#submit').prop('disabled', false)
+                        }
+                    })
+                });
+
+
+                $('#confirmpw').keyup(function () {
+                    //$(this).css('background-color', 'red')
+                    var confirmVal = $(this).val();
+                    var firstVal = $('#password').val();
+
+                    if(confirmVal != firstVal)
+                    {
+                        $(this).css('background-color', 'red')
+                        $('#errorConfirm').text('Password must be written the same')
+                        $('#submit').prop('disabled', true)
+                    }
+                    else {
+                        $(this).css('background-color', '#E3E3E3')
+                        $('#errorConfirm').text('')
+                        $('#submit').prop('disabled', false)
+                    }
+                });
+
+
+            });
+
+        </script>
     </head>
     <body>
         <div class = "register">
             <h1 class = "welcomeh1">DLSU Profs To Pick</h1>
             <form method="POST"  autocomplete="off"> 
                 <p class = "label">Student ID</p> 
-                <input class = "inputtxt" type="number" id="studentid" minlength="8" name = "studentid" placeholder="Ex: 12012345" required>
+                <input class = "inputtxt" type="text" id="studentid"  name = "studentid" placeholder="Ex: 12012345" maxlength="8" required>
                 <p class ="msg" id = "errorID">{{errorID}}</p>
 
                 <p class = "label">Name</p>
@@ -32,14 +73,14 @@
                 <p class ="msg" id = "errorProgram">{{errorProgram}}</p>
 
                 <p class = "label">Password</p>
-                <input class = "inputtxt" type="password" id="password" minlength="6" placeholder="Must be at least 6 characters" name = "password" required>
+                <input class = "inputtxt" type="password" id="password" placeholder="Must be at least 6 characters" name = "password" minlength="6" required>
                 <p class ="msg" id = "errorPassword">{{errorPassword}}</p>
 
                 <p class = "label">Confirm Password</p>
-                <input class = "inputtxt" type="password" id="confirmpw" minlength="6" placeholder="Must be at least 6 characters" name = "confirmpw" required>
+                <input class = "inputtxt" type="password" id="confirmpw" placeholder="Must be at least 6 characters" name = "confirmpw" minlength="6"  required>
                 <p class ="msg" id = "errorConfirm">{{errorConfirm}}</p>
 
-                <input class = "accountbttn" type="submit" id = "submits" value = "Register">
+                <input class = "accountbttn" type="submit" id = "submit" value = "Register">
             </form>
 
             <p style = "margin-top: 10px;margin-left:163px; margin-bottom: 5px;color: #FFFFFF;">Have an account already?</p>

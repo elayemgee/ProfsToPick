@@ -12,6 +12,7 @@ const registerControl = {
 	postRegister: function (req, res) {
 		var errors = validationResult(req);
 
+		/*
 		if (!errors.isEmpty()) {
             errors = errors.errors;
 			
@@ -24,7 +25,8 @@ const registerControl = {
 
             res.render('register', details);
         }
-		else{
+		*/
+		//else{
 			var studentid = req.body.studentid;
 			var email = req.body.email;
 			var name = req.body.name;
@@ -46,16 +48,18 @@ const registerControl = {
 			});
 			console.log('Created account of ' + studentid);
 			res.render('login');
-		}
-	},
+		},
 
-	checkID: function (req, res) {
-        var studentid = req.query.studentid;
-        db.findOne(User, {studentid: studentid}, {}, function (result) {
-            res.send(result);
-        });
-    }
-	
+		checkID: function (req, res) {
+			console.log('Checking ID');
+			var studentid = req.query.studentid;
+			var projection = "studentid name college program email password"
+			db.findOne(User, {studentid: studentid}, projection, function (result) {
+				res.send(result);
+			});
+		}
 }
+
+
 
 module.exports = registerControl;
