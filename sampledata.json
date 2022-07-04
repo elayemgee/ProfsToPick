@@ -1,0 +1,35 @@
+
+[
+{
+	"studentid": "12112345",
+ 	"profname": "Letecia Bautista",
+ 	"subject": "GETEAMS",
+ 	"review": "Ms. Bau is very energetic with her workouts",
+ 	"stars": 5.0,
+ 	"date": "2022-07-03"
+},
+{
+	"studentid": "12112345",
+ 	"profname": "Danica Aguiflor",
+ 	"subject": "LCLSTWO",
+ 	"review": "Very helpful professor.",
+ 	"stars": 4.5,
+ 	"date": "2022-07-03"
+},
+{
+	"studentid": "12012345",
+ 	"profname": "Marcelino Macapinlac",
+ 	"subject": "GERPHIS",
+ 	"review": "He makes sure that everyone is following his lectures",
+ 	"stars": 5.0,
+ 	"date": "2022-07-03"
+},
+{
+	"studentid": "11912345",
+	"profname": "Arturo Caronongan",
+	"subject": "CCAPDEV",
+	"review": "Sir Art is very lively in his lectures",
+	"stars": 5.0,
+	"date": "2022-07-04"
+}
+]
