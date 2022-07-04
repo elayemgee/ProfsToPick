@@ -19,7 +19,7 @@ const loginController = {
         var p = req.body.password; 
         var query1 = {studentid: s};
 		db.findOne(User, query1, null, function(x) {
-			if(x)
+			if(x){
 				bcrypt.compare(p, x.password, function(err, equal) { 
 				if(equal)
 				{
@@ -32,7 +32,8 @@ const loginController = {
 					}
 					
 				});
-			  else
+			}
+			else
 			  	res.render('login');
         });
     }
