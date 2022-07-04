@@ -34,7 +34,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.use(`/`, routes);
 
-//hostname = process.env.HOSTNAME;
+hostname = process.env.HOSTNAME;
 db.connect();
 
 // mongoose.connection.on('connected', () => {
