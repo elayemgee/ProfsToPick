@@ -5,7 +5,7 @@ A machine project that brings the DLSU Profs To Pick Facebook page into a fully 
 https://apdev-profstopick.herokuapp.com/<br>
 
 ## Running the Application Locally
-1. To run the application, you must run the command node index.js. Upon running the command, your Command prompt should display the folowing statement:
+1. To run the application, you must run the command `node index.js`. Upon running the command, your Command prompt should display the folowing statement:
 ```
 Server is running at:
 http://localhost:9090/
@@ -17,13 +17,14 @@ Connected to: mongodb+srv://lei:1PYgZIvqsSpQXl1K@cluster0.15ihh5e.mongodb.net/?r
 http://localhost:9090/
 ```
 You should now be seeing the Login page that looks like this:
-<img width="960" alt="login" src="https://user-images.githubusercontent.com/80928976/177103805-8e4dad90-8e36-459c-8530-e280d3dcc73d.png">
+<img width="960" alt="login" src="https://user-images.githubusercontent.com/80928976/177103805-8e4dad90-8e36-459c-8530-e280d3dcc73d.png"><br>
 3. To create an account, simply click the button that says "Don't have an account yet? Register Here"
+
 You should now be seeing a page that looks like this:
-<img width="946" alt="register" src="https://user-images.githubusercontent.com/80928976/177104237-7bd19400-a3a3-4289-8065-b21dea3f2fa3.png">
+<img width="946" alt="register" src="https://user-images.githubusercontent.com/80928976/177104237-7bd19400-a3a3-4289-8065-b21dea3f2fa3.png"><br>
 4. You may Log-in using an account that you have created or you could use the following dummy acounts:
 ```
-student id: 12012345 
+studenit id: 12012345 
 password: password
 
 student id: 11912345
@@ -31,5 +32,12 @@ password: password
 ```
 > The encrypted password of the accounts of all students is "password".
 
-After clicking the "Log-in" button, you would be redirected to the Home page of the web application:
+After clicking the "Log-in" button, you would be redirected to the Home page of the web application. Here, you would see a simple description of the web application and the Latest Reviews made by the users:
 ![home](https://user-images.githubusercontent.com/80928976/177105853-6ee50451-9fae-4dea-9bae-7bd813dc7015.png)
+
+5. By clicking the profile on the upper right corner, you will be given two options either to go to one's profile or sign-out. After clicking the profile option you would be redirected to your account profile that should look something like this:
+![profile](https://user-images.githubusercontent.com/80928976/177108960-8e45fc17-7523-4f74-871d-da2f6672d971.png)
+> Whereas, signing out would redirect you to the log-in page
+
+6. Now let's see all the professors currently in our database by clicking the View All Profs button in the navigation bar
+![allprofs](https://user-images.githubusercontent.com/80928976/177110320-3db1636e-ada6-45b5-8ce1-a23ae15c615e.png)
